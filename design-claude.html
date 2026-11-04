@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIES Alumni Connect — Home (Claude Design)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Mukta:wght@400;500;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap">
+<style>
+body{margin:0;background:#FFFFFF;color:#17162B;font-family:'Mukta',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#A84C00}a:hover{color:#7A3700}
+h1,h2,h3,p{margin:0}
+.skip{position:absolute;left:-9999px;top:8px;background:#F58220;color:#17162B;padding:12px 16px;border-radius:8px;z-index:10;font-weight:600}
+.skip:focus{left:16px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #F58220;outline-offset:2px}
+.filter-btn.active {
+  background: #17162B !important;
+  color: #FFFFFF !important;
+  border-color: #17162B !important;
+}
+.filter-btn {
+  border: 1px solid #C9C5D4;
+  background: #FFFFFF;
+  color: #17162B;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  border-color: #17162B;
+}
+</style>
+</head>
+<body>
+<div id="top" style="position: relative; width: 100%; min-width: 0; font-size: 17px; line-height: 1.55">
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- ===== Header ===== -->
+<header style="background: #17162B; color: #FFFFFF; border-bottom: 1px solid #2C2B45">
+<div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none">
+<span role="img" aria-label="SIES emblem" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #F58220; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: #F58220">SIES</span>
+<span style="display: flex; flex-direction: column; line-height: 1.2">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 18px">SIES Alumni Connect</span>
+<span style="font-size: 13px; color: #B9B6CC">South Indian Education Society</span>
+</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 4px">
+<a href="#alumni" style="display: flex; flex-direction: column; padding: 6px 12px; min-height: 44px; justify-content: center; color: #FFFFFF; text-decoration: none; line-height: 1.15"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 13px; color: #B9B6CC">पूर्वच्छात्राः</span><span style="font-size: 15px; font-weight: 500">Alumni</span></a>
+<a href="#memory" style="display: flex; flex-direction: column; padding: 6px 12px; min-height: 44px; justify-content: center; color: #FFFFFF; text-decoration: none; line-height: 1.15"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 13px; color: #B9B6CC">स्मृतिकोश</span><span style="font-size: 15px; font-weight: 500">Memory Chest</span></a>
+<a href="#doors" style="display: flex; flex-direction: column; padding: 6px 12px; min-height: 44px; justify-content: center; color: #FFFFFF; text-decoration: none; line-height: 1.15"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 13px; color: #B9B6CC">सङ्गमम्</span><span style="font-size: 15px; font-weight: 500">Community</span></a>
+<a href="#doors" style="display: flex; flex-direction: column; padding: 6px 12px; min-height: 44px; justify-content: center; color: #FFFFFF; text-decoration: none; line-height: 1.15"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 13px; color: #B9B6CC">वृत्त्यवसराः</span><span style="font-size: 15px; font-weight: 500">Careers</span></a>
+<a href="#gather" style="display: flex; flex-direction: column; padding: 6px 12px; min-height: 44px; justify-content: center; color: #FFFFFF; text-decoration: none; line-height: 1.15"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 13px; color: #B9B6CC">कार्यक्रमाः</span><span style="font-size: 15px; font-weight: 500">Events</span></a>
+<span style="display: flex; gap: 8px; margin-left: 8px">
+<a href="#gather" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #F58220; color: #17162B; text-decoration: none; font-weight: 600; font-size: 15px"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif">समर्पणम्</span><span>Give Back</span></a>
+<a href="#profile" style="display: flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #4A4964; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 15px">My Profile</a>
+</span>
+</nav>
+</div>
+</header>
+
+<main id="main">
+
+<!-- ===== Hero ===== -->
+<section aria-labelledby="hero-title" style="background: #17162B; color: #FFFFFF; overflow: hidden">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(48px, 7vw, 88px) 24px clamp(64px, 8vw, 112px); box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 28px; min-width: 0">
+<p style="font-size: 13px; font-weight: 600; letter-spacing: 0.22em; color: #F58220">SIES ALUMNI</p>
+<h1 id="hero-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(52px, 7.4vw, 104px); line-height: 0.95; letter-spacing: -0.03em; text-wrap: balance">The bond that <span style="color: #F58220">remains.</span></h1>
+<p style="font-size: clamp(19px, 2vw, 23px); line-height: 1.45; color: #D9D6E6; max-width: 30ch">You may leave your Alma Mater.<br>Your Alma Mater never leaves you.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#campuses" style="display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border-radius: 999px; background: #F58220; color: #17162B; text-decoration: none; font-weight: 600; font-size: 17px">Rediscover SIES<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#voice" style="display: flex; align-items: center; min-height: 54px; padding: 0 26px; border-radius: 999px; border: 1px solid #5A5976; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 17px">Pause to find yourself</a>
+</div>
+
+<!-- Voice note -->
+<div id="voice" style="margin-top: 12px; background: #211F38; border: 1px solid #34334F; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 16px; max-width: 560px">
+<div style="display: flex; align-items: center; gap: 16px">
+<button id="voice-play-btn" type="button" aria-label="Play or pause welcome voice note" style="flex: none; width: 56px; height: 56px; border-radius: 50%; border: none; background: #F58220; color: #17162B; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+  <svg id="voice-icon-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
+  <svg id="voice-icon-pause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+</button>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<p style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 22px; color: #FFFFFF">सुस्वागतम्</span><span style="font-size: 14px; color: #B9B6CC">Suswāgatam · a spoken welcome</span></p>
+<p id="voice-time" style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">0:00 / 1:09</p>
+</div>
+<div style="height: 4px; border-radius: 4px; background: #3A3955; overflow: hidden">
+  <div id="voice-progress" style="width: 0%; height: 100%; background: #F58220; transition: width 0.3s"></div>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px">
+<p style="font-size: 13px; color: #B9B6CC">Studio-enhanced voice narration</p>
+<div style="display: flex; gap: 6px; flex-wrap: wrap">
+<button id="voice-speed-btn" type="button" aria-label="Playback speed" style="min-height: 44px; min-width: 52px; padding: 0 12px; border-radius: 999px; border: 1px solid #44435F; background: transparent; color: #FFFFFF; font: inherit; font-size: 14px; cursor: pointer">1×</button>
+<button id="voice-scroll-btn" type="button" style="min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #44435F; background: transparent; color: #FFFFFF; font: inherit; font-size: 14px; cursor: pointer">Auto-scroll · On</button>
+<button id="voice-mute-btn" type="button" aria-label="Mute" style="min-height: 44px; min-width: 44px; padding: 0 12px; border-radius: 999px; border: 1px solid #44435F; background: transparent; color: #FFFFFF; display: flex; align-items: center; gap: 6px; font: inherit; font-size: 14px; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path></svg><span id="voice-mute-label">Mute</span></button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Campus film -->
+<div style="position: relative; min-width: 0">
+<div role="img" aria-label="Campus film placeholder — campus_hero_3.mp4 plays here, muted and looping" style="aspect-ratio: 4 / 5; max-height: 640px; width: 100%; border-radius: 28px; background-color: #22213A; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 16px); border: 1px solid #34334F; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; box-sizing: border-box">
+<p style="font-size: 13px; letter-spacing: 0.14em; color: #B9B6CC">CAMPUS FILM</p>
+<p style="font-size: 15px; color: #D9D6E6">campus_hero_3.mp4 · muted, looping</p>
+</div>
+<div aria-hidden="true" style="position: absolute; top: -18px; right: -10px; width: 128px; height: 128px; border-radius: 50%; background: #F58220; color: #17162B; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-10deg); line-height: 1.05; text-align: center">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em">SINCE</span>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 36px">1932</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== Six doors ===== -->
+<section id="doors" aria-labelledby="doors-title" style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 48px">
+<h2 id="doors-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(36px, 4.6vw, 60px); line-height: 1; letter-spacing: -0.02em">Six ways back in.</h2>
+<p style="font-size: 18px; color: #4A4860; max-width: 42ch">Everything the portal offers, one step from here — pick the door that matches why you came.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 1px; background: #E2DFE9; border: 1px solid #E2DFE9; border-radius: 24px; overflow: hidden">
+<a href="#alumni" style="background: #FFFFFF; padding: 32px; min-height: 236px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: #17162B; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 28px; line-height: 1.2; color: #17162B">पूर्वच्छात्राः</span>
+<span style="font-size: 14px; font-weight: 600; color: #A84C00; font-variant-numeric: tabular-nums">01</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15">Find an Alumni<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="font-size: 16px; color: #4A4860">Look up batchmates by name, year or institution.</span>
+</span>
+</a>
+<a href="#memory" style="background: #FFFFFF; padding: 32px; min-height: 236px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: #17162B; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 28px; line-height: 1.2; color: #17162B">स्मृतिकोश</span>
+<span style="font-size: 14px; font-weight: 600; color: #A84C00; font-variant-numeric: tabular-nums">02</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15">Memory Chest<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="font-size: 16px; color: #4A4860">Mentors, familiar faces and moments, kept together — add yours.</span>
+</span>
+</a>
+<a href="#gather" style="background: #FFFFFF; padding: 32px; min-height: 236px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: #17162B; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 28px; line-height: 1.2; color: #17162B">समर्पणम्</span>
+<span style="font-size: 14px; font-weight: 600; color: #A84C00; font-variant-numeric: tabular-nums">03</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15">Give Back<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="font-size: 16px; color: #4A4860">Support the SIES Corpus or an institution’s wishlist.</span>
+</span>
+</a>
+<a href="#community" style="background: #FFFFFF; padding: 32px; min-height: 236px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: #17162B; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 28px; line-height: 1.2; color: #17162B">सङ्गमम्</span>
+<span style="font-size: 14px; font-weight: 600; color: #A84C00; font-variant-numeric: tabular-nums">04</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15">Community<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="font-size: 16px; color: #4A4860">Find your people across campuses, cities and decades.</span>
+</span>
+</a>
+<a href="#careers" style="background: #FFFFFF; padding: 32px; min-height: 236px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: #17162B; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 28px; line-height: 1.2; color: #17162B">वृत्त्यवसराः</span>
+<span style="font-size: 14px; font-weight: 600; color: #A84C00; font-variant-numeric: tabular-nums">05</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15">Career Opportunities<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="font-size: 16px; color: #4A4860">Roles and openings shared across the alumni network.</span>
+</span>
+</a>
+<a href="#gather" style="background: #FFFFFF; padding: 32px; min-height: 236px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: #17162B; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 28px; line-height: 1.2; color: #17162B">कार्यक्रमाः</span>
+<span style="font-size: 14px; font-weight: 600; color: #A84C00; font-variant-numeric: tabular-nums">06</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15">Events<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span style="font-size: 16px; color: #4A4860">Alumnite 2027 and everything else coming up.</span>
+</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== Welcome + President ===== -->
+<section aria-label="Welcome and President's message" style="background: #F4F2F7">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 32px; align-items: stretch">
+<article style="background: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<p lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 22px; color: #A84C00">सुस्वागतम्</p>
+<h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance">Welcome home to your Alma Mater!</h2>
+<p style="font-size: 18px; line-height: 1.65; color: #34324A">We haven’t forgotten you. Whether you walked out of our gates last year or decades ago, this is still home. Reconnect with old friends, build new connections, share the memories you carry, and help the generations walking in after you.</p>
+<p style="font-family: 'Tiro Devanagari Sanskrit', serif; font-style: italic; font-size: 20px; color: #17162B">— Your SIES Family</p>
+<a href="#president" style="margin-top: auto; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">A word from the President<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></a>
+</article>
+<article id="president" style="display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 24px; align-items: end">
+<div role="img" aria-label="Portrait of Dr. V. Shankar (placeholder)" style="aspect-ratio: 4 / 5; border-radius: 24px; background-color: #E6E3EC; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.06) 0 2px, transparent 2px 14px); display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box"><span style="font-size: 13px; color: #4A4860">Portrait · Dr. V. Shankar</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding-bottom: 8px">
+<p style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: #A84C00">A MESSAGE FROM THE PRESIDENT</p>
+<p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px">Dr. V. Shankar</p>
+<p style="font-size: 15px; color: #4A4860">President, South Indian Education Society. Alumnus, parent, teacher and part of the management for five decades.</p>
+</div>
+</div>
+<h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.2; letter-spacing: -0.01em; text-wrap: pretty">Reflecting on nine decades of growth, autonomous milestones, and our centenary future.</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0; border-top: 1px solid #D9D5E2">
+<li style="padding: 14px 0; border-bottom: 1px solid #D9D5E2; display: flex; gap: 16px"><span style="flex: none; width: 88px; font-weight: 600; color: #A84C00">Then → now</span><span style="color: #34324A">From four institutions at the close of the 20th century to 20 institutions across eight campuses.</span></li>
+<li style="padding: 14px 0; border-bottom: 1px solid #D9D5E2; display: flex; gap: 16px"><span style="flex: none; width: 88px; font-weight: 600; color: #A84C00">Autonomy</span><span style="color: #34324A">Nearly every higher-education institution now holds autonomous status; SIES ASC is on the path to becoming a university.</span></li>
+<li style="padding: 14px 0; border-bottom: 1px solid #D9D5E2; display: flex; gap: 16px"><span style="flex: none; width: 88px; font-weight: 600; color: #A84C00">Next</span><span style="color: #34324A">New institutions in Health Sciences and AI, and a centenary about five years away.</span></li>
+</ul>
+<a href="#president" style="align-self: flex-start; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600">Read the full message<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+</div>
+</section>
+
+<!-- ===== Facts ===== -->
+<section aria-label="SIES at a glance" style="background: #17162B; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 56px 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; color: #F58220">1932</p><p style="color: #D9D6E6">Founded in Matunga, with six students</p></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; color: #F58220">8</p><p style="color: #D9D6E6">Campuses across Mumbai and Navi Mumbai</p></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; color: #F58220">20</p><p style="color: #D9D6E6">Institutions, from schools to doctoral programmes</p></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; color: #F58220">~5 yrs</p><p style="color: #D9D6E6">Until the SIES centenary</p></div>
+</div>
+</section>
+
+<!-- ===== Campuses ===== -->
+<section id="campuses" aria-labelledby="campuses-title" style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<p style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: #A84C00">CAMPUSES &amp; INSTITUTIONS</p>
+<h2 id="campuses-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(36px, 4.6vw, 60px); line-height: 1; letter-spacing: -0.02em">Find where you began.</h2>
+<p style="font-size: 18px; color: #4A4860; max-width: 46ch">Every SIES institution, oldest first — and an open invitation to plan a visit back.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+<div role="group" aria-label="Filter institutions" style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" class="filter-btn active" data-filter="all">All</button>
+<button type="button" class="filter-btn" data-filter="school">Schools</button>
+<button type="button" class="filter-btn" data-filter="higher">Colleges &amp; institutes</button>
+</div>
+<p id="inst-count-label" aria-live="polite" style="font-size: 14px; color: #4A4860">Showing 11 of 11</p>
+</div>
+</div>
+
+<div id="inst-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr)); gap: 24px">
+<article class="inst-card" data-kind="school" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES High School, Matunga (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1932</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">School</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES High School, Matunga</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Where it all began — with six students. English-medium, co-ed, Maharashtra State Board (SSC).</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES ASC, Sion (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1960</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES ASC, Sion</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Empowered Autonomous. NAAC "A" grade (CGPA 3.02). Mumbai University Best College Award, 2010.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="school" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES APJ Memorial High School, Ghatkopar (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1962</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">School</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES APJ Memorial High School, Ghatkopar</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Part of SIES since 2017, renamed after Dr. A. P. J. Abdul Kalam. 98.84% SSC pass rate in 2024–25.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES ICE (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1980</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES ICE</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Early Childhood Education, Special Education and Counselling.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES CE, Sion (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1989</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES CE, Sion</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Autonomous and NAAC-accredited. Inaugurated by then Vice-President Dr. Shankar Dayal Sharma.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES COMS (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1995</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES COMS</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Autonomous. NBA-accredited MMS and MCA, plus doctoral programmes.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES IIEM, Navi Mumbai (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 1999</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES IIEM, Navi Mumbai</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">DSIR-recognised. ISO 9001:2015 certified.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES School of Packaging, Navi Mumbai (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 2001</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES School of Packaging, Navi Mumbai</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">DSIR-recognised, ISO 9001:2015. Outlook-ICARE "Gold Standard Institution", 2025–26.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES GST, Nerul (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 2002</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES GST, Nerul</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Autonomous since 2024. NAAC A+ (CGPA 3.28). 48th in the Times Engineering Survey 2024.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES SBS, Nerul (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 2020</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES SBS, Nerul</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">Independent since 2020, with a legacy from 1996. AICTE-approved PG management programmes.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="inst-card" data-kind="higher" style="border: 1px solid #E2DFE9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; transition: transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'">
+<div role="img" aria-label="Campus photo of SIES SPS, Nerul (placeholder)" style="position: relative; aspect-ratio: 16 / 10; background-color: #EEECF2; background-image: repeating-linear-gradient(135deg, rgba(23,22,43,0.055) 0 2px, transparent 2px 14px)">
+<span style="position: absolute; left: 14px; top: 14px; padding: 4px 10px; border-radius: 999px; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #17162B">Est. 2024</span>
+</div>
+<div style="padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<p style="font-size: 13px; color: #4A4860">College & institute</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2">SIES SPS, Nerul</h3>
+<p style="font-size: 15px; color: #34324A; flex: 1">D.Pharm and B.Pharm. Formulation centre inaugurated in 2025.</p>
+<a href="#visit" style="margin-top: 8px; align-self: flex-start; display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; text-decoration: none">Plan a visit<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+</div>
+
+<div style="margin-top: 16px; background: #F4F2F7; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: #A84C00">ON THE HORIZON</p>
+<h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.1">Built for the next century.</h3>
+<p style="color: #4A4860">New institutions are on their way. Details will follow as each takes shape.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<p style="font-weight: 600">Futuristic institutions</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #D9D5E2; font-size: 15px">SIES AI · Centre of Excellence</span>
+<span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #D9D5E2; font-size: 15px">SIES Nursing</span>
+<span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #D9D5E2; font-size: 15px">SIES Physiotherapy</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<p style="font-weight: 600">Upcoming projects <span style="font-weight: 400; color: #4A4860">· campus planning in progress</span></p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 14px; border-radius: 999px; border: 1px dashed #A9A4B8; font-size: 15px">SIES Law</span>
+<span style="padding: 8px 14px; border-radius: 999px; border: 1px dashed #A9A4B8; font-size: 15px">SIES Foreign Languages</span>
+<span style="padding: 8px 14px; border-radius: 999px; border: 1px dashed #A9A4B8; font-size: 15px">SIES Education</span>
+<span style="padding: 8px 14px; border-radius: 999px; border: 1px dashed #A9A4B8; font-size: 15px">SIES Fine Arts</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== Find an alumnus ===== -->
+<section id="alumni" aria-labelledby="alumni-title" style="background: #FEF3E8">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<p lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 24px; color: #A84C00">पूर्वच्छात्राः</p>
+<h2 id="alumni-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(36px, 4.6vw, 60px); line-height: 1; letter-spacing: -0.02em">Find an alumnus.</h2>
+<p style="font-size: 18px; color: #4A4860; max-width: 44ch">Look up a batchmate by name, year or institution. Only alumni who’ve chosen to be listed will appear.</p>
+<form role="search" aria-label="Alumni directory" onsubmit="event.preventDefault(); alert('Directory search is simulated in preview mode.');" style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1">
+<label for="q-name" style="font-size: 14px; font-weight: 600">Name</label>
+<input id="q-name" type="text" placeholder="e.g. Priya Raman" autocomplete="off" style="min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #C9C5D4; font: inherit; font-size: 16px; color: #17162B; background: #FFFFFF">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="q-year" style="font-size: 14px; font-weight: 600">Batch year</label>
+<input id="q-year" type="text" inputmode="numeric" placeholder="e.g. 1998" style="min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #C9C5D4; font: inherit; font-size: 16px; color: #17162B; background: #FFFFFF">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="q-inst" style="font-size: 14px; font-weight: 600">Institution</label>
+<select id="q-inst" style="min-height: 48px; padding: 0 12px; border-radius: 12px; border: 1px solid #C9C5D4; font: inherit; font-size: 16px; color: #17162B; background: #FFFFFF">
+<option>Any institution</option>
+<option>SIES High School, Matunga</option>
+<option>SIES ASC, Sion</option>
+<option>SIES APJ Memorial High School, Ghatkopar</option>
+<option>SIES ICE</option>
+<option>SIES CE, Sion</option>
+<option>SIES COMS</option>
+<option>SIES IIEM, Navi Mumbai</option>
+<option>SIES School of Packaging, Navi Mumbai</option>
+<option>SIES GST, Nerul</option>
+<option>SIES SBS, Nerul</option>
+<option>SIES SPS, Nerul</option>
+</select>
+</div>
+<button type="submit" style="grid-column: 1 / -1; min-height: 52px; border-radius: 999px; border: none; background: #17162B; color: #FFFFFF; font: inherit; font-size: 17px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Search the directory</button>
+</form>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; min-width: 0; padding-top: 8px">
+<p style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: #A84C00">STORIES FROM THE FAMILY</p>
+<a href="#stewards" style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #17162B; text-decoration: none; transition: transform 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px">From Alumni to Stewards</span><span style="font-size: 15px; color: #4A4860">Alumni who came back to serve SIES</span></span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#stars" style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #17162B; text-decoration: none; transition: transform 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px">Our Shining Stars</span><span style="font-size: 15px; color: #4A4860">Alumni making their mark</span></span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#jewels" style="background: #FFFFFF; border-radius: 20px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #17162B; text-decoration: none; transition: transform 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform='translateY(0)'"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 24px">Our Nine Jewels</span><span style="font-size: 15px; color: #4A4860">Nine alumni, nine stories</span></span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A84C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</section>
+
+<!-- ===== Memory Chest ===== -->
+<section id="memory" aria-labelledby="memory-title" style="background: #17162B; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px">
+<p lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: clamp(44px, 5vw, 64px); line-height: 1.1; color: #F58220">स्मृतिकोश</p>
+<h2 id="memory-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.02em">The Memory Chest</h2>
+<p style="font-size: 18px; color: #D9D6E6">The people and moments that made SIES what it is — kept in one place, and added to by all of us.</p>
+</div>
+<a href="#add-memory" style="display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border-radius: 999px; background: #F58220; color: #17162B; text-decoration: none; font-weight: 600; font-size: 17px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add your memory</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 16px">
+<a href="#memory" style="border: 1px solid #34334F; border-radius: 20px; padding: 24px 24px 22px; min-height: 148px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; color: #FFFFFF; text-decoration: none; background: #1C1B33; transition: transform 0.2s, background 0.2s;" onmouseenter="this.style.background='#252345'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#1C1B33'; this.style.transform='translateY(0)'">
+<span style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">01</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">Unforgettable Mentors<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a href="#memory" style="border: 1px solid #34334F; border-radius: 20px; padding: 24px 24px 22px; min-height: 148px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; color: #FFFFFF; text-decoration: none; background: #1C1B33; transition: transform 0.2s, background 0.2s;" onmouseenter="this.style.background='#252345'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#1C1B33'; this.style.transform='translateY(0)'">
+<span style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">02</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">Familiar Faces<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a href="#memory" style="border: 1px solid #34334F; border-radius: 20px; padding: 24px 24px 22px; min-height: 148px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; color: #FFFFFF; text-decoration: none; background: #1C1B33; transition: transform 0.2s, background 0.2s;" onmouseenter="this.style.background='#252345'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#1C1B33'; this.style.transform='translateY(0)'">
+<span style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">03</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">Distinguished Visitors<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a href="#memory" style="border: 1px solid #34334F; border-radius: 20px; padding: 24px 24px 22px; min-height: 148px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; color: #FFFFFF; text-decoration: none; background: #1C1B33; transition: transform 0.2s, background 0.2s;" onmouseenter="this.style.background='#252345'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#1C1B33'; this.style.transform='translateY(0)'">
+<span style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">04</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">Those Who Stood By Us<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a href="#memory" style="border: 1px solid #34334F; border-radius: 20px; padding: 24px 24px 22px; min-height: 148px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; color: #FFFFFF; text-decoration: none; background: #1C1B33; transition: transform 0.2s, background 0.2s;" onmouseenter="this.style.background='#252345'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#1C1B33'; this.style.transform='translateY(0)'">
+<span style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">05</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">Presidents Through the Years<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a href="#memory" style="border: 1px solid #34334F; border-radius: 20px; padding: 24px 24px 22px; min-height: 148px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; color: #FFFFFF; text-decoration: none; background: #1C1B33; transition: transform 0.2s, background 0.2s;" onmouseenter="this.style.background='#252345'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#1C1B33'; this.style.transform='translateY(0)'">
+<span style="font-size: 14px; color: #B9B6CC; font-variant-numeric: tabular-nums">06</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">SIES Eminence Awardees<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== Give back + Gather ===== -->
+<section id="gather" aria-label="Give back and events" style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 24px">
+<article style="background: #F58220; color: #17162B; border-radius: 28px; padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<p lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 26px">समर्पणम्</p>
+<h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(40px, 4.6vw, 60px); line-height: 1; letter-spacing: -0.02em">Give back.</h2>
+<p style="font-size: 18px; max-width: 38ch">Help build what the next generation walks into.</p>
+<div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(23,22,43,0.25); margin-top: auto">
+<a href="#corpus" style="padding: 18px 0; border-bottom: 1px solid rgba(23,22,43,0.25); display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #17162B; text-decoration: none"><span style="display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px">SIES Corpus</span><span style="font-size: 15px">Contribute to the fund that sustains every institution</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#wishlist" style="padding: 18px 0; border-bottom: 1px solid rgba(23,22,43,0.25); display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #17162B; text-decoration: none"><span style="display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 22px">Institutional Wishlist</span><span style="font-size: 15px">See what each institution needs, and fund a specific item</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article style="background: #17162B; color: #FFFFFF; border-radius: 28px; padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<p style="display: flex; gap: 10px; align-items: baseline"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 26px; color: #F58220">कार्यक्रमाः</span><span style="font-size: 14px; letter-spacing: 0.14em; color: #B9B6CC">EVENTS</span></p>
+<h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(40px, 4.6vw, 60px); line-height: 1; letter-spacing: -0.02em">Alumnite 2027</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid #44435F; font-size: 15px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>[DATE]</span>
+<span style="display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid #44435F; font-size: 15px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>[VENUE]</span>
+</div>
+<p style="font-size: 18px; color: #D9D6E6; max-width: 40ch">The gathering of the SIES family, across every campus and every batch. Say you’re coming — and bring your batch with you.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto">
+<a href="#alumnite" style="display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border-radius: 999px; background: #F58220; color: #17162B; text-decoration: none; font-weight: 600">Participate in Alumnite 2027</a>
+<a href="#events" style="display: flex; align-items: center; min-height: 54px; padding: 0 24px; border-radius: 999px; border: 1px solid #5A5976; color: #FFFFFF; text-decoration: none; font-weight: 500">All upcoming events</a>
+</div>
+</article>
+</div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer style="background: #0F0E1F; color: #D9D6E6">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 40px 32px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 20px; color: #FFFFFF">SIES Alumni Connect</p>
+<p id="secretariat" style="font-size: 15px; line-height: 1.6">Alumni Secretariat<br>SIES Central Campus<br>K. A. Subramaniam Road, Matunga<br>Mumbai – 400 019</p>
+<p style="font-size: 15px; line-height: 1.8"><a href="#contact" style="color: #FFFFFF">[EMAIL ADDRESS]</a><br><a href="#contact" style="color: #FFFFFF">[SECOND EMAIL]</a><br><a href="#contact" style="color: #FFFFFF">[PHONE NUMBER]</a></p>
+</div>
+<nav aria-label="Home" style="display: flex; flex-direction: column; gap: 10px">
+<p style="display: flex; flex-direction: column; line-height: 1.2; margin-bottom: 4px"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 14px; color: #F58220"></span><span style="font-weight: 600; color: #FFFFFF">Home</span></p>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">My Profile</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Welcome & President’s Message</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Campuses & Institutions</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Alumni Secretariat</a>
+</nav>
+<nav aria-label="Alumni" style="display: flex; flex-direction: column; gap: 10px">
+<p style="display: flex; flex-direction: column; line-height: 1.2; margin-bottom: 4px"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 14px; color: #F58220">पूर्वच्छात्राः</span><span style="font-weight: 600; color: #FFFFFF">Alumni</span></p>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Find an Alumni</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">From Alumni to Stewards</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Our Shining Stars</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Our Nine Jewels</a>
+</nav>
+<nav aria-label="Memory Chest" style="display: flex; flex-direction: column; gap: 10px">
+<p style="display: flex; flex-direction: column; line-height: 1.2; margin-bottom: 4px"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 14px; color: #F58220">स्मृतिकोश</span><span style="font-weight: 600; color: #FFFFFF">Memory Chest</span></p>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Unforgettable Mentors</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Familiar Faces</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Distinguished Visitors</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Those Who Stood By Us</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Presidents Through the Years</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">SIES Eminence Awardees</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Add Your Memory</a>
+</nav>
+<nav aria-label="Give Back" style="display: flex; flex-direction: column; gap: 10px">
+<p style="display: flex; flex-direction: column; line-height: 1.2; margin-bottom: 4px"><span lang="sa" style="font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 14px; color: #F58220">समर्पणम्</span><span style="font-weight: 600; color: #FFFFFF">Give Back</span></p>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">SIES Corpus</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Institutional Wishlist</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Community</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Career Opportunities</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Alumnite 2027</a>
+<a href="#" style="font-size: 15px; color: #D9D6E6; text-decoration: none; min-height: 28px; display: flex; align-items: center; transition: color 0.2s;" onmouseenter="this.style.color='#F58220'" onmouseleave="this.style.color='#D9D6E6'">Upcoming Events</a>
+</nav>
+</div>
+<div style="border-top: 1px solid #2C2B45; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font-size: 14px; color: #B9B6CC">
+<p>Alumni participation is voluntary and subject to your privacy preferences.</p>
+<p>© 2026 South Indian Education Society</p>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+// Filter interaction
+const filterBtns = document.querySelectorAll('.filter-btn');
+const instCards = document.querySelectorAll('.inst-card');
+const countLabel = document.getElementById('inst-count-label');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.getAttribute('data-filter');
+    let visible = 0;
+    instCards.forEach(card => {
+      const kind = card.getAttribute('data-kind');
+      if (filter === 'all' || kind === filter) {
+        card.style.display = 'flex';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    countLabel.textContent = `Showing ${visible} of ${instCards.length}`;
+  });
+});
+
+// Voice player interaction
+const playBtn = document.getElementById('voice-play-btn');
+const iconPlay = document.getElementById('voice-icon-play');
+const iconPause = document.getElementById('voice-icon-pause');
+const timeLabel = document.getElementById('voice-time');
+const progress = document.getElementById('voice-progress');
+const speedBtn = document.getElementById('voice-speed-btn');
+const scrollBtn = document.getElementById('voice-scroll-btn');
+const muteBtn = document.getElementById('voice-mute-btn');
+const muteLabel = document.getElementById('voice-mute-label');
+
+let isPlaying = false;
+let currentSeconds = 0;
+const totalSeconds = 69;
+let interval = null;
+const speeds = ['1×', '1.25×', '1.5×', '0.75×'];
+let speedIdx = 0;
+let isMuted = false;
+let autoScroll = true;
+
+playBtn.addEventListener('click', () => {
+  isPlaying = !isPlaying;
+  if (isPlaying) {
+    iconPlay.style.display = 'none';
+    iconPause.style.display = 'block';
+    interval = setInterval(() => {
+      if (currentSeconds < totalSeconds) {
+        currentSeconds++;
+        const mins = Math.floor(currentSeconds / 60);
+        const secs = String(currentSeconds % 60).padStart(2, '0');
+        timeLabel.textContent = `${mins}:${secs} / 1:09`;
+        progress.style.width = `${(currentSeconds / totalSeconds) * 100}%`;
+      } else {
+        isPlaying = false;
+        clearInterval(interval);
+        iconPlay.style.display = 'block';
+        iconPause.style.display = 'none';
+        currentSeconds = 0;
+      }
+    }, 1000);
+  } else {
+    iconPlay.style.display = 'block';
+    iconPause.style.display = 'none';
+    clearInterval(interval);
+  }
+});
+
+speedBtn.addEventListener('click', () => {
+  speedIdx = (speedIdx + 1) % speeds.length;
+  speedBtn.textContent = speeds[speedIdx];
+});
+
+scrollBtn.addEventListener('click', () => {
+  autoScroll = !autoScroll;
+  scrollBtn.textContent = `Auto-scroll · ${autoScroll ? 'On' : 'Off'}`;
+});
+
+muteBtn.addEventListener('click', () => {
+  isMuted = !isMuted;
+  muteLabel.textContent = isMuted ? 'Unmute' : 'Mute';
+});
+</script>
+</body>
+</html>

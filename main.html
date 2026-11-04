@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIES Alumni Connect — Design Showcase Viewer</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Bricolage Grotesque"', 'sans-serif']
+          },
+          colors: {
+            heritage: {
+              maroon: '#7C1D26',
+              gold: '#D4AF37',
+              navy: '#17162B',
+              cream: '#FAF6F0',
+              sand: '#E4DACB'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0F0E17;
+      color: #E2DFE9;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2C2B45;
+      border-radius: 999px;
+    }
+    .design-tab.active {
+      background: linear-gradient(135deg, #F58220 0%, #D4AF37 100%);
+      color: #17162B;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(245, 130, 32, 0.35);
+      border-color: transparent;
+    }
+    .device-tab.active {
+      background: #2C2B45;
+      color: #FFFFFF;
+    }
+    /* Device frames */
+    .viewport-desktop {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      border: none;
+    }
+    .viewport-tablet {
+      width: 820px;
+      max-width: 95vw;
+      height: 94%;
+      border-radius: 28px;
+      border: 12px solid #232238;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+    .viewport-mobile {
+      width: 390px;
+      max-width: 95vw;
+      height: 92%;
+      border-radius: 40px;
+      border: 12px solid #232238;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="bg-[#17162B] border-b border-[#2C2B45] flex-shrink-0 z-30 select-none">
+    <div class="px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand & Project Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-[#7C1D26] to-[#F58220] flex items-center justify-center font-bold text-xs text-white shadow-md border border-[#F58220]/50 tracking-wider">
+          SIES
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-bold text-white text-base tracking-tight">SIES Alumni Connect</span>
+            <span class="bg-[#F58220]/20 text-[#F58220] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#F58220]/30 uppercase tracking-wider">Design Studio</span>
+          </div>
+          <p class="text-[11px] text-[#A29EB6]">Multi-Concept Preview & Comparison Hub</p>
+        </div>
+      </div>
+
+      <!-- Quick Switcher Buttons -->
+      <nav class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar py-1 max-w-[65vw]" aria-label="Design switcher">
+        <button onclick="selectDesign(0)" id="btn-design-0" class="design-tab active px-3.5 py-1.5 rounded-lg text-xs font-medium border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:bg-[#2C2B45] transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-4 h-4 rounded-full bg-[#17162B]/20 flex items-center justify-center text-[10px] font-bold">1</span>
+          <span>Design 1: Gemini Landing</span>
+        </button>
+
+        <button onclick="selectDesign(1)" id="btn-design-1" class="design-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:bg-[#2C2B45] transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-4 h-4 rounded-full bg-[#17162B]/20 flex items-center justify-center text-[10px] font-bold">2</span>
+          <span>Design 2: Editorial Code 1</span>
+        </button>
+
+        <button onclick="selectDesign(2)" id="btn-design-2" class="design-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:bg-[#2C2B45] transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-4 h-4 rounded-full bg-[#17162B]/20 flex items-center justify-center text-[10px] font-bold">3</span>
+          <span>Design 3: Invitation Code 2</span>
+        </button>
+
+        <button onclick="selectDesign(3)" id="btn-design-3" class="design-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:bg-[#2C2B45] transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-4 h-4 rounded-full bg-[#17162B]/20 flex items-center justify-center text-[10px] font-bold">4</span>
+          <span>Design 4: Claude Artboard</span>
+        </button>
+
+        <button onclick="selectDesign(4)" id="btn-design-4" class="design-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:bg-[#2C2B45] transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-4 h-4 rounded-full bg-[#17162B]/20 flex items-center justify-center text-[10px] font-bold">5</span>
+          <span>Design 5: Interactive Portal</span>
+        </button>
+
+        <button onclick="selectDesign(5)" id="btn-design-5" class="design-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:bg-[#2C2B45] transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-4 h-4 rounded-full bg-[#17162B]/20 flex items-center justify-center text-[10px] font-bold">6</span>
+          <span>Design 6: Classic Landing</span>
+        </button>
+      </nav>
+
+      <!-- Viewport & Action Controls -->
+      <div class="flex items-center gap-2">
+        <!-- Viewport toggles -->
+        <div class="bg-[#211F38] border border-[#34334F] rounded-lg p-0.5 flex items-center text-xs">
+          <button onclick="setViewport('desktop')" id="vp-desktop" class="device-tab active px-2.5 py-1 rounded-md text-[#B9B6CC] hover:text-white transition flex items-center gap-1" title="Desktop View (100%)">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span class="hidden sm:inline">Desktop</span>
+          </button>
+          <button onclick="setViewport('tablet')" id="vp-tablet" class="device-tab px-2.5 py-1 rounded-md text-[#B9B6CC] hover:text-white transition flex items-center gap-1" title="Tablet View (820px)">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            <span class="hidden sm:inline">Tablet</span>
+          </button>
+          <button onclick="setViewport('mobile')" id="vp-mobile" class="device-tab px-2.5 py-1 rounded-md text-[#B9B6CC] hover:text-white transition flex items-center gap-1" title="Mobile View (390px)">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            <span class="hidden sm:inline">Mobile</span>
+          </button>
+        </div>
+
+        <!-- Open standalone -->
+        <a id="btn-open-external" href="design-gem.html" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:text-white hover:bg-[#2C2B45] transition flex items-center gap-1 text-xs" title="Open selected design in new tab">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+
+        <!-- Reload iframe -->
+        <button onclick="reloadIframe()" class="p-1.5 rounded-lg border border-[#34334F] bg-[#211F38] text-[#D9D6E6] hover:text-white hover:bg-[#2C2B45] transition" title="Reload iframe">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Sub-bar: Active Design Metadata & Quick Controls -->
+    <div class="px-4 py-1.5 bg-[#121124] border-t border-[#232238] flex items-center justify-between text-xs text-[#9B97B0]">
+      <div class="flex items-center gap-3">
+        <span class="font-semibold text-white flex items-center gap-1.5" id="design-title-badge">
+          <span class="w-2 h-2 rounded-full bg-[#F58220] animate-pulse"></span>
+          <span id="current-design-name">Design 1: Gemini Landing</span>
+        </span>
+        <span class="hidden md:inline text-[#65637D]">|</span>
+        <span class="hidden md:inline font-mono text-[11px] text-[#A84C00] bg-[#FEF3E8] px-2 py-0.5 rounded" id="current-filename">design-gem.html</span>
+        <span class="hidden lg:inline text-[#65637D]">|</span>
+        <span class="hidden lg:inline text-[#B9B6CC]" id="current-description">Tailwind and Inter typography with extensive multi-campus showcase and directory layout.</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="prevDesign()" class="hover:text-white px-2 py-0.5 rounded bg-[#1C1B33] border border-[#2C2B45] flex items-center gap-1" title="Previous Design (Left Arrow)">
+          &larr; Prev
+        </button>
+        <span class="text-[11px] text-[#86829D]" id="design-counter">1 / 6</span>
+        <button onclick="nextDesign()" class="hover:text-white px-2 py-0.5 rounded bg-[#1C1B33] border border-[#2C2B45] flex items-center gap-1" title="Next Design (Right Arrow)">
+          Next &rarr;
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Frame Viewport Area -->
+  <main class="flex-1 bg-[#09080F] relative flex items-center justify-center p-0 overflow-hidden">
+    <!-- Loading spinner overlay -->
+    <div id="loader" class="absolute inset-0 bg-[#09080F]/80 backdrop-blur-sm z-20 flex flex-col items-center justify-center gap-3 transition-opacity duration-200 pointer-events-none opacity-0">
+      <div class="w-8 h-8 rounded-full border-2 border-[#F58220] border-t-transparent animate-spin"></div>
+      <span class="text-xs text-[#B9B6CC] font-medium tracking-wide">Loading Design...</span>
+    </div>
+
+    <!-- The Viewer Iframe -->
+    <iframe id="design-frame" src="design-gem.html" class="viewport-desktop bg-white transition-all duration-300 shadow-2xl" frameborder="0" allowfullscreen></iframe>
+  </main>
+
+  <script>
+    const designs = [
+      {
+        id: 0,
+        name: "Design 1: Gemini Landing",
+        file: "design-gem.html",
+        badge: "Pencil / Tailwind",
+        desc: "Tailwind & Inter/Plus Jakarta Sans layout with rich hero, campuses grid, alumni stories, and institutional timeline."
+      },
+      {
+        id: 1,
+        name: "Design 2: Editorial Code 1",
+        file: "design-code1.html",
+        badge: "Editorial / Newsreader",
+        desc: "Classic editorial aesthetic featuring serif typography (Newsreader), warm paper tone, and heritage archival framing."
+      },
+      {
+        id: 2,
+        name: "Design 3: Invitation Code 2",
+        file: "design-code2.html",
+        badge: "Modern Poster / Barlow",
+        desc: "Contemporary invitation card motif in Barlow Condensed and clean slate surfaces, focusing on the Memory Chest."
+      },
+      {
+        id: 3,
+        name: "Design 4: Claude Artboard",
+        file: "design-claude.html",
+        badge: "Pure HTML / Claude Export",
+        desc: "Bricolage Grotesque & Mukta typography with Tiro Devanagari Sanskrit accents, 6 Doors navigation, and audio narration."
+      },
+      {
+        id: 4,
+        name: "Design 5: Interactive Portal",
+        file: "design-react.html",
+        badge: "Interactive React Portal",
+        desc: "Rich application with interactive audio player, vintage photo explorer with hotspots, alumni filters, and donation pledge calculator."
+      },
+      {
+        id: 5,
+        name: "Design 6: Classic Landing",
+        file: "sies-alumni-landing.html",
+        badge: "Classic SIES Landing",
+        desc: "Playfair Display & DM Sans design with integrated media player strip, Dr. V. Shankar president address, and campus highlights."
+      }
+    ];
+
+    let currentIdx = 0;
+    const frame = document.getElementById('design-frame');
+    const loader = document.getElementById('loader');
+    const nameEl = document.getElementById('current-design-name');
+    const fileEl = document.getElementById('current-filename');
+    const descEl = document.getElementById('current-description');
+    const counterEl = document.getElementById('design-counter');
+    const externalLink = document.getElementById('btn-open-external');
+
+    function selectDesign(idx) {
+      if (idx < 0 || idx >= designs.length) return;
+      currentIdx = idx;
+
+      // Show loader
+      loader.classList.remove('opacity-0');
+      loader.classList.add('opacity-100');
+
+      // Update Active Tab Button
+      document.querySelectorAll('.design-tab').forEach((btn, i) => {
+        if (i === idx) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const d = designs[idx];
+      nameEl.textContent = d.name;
+      fileEl.textContent = d.file;
+      descEl.textContent = d.desc;
+      counterEl.textContent = `${idx + 1} / ${designs.length}`;
+      externalLink.href = d.file;
+
+      // Update frame source
+      frame.src = d.file;
+
+      frame.onload = () => {
+        setTimeout(() => {
+          loader.classList.remove('opacity-100');
+          loader.classList.add('opacity-0');
+        }, 150);
+      };
+    }
+
+    function prevDesign() {
+      const nextIdx = (currentIdx - 1 + designs.length) % designs.length;
+      selectDesign(nextIdx);
+    }
+
+    function nextDesign() {
+      const nextIdx = (currentIdx + 1) % designs.length;
+      selectDesign(nextIdx);
+    }
+
+    function reloadIframe() {
+      loader.classList.remove('opacity-0');
+      loader.classList.add('opacity-100');
+      frame.contentWindow.location.reload();
+      setTimeout(() => {
+        loader.classList.remove('opacity-100');
+        loader.classList.add('opacity-0');
+      }, 250);
+    }
+
+    function setViewport(mode) {
+      document.querySelectorAll('.device-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById(`vp-${mode}`).classList.add('active');
+
+      frame.className = `bg-white transition-all duration-300 shadow-2xl viewport-${mode}`;
+    }
+
+    // Keyboard shortcuts: 1-6 keys switch designs; Arrow Left/Right step; D/T/M toggle viewport
+    window.addEventListener('keydown', (e) => {
+      // Don't intercept if user is typing in an input
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      const num = parseInt(e.key);
+      if (!isNaN(num) && num >= 1 && num <= designs.length) {
+        selectDesign(num - 1);
+      } else if (e.key === 'ArrowLeft') {
+        prevDesign();
+      } else if (e.key === 'ArrowRight') {
+        nextDesign();
+      } else if (e.key === 'd' || e.key === 'D') {
+        setViewport('desktop');
+      } else if (e.key === 't' || e.key === 'T') {
+        setViewport('tablet');
+      } else if (e.key === 'm' || e.key === 'M') {
+        setViewport('mobile');
+      }
+    });
+
+    // Check for query param ?design=
+    const params = new URLSearchParams(window.location.search);
+    const dParam = parseInt(params.get('design'));
+    if (!isNaN(dParam) && dParam >= 1 && dParam <= designs.length) {
+      selectDesign(dParam - 1);
+    }
+  </script>
+</body>
+</html>
+

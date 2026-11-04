@@ -1,0 +1,3283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIES Alumni Connect — Interactive Portal</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+  <!-- React 18 & ReactDOM 18 -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel Standalone for In-Browser JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            sanskrit: ['"Tiro Devanagari Sanskrit"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FAF6F0;
+      color: #1E1B18;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F3ECE1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B38F22;
+    }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .font-sanskrit { font-family: 'Tiro Devanagari Sanskrit', serif; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#FAF6F0;font-family:'Plus Jakarta Sans',sans-serif;color:#7C1D26;font-weight:600;font-size:18px;">
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;border:3px solid #D4AF37;border-top-color:transparent;border-radius:50%;margin:0 auto 16px;animation:spin 1s linear infinite;"></div>
+        Loading SIES Alumni Connect Portal...
+      </div>
+      <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+    </div>
+  </div>
+
+  <script type="text/babel">
+  const { useState, useEffect, useRef, useMemo } = React;
+
+  // --- LUCIDE ICONS (Self-Contained SVGs) ---
+  const Search = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>` }} />
+);
+const Play = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<polygon points="5 3 19 12 5 21 5 3"/>` }} />
+);
+const Pause = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>` }} />
+);
+const Volume2 = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>` }} />
+);
+const VolumeX = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>` }} />
+);
+const ChevronDown = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="m6 9 6 6 6-6"/>` }} />
+);
+const ChevronRight = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="m9 18 6-6-6-6"/>` }} />
+);
+const MapPin = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>` }} />
+);
+const Calendar = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>` }} />
+);
+const Award = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>` }} />
+);
+const Users = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>` }} />
+);
+const BookOpen = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>` }} />
+);
+const Heart = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>` }} />
+);
+const Briefcase = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>` }} />
+);
+const Sparkles = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>` }} />
+);
+const Plus = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M5 12h14"/><path d="M12 5v14"/>` }} />
+);
+const X = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M18 6 6 18"/><path d="m6 6 12 12"/>` }} />
+);
+const CheckCircle2 = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>` }} />
+);
+const ExternalLink = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>` }} />
+);
+const Mail = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>` }} />
+);
+const Phone = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>` }} />
+);
+const Building2 = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>` }} />
+);
+const GraduationCap = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>` }} />
+);
+const Clock = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>` }} />
+);
+const Share2 = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>` }} />
+);
+const Download = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>` }} />
+);
+const UserCheck = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>` }} />
+);
+const Compass = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>` }} />
+);
+const Landmark = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/>` }} />
+);
+const FileText = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>` }} />
+);
+const ArrowDown = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>` }} />
+);
+const ArrowUpRight = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M7 7h10v10"/><path d="M7 17 17 7"/>` }} />
+);
+const Camera = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>` }} />
+);
+const Star = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>` }} />
+);
+const ShieldCheck = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>` }} />
+);
+const Filter = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>` }} />
+);
+const Globe = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>` }} />
+);
+const Menu = ({ className = "w-5 h-5", ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props} dangerouslySetInnerHTML={{ __html: `<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>` }} />
+);
+
+  // --- PORTAL CODE ---
+  
+
+
+// --- CUSTOM SVG EMBLEMS & HERITAGE GRAPHICS ---
+const SIESLotusCrest = ({ className = "w-10 h-10" }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="46" stroke="#D4AF37" strokeWidth="2.5" fill="#7C1D26" />
+    <circle cx="50" cy="50" r="40" stroke="#F3ECE1" strokeWidth="1" strokeDasharray="3 2" />
+    {/* Traditional Lamp / Deepam & Lotus Petals */}
+    <path d="M50 20C54 28 58 34 50 42C42 34 46 28 50 20Z" fill="#D4AF37" />
+    <path d="M32 48C32 48 40 58 50 58C60 58 68 48 68 48L62 64H38L32 48Z" fill="#FAF6F0" stroke="#D4AF37" strokeWidth="1.5" />
+    <path d="M50 58C44 50 35 45 26 48C30 56 38 62 50 62C62 62 70 56 74 48C65 45 56 50 50 58Z" fill="#D4AF37" fillOpacity="0.85" />
+    <path d="M36 68H64M42 74H58" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" />
+    <text x="50" y="86" textAnchor="middle" fill="#FAF6F0" fontSize="9" fontWeight="bold" fontFamily="serif" letterSpacing="1.5">1932</text>
+  </svg>
+);
+
+const GoldChakraIcon = ({ className = "w-5 h-5", spin = true }) => (
+  <svg
+    viewBox="0 0 48 48"
+    className={`${className} ${spin ? 'animate-spin' : ''}`}
+    style={spin ? { animationDuration: '14s' } : {}}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2.5" />
+    <circle cx="24" cy="24" r="15" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+    <circle cx="24" cy="24" r="4" fill="currentColor" />
+    {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
+      <line
+        key={deg}
+        x1="24"
+        y1="4"
+        x2="24"
+        y2="20"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        transform={`rotate(${deg} 24 24)`}
+      />
+    ))}
+  </svg>
+);
+
+// --- DATASET: ALL 18 SIES INSTITUTIONS ---
+const SIES_INSTITUTIONS = [
+  // 11 Established Institutions
+  {
+    id: 'sies-hs-matunga',
+    number: '01',
+    name: 'SIES High School, Matunga',
+    shortCode: 'SIES HS · Matunga',
+    founded: 'Founded 6 June 1932',
+    yearNum: 1932,
+    campus: 'Matunga',
+    category: 'Established',
+    motto: 'Where Learning Shapes Character.',
+    description: 'The foundation stone of the South Indian Education Society. Started with just a handful of pupils in a modest room in Matunga, it has shaped generations of scholars, scientists, citizens, and leaders rooted in timeless values.',
+    alumniCount: '42,500+',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Birthplace of SIES (1932)', 'Centenary Milestone Approaching', 'Heritage Matunga Precinct']
+  },
+  {
+    id: 'sies-asc-sion-w',
+    number: '02',
+    name: 'SIES College of Arts, Science & Commerce, Sion (West)',
+    shortCode: 'SIES AS&C · Sion W',
+    founded: 'Est. 1960',
+    yearNum: 1960,
+    campus: 'Sion',
+    category: 'Established',
+    motto: 'Discover Potential. Shape Possibilities.',
+    description: 'Inaugurated on 20 June 1960 by Shri Y. B. Chavan, SIES AS&C marked SIES’s entry into higher education. An Empowered Autonomous Institution celebrated for academic rigor, cultural vibrancy, and scientific research.',
+    alumniCount: '68,000+',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Empowered Autonomous Status', 'NAAC A+ Grade Heritage', 'Iconic Sion West Canteen & Quadrangle']
+  },
+  {
+    id: 'sies-kalam-hs-ghatkopar',
+    number: '03',
+    name: 'SIES (Dr. A. P. J. Abdul Kalam Memorial) High School, Ghatkopar',
+    shortCode: 'SIES Kalam HS · Ghatkopar',
+    founded: 'Est. 1962 / SIES 2017',
+    yearNum: 1962,
+    campus: 'Ghatkopar',
+    category: 'Established',
+    motto: 'Dream. Discover. Achieve.',
+    description: 'Dedicated to the memory of Bharat Ratna Dr. A. P. J. Abdul Kalam, who visited SIES and inspired thousands of students. Delivering holistic K-10 education with modern STEM labs in Mumbai’s eastern suburbs.',
+    alumniCount: '19,200+',
+    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Named after Dr. A.P.J. Abdul Kalam', 'Eastern Suburb Beacon', 'Holistic Schooling & Innovation Labs']
+  },
+  {
+    id: 'sies-ice',
+    number: '04',
+    name: 'SIES Institute of Comprehensive Education (SIES ICE)',
+    shortCode: 'SIES ICE · Sion',
+    founded: 'Est. 1980',
+    yearNum: 1980,
+    campus: 'Sion',
+    category: 'Established',
+    motto: 'Nurturing Teachers. Shaping Generations.',
+    description: 'A pioneering institution dedicated to early childhood care, teacher training, counseling, and special education—empowering educators who go on to shape thousands of young minds across India.',
+    alumniCount: '11,400+',
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Teacher Education Pioneer', 'Child Development & Counseling', 'Inclusive Pedagogy']
+  },
+  {
+    id: 'sies-ce-sion-e',
+    number: '05',
+    name: 'SIES College of Commerce & Economics, Sion (East)',
+    shortCode: 'SIES CCE · Sion E',
+    founded: 'Est. 1989',
+    yearNum: 1989,
+    campus: 'Sion',
+    category: 'Established',
+    motto: 'Knowledge for Enterprise. Values for Life.',
+    description: 'Established in 1989 to meet the growing demand for specialized commerce, finance, banking, and IT education. Autonomous institution known for producing Chartered Accountants, corporate leaders, and entrepreneurs.',
+    alumniCount: '38,900+',
+    image: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Autonomous Commerce Hub', 'CA & Corporate Leadership Track', 'Vibrant Student Festivals']
+  },
+  {
+    id: 'siescoms-nerul',
+    number: '06',
+    name: 'SIES College of Management Studies (SIESCOMS)',
+    shortCode: 'SIESCOMS · Nerul',
+    founded: 'Est. 1995',
+    yearNum: 1995,
+    campus: 'Nerul',
+    category: 'Established',
+    motto: 'Inspiring Minds. Shaping Leaders.',
+    description: 'The flagship management institute on the sprawling Nerul campus in Navi Mumbai. Combining ancient Indian ethos ("Quality is a continuous search for excellence") with global management education and MCA programs.',
+    alumniCount: '16,800+',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Premier B-School in Navi Mumbai', 'Strong CXO Alumni Network', 'Lush Nerul Hilltop Campus']
+  },
+  {
+    id: 'sies-iiem',
+    number: '07',
+    name: 'SIES Indian Institute of Environment Management (SIES IIEM), Navi Mumbai',
+    shortCode: 'SIES IIEM · Nerul',
+    founded: 'Est. 1999',
+    yearNum: 1999,
+    campus: 'Nerul',
+    category: 'Established',
+    motto: 'Rooted in Knowledge. Connected by Purpose. Advancing Sustainability.',
+    description: 'Dedicated to environmental science, sustainable development, biotechnology, and ecological consultancy. Bridging scientific research with industrial and civic environmental stewardship.',
+    alumniCount: '4,300+',
+    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80',
+    highlights: ['DSIR Recognized Research Center', 'Sustainability & ESG Focus', 'Environmental Impact Projects']
+  },
+  {
+    id: 'sies-sop',
+    number: '08',
+    name: 'SIES School of Packaging (Packaging Technology Centre), Navi Mumbai',
+    shortCode: 'SIES SOP · Nerul',
+    founded: 'Est. 2001',
+    yearNum: 2001,
+    campus: 'Nerul',
+    category: 'Established',
+    motto: 'Innovating Packaging. Sustaining Progress.',
+    description: 'A specialized centre of excellence in packaging science, testing, and sustainable materials engineering, serving India’s FMCG, pharmaceutical, and export industries with skilled technologists.',
+    alumniCount: '5,600+',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Industry Testing & R&D Labs', '100% Core Industry Connect', 'Sustainable Packaging Pioneers']
+  },
+  {
+    id: 'sies-gst',
+    number: '09',
+    name: 'SIES Graduate School of Technology (SIES GST), Nerul',
+    shortCode: 'SIES GST · Nerul',
+    founded: 'Est. 2002',
+    yearNum: 2002,
+    campus: 'Nerul',
+    category: 'Established',
+    motto: 'Engineering Progress. Enriching Lives.',
+    description: 'A premier engineering institution in Navi Mumbai offering undergraduate and doctoral programs in Computer, AI/ML, Electronics, Printing & Packaging, and Mechanical disciplines with global tech alumni.',
+    alumniCount: '18,500+',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Autonomous Engineering Excellence', 'Global Silicon Valley & India Chapter', 'Tattva & Technical Innovation']
+  },
+  {
+    id: 'sies-sbs',
+    number: '10',
+    name: 'SIES School of Business Studies (SIES SBS), Nerul',
+    shortCode: 'SIES SBS · Nerul',
+    founded: 'Est. 1996 / Independent 2020',
+    yearNum: 1996,
+    campus: 'Nerul',
+    category: 'Established',
+    motto: 'Leadership with Values. Enterprise with Purpose.',
+    description: 'Carrying forward a quarter-century legacy of PGDM and specialized pharmaceutical & biotech management programs, shaping agile business leaders equipped for the digital economy.',
+    alumniCount: '9,100+',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+    highlights: ['AICTE Approved PGDM Programs', 'Pharma & Biotech Management Niche', 'Case-Method Pedagogy']
+  },
+  {
+    id: 'sies-sps',
+    number: '11',
+    name: 'SIES School of Pharmaceutical Sciences (SIES SPS), Nerul',
+    shortCode: 'SIES SPS · Nerul',
+    founded: 'Est. 2024',
+    yearNum: 2024,
+    campus: 'Nerul',
+    category: 'Established',
+    motto: 'Advancing Science. Improving Lives.',
+    description: 'The newest operational jewel in the Nerul educational precinct, marking SIES’s strategic foray into healthcare and pharmaceutical sciences with state-of-the-art formulation and analytical laboratories.',
+    alumniCount: 'Founding Batches',
+    image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80',
+    highlights: ['Next-Gen Pharma Research Labs', 'Healthcare Ecosystem Integration', 'PCI Approved Curriculum']
+  },
+
+  // 3 Futuristic Institutions
+  {
+    id: 'sies-ai',
+    number: '12',
+    name: 'The SIES Centre of Excellence in AI',
+    shortCode: 'SIES AI',
+    founded: 'Futuristic Initiative',
+    yearNum: 2026,
+    campus: 'Nerul',
+    category: 'Futuristic',
+    motto: 'Human-Centric Intelligence for a Better Tomorrow.',
+    description: 'An interdisciplinary frontier hub dedicated to sovereign AI research, ethical computing, Indian language foundational models, and industry-academia deep-tech incubation.',
+    statusBadge: 'Official campus imagery in preparation',
+    highlights: ['High-Performance Compute Cluster', 'Cross-Campus AI Curriculum', 'Alumni Tech Advisory Board']
+  },
+  {
+    id: 'sies-nursing',
+    number: '13',
+    name: 'SIES College of Nursing',
+    shortCode: 'SIES Nursing',
+    founded: 'Futuristic Initiative',
+    yearNum: 2026,
+    campus: 'Nerul',
+    category: 'Futuristic',
+    motto: 'Compassion in Action. Excellence in Care.',
+    description: 'Expanding SIES’s commitment to Health Sciences by training world-class clinical nursing professionals with simulation labs and hospital partnerships.',
+    statusBadge: 'Official campus imagery in preparation',
+    highlights: ['High-Fidelity Clinical Simulation', 'Global Healthcare Placement Track', 'Community Health Outreach']
+  },
+  {
+    id: 'sies-physiotherapy',
+    number: '14',
+    name: 'SIES College of Physiotherapy',
+    shortCode: 'SIES Physiotherapy',
+    founded: 'Futuristic Initiative',
+    yearNum: 2026,
+    campus: 'Nerul',
+    category: 'Futuristic',
+    motto: 'Restoring Motion. Empowering Lives.',
+    description: 'Dedicated to rehabilitative medicine, sports biomechanics, and physical therapy research as part of SIES’s integrated Health Sciences vertical.',
+    statusBadge: 'Official campus imagery in preparation',
+    highlights: ['Biomechanics & Kinesiology Lab', 'Sports Rehab Center', 'Outpatient Care Clinic']
+  },
+
+  // 4 Upcoming Projects — "The Future Takes Shape"
+  {
+    id: 'sies-law',
+    number: '15',
+    name: 'SIES School of Law',
+    shortCode: 'SIES Law',
+    founded: 'Centenary Horizon',
+    yearNum: 2027,
+    campus: 'Nerul',
+    category: 'Upcoming',
+    motto: 'Dharma, Justice & Constitutional Scholarship.',
+    description: 'Envisioned to nurture constitutional thinkers, corporate legal minds, and public policy advocates with a dedicated moot court complex.',
+    statusBadge: 'Campus planning in progress',
+    highlights: ['National Moot Court Arena', 'Tech & IP Law Specialization', 'Legal Aid Clinic']
+  },
+  {
+    id: 'sies-foreign-lang',
+    number: '16',
+    name: 'SIES School of Foreign Languages',
+    shortCode: 'SIES Foreign Languages',
+    founded: 'Centenary Horizon',
+    yearNum: 2027,
+    campus: 'Matunga',
+    category: 'Upcoming',
+    motto: 'Bridging Cultures. Connecting Continents.',
+    description: 'Equipping students and working professionals with fluency in European, East Asian, and Classical languages alongside cultural diplomacy.',
+    statusBadge: 'Campus planning in progress',
+    highlights: ['Language Immersion Studios', 'International University Tie-ups', 'Translation & Diplomacy Track']
+  },
+  {
+    id: 'sies-education',
+    number: '17',
+    name: 'SIES College of Education',
+    shortCode: 'SIES Education',
+    founded: 'Centenary Horizon',
+    yearNum: 2027,
+    campus: 'Sion',
+    category: 'Upcoming',
+    motto: 'Transforming Pedagogy for the 21st Century.',
+    description: 'Building upon SIES ICE’s legacy with integrated B.Ed., M.Ed., and EdTech research programs aligned with the National Education Policy (NEP).',
+    statusBadge: 'Campus planning in progress',
+    highlights: ['NEP 2020 Model Curriculum', 'Educational Psychology Lab', 'Digital Classroom Innovation']
+  },
+  {
+    id: 'sies-fine-arts',
+    number: '18',
+    name: 'SIES School of Fine Arts',
+    shortCode: 'SIES Fine Arts',
+    founded: 'Centenary Horizon',
+    yearNum: 2027,
+    campus: 'Matunga',
+    category: 'Upcoming',
+    motto: 'Where Heritage Aesthetics Meet Contemporary Expression.',
+    description: 'Celebrating Carnatic & Hindustani music, classical dance, visual arts, sculpture, and digital design in the cultural heart of Mumbai.',
+    statusBadge: 'Campus planning in progress',
+    highlights: ['Classical Performing Arts Conservatory', 'Visual Design & Conservation Studios', 'Public Art Gallery']
+  }
+];
+
+// --- DATASET: BILINGUAL PILLARS & SUB-SECTIONS ---
+const ALUMNI_DIRECTORY = [
+  { id: 1, name: 'Dr. Ramesh Subramanian', batch: '1984', institution: 'SIES AS&C · Sion W', role: 'Chief Scientist, Biopharma Research, Boston', location: 'Boston, USA', category: 'Navratna', avatar: 'RS', quote: 'My chemistry lab hours at Sion West lit a spark that carried me to MIT.' },
+  { id: 2, name: 'Meenakshi Iyer, IAS', batch: '1996', institution: 'SIES CCE · Sion E', role: 'Principal Secretary, Urban Development', location: 'New Delhi, India', category: 'Navratna', avatar: 'MI', quote: 'SIES taught us that education without public service is incomplete.' },
+  { id: 3, name: 'Siddharth Venkataraman', batch: '2006', institution: 'SIES GST · Nerul', role: 'VP of Engineering, Cloud AI Systems', location: 'Bengaluru / Bay Area', category: 'Shining Star', avatar: 'SV', quote: 'From coding late for Tattva at Nerul to building global cloud infrastructure.' },
+  { id: 4, name: 'Nandini Krishnan', batch: '2001', institution: 'SIESCOMS · Nerul', role: 'Managing Director, ESG Impact Fund', location: 'Mumbai, India', category: 'Steward', avatar: 'NK', quote: 'Serving on the Alumni Council allows me to give back a fraction of what SIES gave me.' },
+  { id: 5, name: 'Justice K. V. Narayanan (Retd.)', batch: '1972', institution: 'SIES HS · Matunga', role: 'Former High Court Judge & Constitutional Author', location: 'Chennai, India', category: 'Navratna', avatar: 'KN', quote: 'The teachers at Matunga High School shaped our moral compass for life.' },
+  { id: 6, name: 'Aarti Deshmukh-Rao', batch: '2012', institution: 'SIES SOP · Nerul', role: 'Global Head of Sustainable Packaging, Unilever', location: 'London, UK', category: 'Shining Star', avatar: 'AD', quote: 'SIES School of Packaging gave me a niche expertise recognized worldwide.' },
+  { id: 7, name: 'Capt. Vikramaditya Nair', batch: '1991', institution: 'SIES AS&C · Sion W', role: 'Commodore (Retd.), Indian Navy & Maritime Strategist', location: 'Kochi, India', category: 'Navratna', avatar: 'VN', quote: 'The NCC parade ground at SIES was where my naval journey truly began.' },
+  { id: 8, name: 'Priya Balasubramanian', batch: '1999', institution: 'SIES IIEM · Nerul', role: 'Lead Climate Policy Advisor, UNEP', location: 'Geneva, Switzerland', category: 'Shining Star', avatar: 'PB', quote: 'SIES IIEM was ahead of its time in championing sustainability in 1999.' },
+  { id: 9, name: 'Harishankar Menon', batch: '1979', institution: 'SIES AS&C · Sion W', role: 'Trustee & Alumni Council Steward, Chartered Accountant', location: 'Matunga, Mumbai', category: 'Steward', avatar: 'HM', quote: 'From student union secretary in 1979 to stewarding the Centenary Corpus today.' }
+];
+
+const MEMORY_CHEST_ITEMS = [
+  {
+    id: 'm1',
+    category: 'Unforgettable Mentors',
+    title: 'Prof. K. A. Subramaniam & The Founding Teachers',
+    era: '1960s – 1980s',
+    campus: 'Matunga & Sion',
+    summary: 'Generations recall the towering intellect and gentle discipline of professors who knew every student by name, often paying examination fees quietly out of their own pockets for deserving students.',
+    contributor: 'Archived by Batch of 1974'
+  },
+  {
+    id: 'm2',
+    category: 'Distinguished Visitors',
+    title: 'Bharat Ratna Dr. A. P. J. Abdul Kalam at SIES',
+    era: 'Historic Convocation & Student Address',
+    campus: 'Sion & Ghatkopar',
+    summary: 'When the People’s President stood before thousands of SIES students and made them repeat the oath: "Dream, Dream, Dream. Dreams transform into thoughts and thoughts result in action."',
+    contributor: 'SIES Central Archives'
+  },
+  {
+    id: 'm3',
+    category: 'Familiar Faces (Staff Members)',
+    title: 'Rajan Kaka at the Library Desk & Anna of the Sion Canteen',
+    era: '1975 – 2015',
+    campus: 'Sion West Campus',
+    summary: 'No memory of SIES is complete without the warm filter coffee, Mysore masala dosa between lectures, and the library attendants who saved reference books before university exams.',
+    contributor: '420+ Alumni Tributes'
+  },
+  {
+    id: 'm4',
+    category: 'Presidents Through the Years',
+    title: 'From M. V. Venkateswaran (1932) to Dr. V. Shankar',
+    era: '1932 – Present',
+    campus: 'Society Secretariat',
+    summary: 'A unbroken chain of visionary honorary stewardship that guided SIES from a 6-student primary school in Matunga to a 20-institution educational conglomerate heading toward its Centenary.',
+    contributor: 'Historical Chronicle'
+  },
+  {
+    id: 'm5',
+    category: 'SIES Eminence Awardees',
+    title: 'Sri Chandrasekharendra Saraswati National Eminence Awards',
+    era: 'Annual National Honour',
+    campus: 'Sri Shanmukhananda Hall / SIES',
+    summary: 'Honouring national icons in Public Leadership, Community Living, Science & Technology, and Sanatana Dharma—connecting SIES students with the finest minds of India.',
+    contributor: 'Eminence Archives'
+  },
+  {
+    id: 'm6',
+    category: 'Those Who Stood By Us',
+    title: 'Philanthropists, Patrons & Early Donors of Matunga & Nerul',
+    era: '1932 – 2026',
+    campus: 'All Campuses',
+    summary: 'Celebrating the quiet families, industrial trusts, and humble alumni whose brick-by-brick contributions built our laboratories, auditoriums, and scholarship endowments.',
+    contributor: 'Gratitude Roll'
+  }
+];
+
+const WISHLIST_PROJECTS = [
+  {
+    id: 'w1',
+    title: 'Centenary Need-Blind Student Scholarship Endowment',
+    institution: 'All 18 SIES Institutions',
+    target: '₹2,50,00,000',
+    raised: '₹1,84,00,000',
+    percent: 74,
+    supporters: 612,
+    tag: 'SIES Corpus · Priority'
+  },
+  {
+    id: 'w2',
+    title: 'Sovereign AI GPU Compute Cluster & Robotics Studio',
+    institution: 'SIES GST & SIES Centre of Excellence in AI, Nerul',
+    target: '₹1,20,00,000',
+    raised: '₹78,50,000',
+    percent: 65,
+    supporters: 245,
+    tag: 'Lab Sponsorship'
+  },
+  {
+    id: 'w3',
+    title: 'Heritage Digitization & Smart Reading Room Upgrade',
+    institution: 'SIES High School Matunga & Sion West Library',
+    target: '₹45,00,000',
+    raised: '₹39,10,000',
+    percent: 87,
+    supporters: 410,
+    tag: 'Library & Heritage'
+  },
+  {
+    id: 'w4',
+    title: 'Clinical Simulation Mannequins & Pharma Analytical Suite',
+    institution: 'SIES SPS & SIES College of Nursing, Nerul',
+    target: '₹85,00,000',
+    raised: '₹41,00,000',
+    percent: 48,
+    supporters: 138,
+    tag: 'Health Sciences'
+  }
+];
+
+const VINTAGE_PHOTO_HOTSPOTS = [
+  {
+    id: 'h1',
+    x: 24,
+    y: 42,
+    label: '1960 Inauguration Archway · Sion West',
+    person: 'Batch of 1964 Pioneers',
+    memory: '"We planted the first Gulmohar saplings outside the chemistry wing. Every monsoon, when they bloom crimson, our batch WhatsApp group still shares photos."'
+  },
+  {
+    id: 'h2',
+    x: 52,
+    y: 36,
+    label: 'Matunga School Quadrangle Bell · 1948',
+    person: 'Shri K. V. Subramaniam (Class of 1951)',
+    memory: '"The brass bell rung by the headmaster at 7:25 AM sharp taught us punctuality that lasted 70 years."'
+  },
+  {
+    id: 'h3',
+    x: 73,
+    y: 55,
+    label: 'Nerul Hilltop Amphitheatre · 2004',
+    person: 'Founding Engineering & SIESCOMS Batches',
+    memory: '"Watching the Navi Mumbai sunset after project viva exams with 40 friends and endless cups of cutting chai."'
+  },
+  {
+    id: 'h4',
+    x: 41,
+    y: 68,
+    label: 'Sion Canteen Filter Coffee Table · 1988',
+    person: 'Commerce & Arts Debate Team',
+    memory: '"Three future CEOs, two journalists, and a theatre director argued here every afternoon over a ₹2 Mysore Sada."'
+  }
+];
+
+function App() {
+  // --- NAVIGATION & DROPDOWN STATE ---
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // --- HERO VINTAGE PHOTO EXPLORER STATE ---
+  const [photoExplorerMode, setPhotoExplorerMode] = useState(false);
+  const [activeHotspot, setActiveHotspot] = useState(VINTAGE_PHOTO_HOTSPOTS[0]);
+
+  // --- STUDIO VOICE NOTE PLAYER STATE (0:00 to 1:09 = 69 seconds) ---
+  const TOTAL_DURATION = 69;
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [audioSeconds, setAudioSeconds] = useState(0);
+  const [playbackRate, setPlaybackRate] = useState(1);
+  const [isMuted, setIsMuted] = useState(false);
+  const audioCtxRef = useRef(null);
+
+  // --- INTERACTIVE 4-PILLAR HUB STATE ---
+  const [activePillarTab, setActivePillarTab] = useState('alumni'); // 'alumni' | 'memory' | 'giveback' | 'events'
+  const [alumniSubFilter, setAlumniSubFilter] = useState('All'); // 'All' | 'Navratna' | 'Shining Star' | 'Steward'
+  const [alumniSearchQuery, setAlumniSearchQuery] = useState('');
+  const [memoryCategoryFilter, setMemoryCategoryFilter] = useState('All');
+  const [memoriesList, setMemoriesList] = useState(MEMORY_CHEST_ITEMS);
+  const [giveBackSubTab, setGiveBackSubTab] = useState('corpus'); // 'corpus' | 'wishlist' | 'sangamam' | 'careers'
+  const [selectedCorpusAmount, setSelectedCorpusAmount] = useState(25000);
+  const [corpusPledgeSubmitted, setCorpusPledgeSubmitted] = useState(false);
+  const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
+
+  // --- INSTITUTIONS FILTER STATE ---
+  const [instCategoryTab, setInstCategoryTab] = useState('All'); // 'All' | 'Established' | 'Futuristic' | 'Upcoming'
+  const [instCampusFilter, setInstCampusFilter] = useState('All'); // 'All' | 'Matunga' | 'Sion' | 'Ghatkopar' | 'Nerul'
+  const [instSearch, setInstSearch] = useState('');
+  const [selectedInstitutionModal, setSelectedInstitutionModal] = useState(null);
+
+  // --- MODALS STATE ---
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [addMemoryModalOpen, setAddMemoryModalOpen] = useState(false);
+  const [toastNotification, setToastNotification] = useState(null);
+
+  // --- ADD MEMORY FORM STATE ---
+  const [newMemoryForm, setNewMemoryForm] = useState({
+    title: '',
+    category: 'Unforgettable Mentors',
+    era: '',
+    campus: 'Sion West Campus',
+    summary: '',
+    contributor: ''
+  });
+
+  // --- PROFILE DIGITAL ID FORM STATE ---
+  const [alumniProfile, setAlumniProfile] = useState({
+    name: 'Arjun Krishnamurthy',
+    batch: '2004',
+    institution: 'SIES College of Arts, Science & Commerce, Sion (W)',
+    membershipId: 'SIES-ALM-1932-08421',
+    location: 'Mumbai, India',
+    profession: 'Principal Architect & Urban Planner',
+    bloodGroup: 'O+',
+    verified: true
+  });
+
+  // Helper to show non-intrusive toast message
+  const triggerToast = (title, subtitle) => {
+    setToastNotification({ title, subtitle });
+    setTimeout(() => {
+      setToastNotification(null);
+    }, 4200);
+  };
+
+  // --- AUDIO PLAYER SIMULATION + GENTLE WEB AUDIO CHIME ---
+  const playGentleHarmonicChime = () => {
+    if (isMuted) return;
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new AudioContextClass();
+      }
+      const ctx = audioCtxRef.current;
+      if (ctx.state === 'suspended') {
+        ctx.resume();
+      }
+      const now = ctx.currentTime;
+      const notes = [261.63, 329.63, 392.0, 523.25]; // Warm C major tanpura-inspired chord
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+        gain.gain.setValueAtTime(0.001, now + idx * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.04, now + idx * 0.08 + 0.15);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 1.8);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.08);
+        osc.stop(now + idx * 0.08 + 1.9);
+      });
+    } catch (e) {
+      // Ignore audio context restrictions if blocked
+    }
+  };
+
+  useEffect(() => {
+    let interval = null;
+    if (isPlayingAudio) {
+      interval = setInterval(() => {
+        setAudioSeconds((prev) => {
+          if (prev >= TOTAL_DURATION) {
+            setIsPlayingAudio(false);
+            return 0;
+          }
+          return Math.min(TOTAL_DURATION, +(prev + 0.25 * playbackRate).toFixed(2));
+        });
+      }, 250);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isPlayingAudio, playbackRate]);
+
+  const togglePlayAudio = () => {
+    if (!isPlayingAudio) {
+      playGentleHarmonicChime();
+    }
+    setIsPlayingAudio(!isPlayingAudio);
+  };
+
+  const formatTime = (sec) => {
+    const whole = Math.floor(sec);
+    const m = Math.floor(whole / 60);
+    const s = whole % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  };
+
+  // --- SMOOTH SCROLL & PILLAR NAVIGATION HANDLER ---
+  const navigateToSection = (sectionId, options = {}) => {
+    setOpenDropdown(null);
+    setMobileMenuOpen(false);
+
+    if (options.openProfile) {
+      setProfileModalOpen(true);
+      return;
+    }
+    if (options.openAddMemory) {
+      setAddMemoryModalOpen(true);
+      return;
+    }
+    if (options.pillarTab) {
+      setActivePillarTab(options.pillarTab);
+    }
+    if (options.alumniFilter) {
+      setAlumniSubFilter(options.alumniFilter);
+    }
+    if (options.memoryFilter) {
+      setMemoryCategoryFilter(options.memoryFilter);
+    }
+    if (options.giveBackTab) {
+      setGiveBackSubTab(options.giveBackTab);
+    }
+    if (options.startVoiceNote) {
+      setIsPlayingAudio(true);
+      playGentleHarmonicChime();
+    }
+
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // --- FILTERED INSTITUTIONS ---
+  const filteredInstitutions = useMemo(() => {
+    return SIES_INSTITUTIONS.filter((inst) => {
+      const matchesCategory = instCategoryTab === 'All' || inst.category === instCategoryTab;
+      const matchesCampus = instCampusFilter === 'All' || inst.campus === instCampusFilter;
+      const matchesSearch =
+        instSearch.trim() === '' ||
+        inst.name.toLowerCase().includes(instSearch.toLowerCase()) ||
+        inst.shortCode.toLowerCase().includes(instSearch.toLowerCase()) ||
+        inst.motto.toLowerCase().includes(instSearch.toLowerCase()) ||
+        inst.campus.toLowerCase().includes(instSearch.toLowerCase());
+      return matchesCategory && matchesCampus && matchesSearch;
+    });
+  }, [instCategoryTab, instCampusFilter, instSearch]);
+
+  // --- FILTERED ALUMNI DIRECTORY ---
+  const filteredAlumni = useMemo(() => {
+    return ALUMNI_DIRECTORY.filter((alum) => {
+      const matchesSub = alumniSubFilter === 'All' || alum.category === alumniSubFilter;
+      const matchesQuery =
+        alumniSearchQuery.trim() === '' ||
+        alum.name.toLowerCase().includes(alumniSearchQuery.toLowerCase()) ||
+        alum.batch.includes(alumniSearchQuery) ||
+        alum.institution.toLowerCase().includes(alumniSearchQuery.toLowerCase()) ||
+        alum.location.toLowerCase().includes(alumniSearchQuery.toLowerCase());
+      return matchesSub && matchesQuery;
+    });
+  }, [alumniSubFilter, alumniSearchQuery]);
+
+  // --- FILTERED MEMORIES ---
+  const filteredMemories = useMemo(() => {
+    if (memoryCategoryFilter === 'All') return memoriesList;
+    return memoriesList.filter((m) => m.category === memoryCategoryFilter);
+  }, [memoriesList, memoryCategoryFilter]);
+
+  const handleAddMemorySubmit = (e) => {
+    e.preventDefault();
+    if (!newMemoryForm.title.trim() || !newMemoryForm.summary.trim()) return;
+    const created = {
+      id: `m-${Date.now()}`,
+      category: newMemoryForm.category,
+      title: newMemoryForm.title,
+      era: newMemoryForm.era || '1990s – 2000s',
+      campus: newMemoryForm.campus,
+      summary: newMemoryForm.summary,
+      contributor: newMemoryForm.contributor || 'Submitted by SIES Alumnus'
+    };
+    setMemoriesList([created, ...memoriesList]);
+    setAddMemoryModalOpen(false);
+    setNewMemoryForm({
+      title: '',
+      category: 'Unforgettable Mentors',
+      era: '',
+      campus: 'Sion West Campus',
+      summary: '',
+      contributor: ''
+    });
+    setActivePillarTab('memory');
+    setMemoryCategoryFilter('All');
+    triggerToast('स्मृतिकोश · Memory Preserved!', 'Your tribute has been added to the SIES Memory Chest.');
+    const el = document.getElementById('interactive-pillars');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div
+      className="min-h-screen bg-[#FAF6F0] text-[#1E1B18] selection:bg-[#7C1D26] selection:text-[#FAF6F0]"
+      style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif" }}
+    >
+      {/* Load Heritage Editorial Serif & Devanagari Fonts */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap');
+
+        .font-serif-editorial {
+          font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+        .font-sans-ui {
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+        .font-sanskrit {
+          font-family: 'Tiro Devanagari Sanskrit', serif;
+        }
+        @keyframes slowPan {
+          0% { transform: scale(1.03) translate(0%, 0%); }
+          50% { transform: scale(1.09) translate(-1%, -1%); }
+          100% { transform: scale(1.03) translate(0%, 0%); }
+        }
+        .animate-hero-pan {
+          animation: slowPan 26s ease-in-out infinite;
+        }
+        .parchment-grain {
+          background-image: radial-gradient(rgba(124, 29, 38, 0.04) 1px, transparent 0);
+          background-size: 24px 24px;
+        }
+      `}</style>
+
+      {/* --- FLOATING TOAST NOTIFICATION --- */}
+      {toastNotification && (
+        <div className="fixed bottom-6 right-6 z-50 max-w-md bg-[#1E1B18] text-[#FAF6F0] border border-[#D4AF37]/60 rounded-xl shadow-2xl p-4 flex items-start gap-3 animate-bounce">
+          <div className="w-8 h-8 rounded-full bg-[#7C1D26] border border-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5">
+            <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-[#D4AF37]">{toastNotification.title}</p>
+            <p className="text-xs text-[#F3ECE1]/90 mt-0.5">{toastNotification.subtitle}</p>
+          </div>
+          <button onClick={() => setToastNotification(null)} className="text-[#F3ECE1]/60 hover:text-white">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      {/* --- TOP HERITAGE RIBBON --- */}
+      <div className="bg-[#7C1D26] text-[#FAF6F0] text-xs border-b border-[#D4AF37]/30 px-4 py-2">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
+            <span className="font-sanskrit tracking-wide text-[#D4AF37]">उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत</span>
+            <span className="hidden sm:inline text-[#F3ECE1]/60">|</span>
+            <span className="hidden sm:inline text-[#F3ECE1]/90 font-medium">
+              The South Indian Education Society · Founded 6 June 1932 · 8 Campuses · 20 Institutions
+            </span>
+          </div>
+          <div className="flex items-center gap-4 ml-auto">
+            <button
+              onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'events' })}
+              className="hover:text-[#D4AF37] transition-colors flex items-center gap-1 font-medium"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span>कार्यक्रमाः · Alumnite 2027</span>
+            </button>
+            <span className="text-[#F3ECE1]/30">|</span>
+            <button
+              onClick={() => navigateToSection('secretariat-footer')}
+              className="hover:text-[#D4AF37] transition-colors"
+            >
+              Matunga Central Secretariat
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* --- STICKY HEADER & COMPLETE NAVIGATION ARCHITECTURE --- */}
+      <header
+        className="sticky top-0 z-40 bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#E4DACB] shadow-sm"
+        onMouseLeave={() => setOpenDropdown(null)}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+          {/* Brand Emblem + Identity */}
+          <a
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-3 group shrink-0"
+          >
+            <SIESLotusCrest className="w-12 h-12 transition-transform duration-300 group-hover:scale-105" />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-serif-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#7C1D26]">
+                  SIES Alumni Connect
+                </span>
+              </div>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-[#5C5346] font-semibold">
+                Rise With Education · <span className="text-[#C87D20]">Est. 1932</span>
+              </p>
+            </div>
+          </a>
+
+          {/* Desktop Navigation Bar with Exact Prototype Dropdowns */}
+          <nav className="hidden xl:flex items-center gap-1 font-sans-ui text-sm">
+            {/* 1. HOME DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown('home')}
+            >
+              <button
+                className={`px-3.5 py-2.5 rounded-lg font-medium flex items-center gap-1.5 transition-colors ${
+                  openDropdown === 'home'
+                    ? 'bg-[#7C1D26]/10 text-[#7C1D26]'
+                    : 'text-[#1E1B18] hover:bg-[#F3ECE1]'
+                }`}
+              >
+                <span>Home</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </button>
+
+              {openDropdown === 'home' && (
+                <div className="absolute left-0 top-full pt-1 w-64 z-50">
+                  <div className="bg-[#FAF6F0] border border-[#E4DACB] rounded-xl shadow-xl p-2 space-y-1">
+                    <button
+                      onClick={() => navigateToSection('top', { openProfile: true })}
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-[#F3ECE1] flex items-center justify-between group"
+                    >
+                      <div>
+                        <p className="font-semibold text-[#1E1B18] group-hover:text-[#7C1D26]">My Profile</p>
+                        <p className="text-[11px] text-[#6E6558]">Digital Alumni ID Card & Batch Status</p>
+                      </div>
+                      <UserCheck className="w-4 h-4 text-[#7C1D26]" />
+                    </button>
+                    <button
+                      onClick={() => navigateToSection('suswagatam-section')}
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] text-sm text-[#1E1B18] hover:text-[#7C1D26] font-medium"
+                    >
+                      सुस्वागतम् · Welcome Home Note
+                    </button>
+                    <button
+                      onClick={() => navigateToSection('president-message')}
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] text-sm text-[#1E1B18] hover:text-[#7C1D26] font-medium"
+                    >
+                      Welcome & President's Message
+                    </button>
+                    <button
+                      onClick={() => navigateToSection('campuses-institutions')}
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] text-sm text-[#1E1B18] hover:text-[#7C1D26] font-medium"
+                    >
+                      Campuses & Institutions (18)
+                    </button>
+                    <button
+                      onClick={() => navigateToSection('secretariat-footer')}
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] text-sm text-[#1E1B18] hover:text-[#7C1D26] font-medium"
+                    >
+                      Alumni Secretariat
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 2. पूर्वच्छात्राः - ALUMNI DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown('alumni')}
+            >
+              <button
+                className={`px-3.5 py-2.5 rounded-lg font-medium flex items-center gap-1.5 transition-colors ${
+                  openDropdown === 'alumni'
+                    ? 'bg-[#7C1D26]/10 text-[#7C1D26]'
+                    : 'text-[#1E1B18] hover:bg-[#F3ECE1]'
+                }`}
+              >
+                <span className="font-sanskrit text-[#7C1D26] font-semibold">पूर्वच्छात्राः</span>
+                <span>- Alumni</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </button>
+
+              {openDropdown === 'alumni' && (
+                <div className="absolute left-0 top-full pt-1 w-72 z-50">
+                  <div className="bg-[#FAF6F0] border border-[#E4DACB] rounded-xl shadow-xl p-2 space-y-1">
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'alumni',
+                          alumniFilter: 'All'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-[#F3ECE1] flex items-center justify-between group"
+                    >
+                      <div>
+                        <p className="font-semibold text-[#1E1B18] group-hover:text-[#7C1D26]">Find an Alumni</p>
+                        <p className="text-[11px] text-[#6E6558]">/reconnect · Search by Batch & Campus</p>
+                      </div>
+                      <Search className="w-4 h-4 text-[#7C1D26]" />
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'alumni',
+                          alumniFilter: 'Steward'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-medium text-[#1E1B18] group-hover:text-[#7C1D26]">From Alumni to Stewards</p>
+                      <p className="text-[11px] text-[#6E6558]">Alumni Council & Honorary Leadership</p>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'alumni',
+                          alumniFilter: 'Shining Star'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-medium text-[#1E1B18] group-hover:text-[#7C1D26]">Our Shining Stars</p>
+                      <p className="text-[11px] text-[#6E6558]">Distinguished Global SIES Alumni</p>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'alumni',
+                          alumniFilter: 'Navratna'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-medium text-[#1E1B18] group-hover:text-[#7C1D26]">Our Nine Jewels</p>
+                      <p className="text-[11px] text-[#6E6558]">Navratnas of SIES</p>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 3. स्मृतिकोश - MEMORY CHEST DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown('memory')}
+            >
+              <button
+                className={`px-3.5 py-2.5 rounded-lg font-medium flex items-center gap-1.5 transition-colors ${
+                  openDropdown === 'memory'
+                    ? 'bg-[#7C1D26]/10 text-[#7C1D26]'
+                    : 'text-[#1E1B18] hover:bg-[#F3ECE1]'
+                }`}
+              >
+                <span className="font-sanskrit text-[#7C1D26] font-semibold">स्मृतिकोश</span>
+                <span>- Memory Chest</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </button>
+
+              {openDropdown === 'memory' && (
+                <div className="absolute left-0 top-full pt-1 w-72 z-50">
+                  <div className="bg-[#FAF6F0] border border-[#E4DACB] rounded-xl shadow-xl p-2 space-y-1">
+                    {[
+                      'Unforgettable Mentors',
+                      'Familiar Faces (Staff Members)',
+                      'Distinguished Visitors',
+                      'Those Who Stood By Us',
+                      'Presidents Through the Years',
+                      'SIES Eminence Awardees'
+                    ].map((item) => (
+                      <button
+                        key={item}
+                        onClick={() =>
+                          navigateToSection('interactive-pillars', {
+                            pillarTab: 'memory',
+                            memoryFilter: item
+                          })
+                        }
+                        className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] text-sm text-[#1E1B18] hover:text-[#7C1D26] font-medium flex items-center justify-between"
+                      >
+                        <span>{item}</span>
+                        <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+                      </button>
+                    ))}
+                    <div className="pt-1 mt-1 border-t border-[#E4DACB]">
+                      <button
+                        onClick={() => navigateToSection('interactive-pillars', { openAddMemory: true })}
+                        className="w-full text-left px-3 py-2.5 rounded-lg bg-[#7C1D26]/10 hover:bg-[#7C1D26] text-[#7C1D26] hover:text-[#FAF6F0] font-semibold text-sm flex items-center justify-between transition-colors"
+                      >
+                        <span>+ Add Your Memory</span>
+                        <Sparkles className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 4. समर्पणम् - GIVE BACK DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown('giveback')}
+            >
+              <button
+                className={`px-3.5 py-2.5 rounded-lg font-medium flex items-center gap-1.5 transition-colors ${
+                  openDropdown === 'giveback'
+                    ? 'bg-[#7C1D26]/10 text-[#7C1D26]'
+                    : 'text-[#1E1B18] hover:bg-[#F3ECE1]'
+                }`}
+              >
+                <span className="font-sanskrit text-[#7C1D26] font-semibold">समर्पणम्</span>
+                <span>- Give Back</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </button>
+
+              {openDropdown === 'giveback' && (
+                <div className="absolute right-0 top-full pt-1 w-80 z-50">
+                  <div className="bg-[#FAF6F0] border border-[#E4DACB] rounded-xl shadow-xl p-2 space-y-1">
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'giveback',
+                          giveBackTab: 'corpus'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-semibold text-[#1E1B18] group-hover:text-[#7C1D26]">SIES Corpus</p>
+                      <p className="text-[11px] text-[#6E6558]">Endowment for Centenary Growth & Scholarships</p>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'giveback',
+                          giveBackTab: 'wishlist'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-semibold text-[#1E1B18] group-hover:text-[#7C1D26]">Institutional Wishlist</p>
+                      <p className="text-[11px] text-[#6E6558]">Sponsor a Lab, Classroom, or Library Upgrade</p>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'giveback',
+                          giveBackTab: 'sangamam'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-semibold text-[#1E1B18] group-hover:text-[#7C1D26]">
+                        <span className="font-sanskrit text-[#7C1D26]">सङ्गमम्</span> - Community
+                      </p>
+                      <p className="text-[11px] text-[#6E6558]">Global City Chapters & Special Interest Groups</p>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'giveback',
+                          giveBackTab: 'careers'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#F3ECE1] group"
+                    >
+                      <p className="font-semibold text-[#1E1B18] group-hover:text-[#7C1D26]">
+                        <span className="font-sanskrit text-[#7C1D26]">वृत्त्यवसराः</span> - Career Opportunities
+                      </p>
+                      <p className="text-[11px] text-[#6E6558]">Alumni Job Board, Internships & Mentorship</p>
+                    </button>
+                    <button
+                      onClick={() =>
+                        navigateToSection('interactive-pillars', {
+                          pillarTab: 'events'
+                        })
+                      }
+                      className="w-full text-left px-3 py-2 rounded-lg bg-[#F3ECE1]/80 hover:bg-[#7C1D26]/10 group"
+                    >
+                      <p className="font-semibold text-[#7C1D26]">
+                        <span className="font-sanskrit">कार्यक्रमाः</span> - Alumnite 2027 & Upcoming Events
+                      </p>
+                      <p className="text-[11px] text-[#6E6558]">Grand Homecoming Reunion & Campus Meets</p>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Header CTA Pill Buttons */}
+          <div className="hidden md:flex items-center gap-2.5">
+            <button
+              onClick={() =>
+                navigateToSection('interactive-pillars', {
+                  pillarTab: 'giveback',
+                  giveBackTab: 'corpus'
+                })
+              }
+              className="px-4 py-2.5 rounded-full bg-gradient-to-r from-[#7C1D26] via-[#8F2430] to-[#7C1D26] text-[#FAF6F0] font-medium text-xs sm:text-sm shadow-md hover:shadow-lg border border-[#D4AF37]/60 flex items-center gap-2 transition-all hover:scale-[1.02]"
+            >
+              <GoldChakraIcon className="w-4 h-4 text-[#D4AF37]" />
+              <span className="font-sanskrit tracking-wide text-[#D4AF37] font-semibold">समर्पणम्</span>
+              <span>· Give Back</span>
+            </button>
+
+            <button
+              onClick={() => setProfileModalOpen(true)}
+              className="px-4 py-2.5 rounded-full bg-[#F3ECE1] hover:bg-[#E4DACB] text-[#1E1B18] border border-[#D4AF37]/40 font-semibold text-xs sm:text-sm flex items-center gap-2 transition-colors"
+            >
+              <UserCheck className="w-4 h-4 text-[#7C1D26]" />
+              <span>My Profile</span>
+            </button>
+          </div>
+
+          {/* Mobile Menu Trigger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="xl:hidden p-2.5 rounded-lg bg-[#F3ECE1] text-[#7C1D26] border border-[#E4DACB]"
+            aria-label="Toggle Navigation"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Drawer Menu */}
+        {mobileMenuOpen && (
+          <div className="xl:hidden bg-[#FAF6F0] border-b border-[#E4DACB] px-4 pt-3 pb-6 space-y-4 max-h-[82vh] overflow-y-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-[#F3ECE1]/60 p-3 rounded-xl border border-[#E4DACB]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#7C1D26] mb-2">Home</p>
+                <div className="space-y-1.5 text-sm">
+                  <button onClick={() => navigateToSection('top', { openProfile: true })} className="block w-full text-left py-1 font-medium">My Profile (Digital ID)</button>
+                  <button onClick={() => navigateToSection('suswagatam-section')} className="block w-full text-left py-1 font-medium">सुस्वागतम् · Welcome Home</button>
+                  <button onClick={() => navigateToSection('president-message')} className="block w-full text-left py-1 font-medium">President's Message</button>
+                  <button onClick={() => navigateToSection('campuses-institutions')} className="block w-full text-left py-1 font-medium">Campuses & Institutions (18)</button>
+                  <button onClick={() => navigateToSection('secretariat-footer')} className="block w-full text-left py-1 font-medium">Alumni Secretariat</button>
+                </div>
+              </div>
+
+              <div className="bg-[#F3ECE1]/60 p-3 rounded-xl border border-[#E4DACB]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#7C1D26] mb-2">पूर्वच्छात्राः - Alumni</p>
+                <div className="space-y-1.5 text-sm">
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'All' })} className="block w-full text-left py-1 font-medium">Find an Alumni (/reconnect)</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'Steward' })} className="block w-full text-left py-1 font-medium">From Alumni to Stewards</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'Shining Star' })} className="block w-full text-left py-1 font-medium">Our Shining Stars</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'Navratna' })} className="block w-full text-left py-1 font-medium">Our Nine Jewels (Navratnas)</button>
+                </div>
+              </div>
+
+              <div className="bg-[#F3ECE1]/60 p-3 rounded-xl border border-[#E4DACB]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#7C1D26] mb-2">स्मृतिकोश - Memory Chest</p>
+                <div className="space-y-1.5 text-sm">
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'memory', memoryFilter: 'Unforgettable Mentors' })} className="block w-full text-left py-1 font-medium">Unforgettable Mentors</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'memory', memoryFilter: 'Familiar Faces (Staff Members)' })} className="block w-full text-left py-1 font-medium">Familiar Faces (Staff)</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'memory', memoryFilter: 'Distinguished Visitors' })} className="block w-full text-left py-1 font-medium">Distinguished Visitors</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { openAddMemory: true })} className="block w-full text-left py-1 font-bold text-[#7C1D26]">+ Add Your Memory</button>
+                </div>
+              </div>
+
+              <div className="bg-[#F3ECE1]/60 p-3 rounded-xl border border-[#E4DACB]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#7C1D26] mb-2">समर्पणम् - Give Back</p>
+                <div className="space-y-1.5 text-sm">
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'corpus' })} className="block w-full text-left py-1 font-medium">SIES Corpus</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'wishlist' })} className="block w-full text-left py-1 font-medium">Institutional Wishlist</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'sangamam' })} className="block w-full text-left py-1 font-medium">सङ्गमम् - Community</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'careers' })} className="block w-full text-left py-1 font-medium">वृत्त्यवसराः - Career Opportunities</button>
+                  <button onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'events' })} className="block w-full text-left py-1 font-bold text-[#7C1D26]">कार्यक्रमाः - Alumnite 2027</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* =====================================================================
+          SECTION 3: HERO SECTION ("The bond that remains.")
+         ===================================================================== */}
+      <section id="top" className="relative overflow-hidden bg-[#191311] text-[#FAF6F0] min-h-[640px] flex items-center">
+        {/* Vintage-meets-modern campus atmospheric background with subtle pan/zoom */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1800&q=85"
+            alt="SIES Heritage Campus Montage"
+            className={`w-full h-full object-cover object-center transition-all duration-700 ${
+              photoExplorerMode ? 'sepia-[.65] brightness-75 scale-100' : 'sepia-[.35] brightness-[0.42] animate-hero-pan'
+            }`}
+          />
+          <div
+            className={`absolute inset-0 transition-opacity duration-500 ${
+              photoExplorerMode
+                ? 'bg-gradient-to-t from-[#191311] via-[#191311]/40 to-[#191311]/70'
+                : 'bg-gradient-to-r from-[#191311]/95 via-[#2A1417]/80 to-[#191311]/65'
+            }`}
+          />
+        </div>
+
+        {/* Interactive Hotspots when "Pause & Find Yourself" Vintage Photo Explorer is active */}
+        {photoExplorerMode && (
+          <div className="absolute inset-0 z-20 pointer-events-none">
+            {VINTAGE_PHOTO_HOTSPOTS.map((spot) => {
+              const isSelected = activeHotspot?.id === spot.id;
+              return (
+                <button
+                  key={spot.id}
+                  onClick={() => setActiveHotspot(spot)}
+                  style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                  className={`pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2 group focus:outline-none`}
+                >
+                  <span className="relative flex h-9 w-9 items-center justify-center">
+                    <span
+                      className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75`}
+                    />
+                    <span
+                      className={`relative inline-flex rounded-full h-7 w-7 items-center justify-center border-2 transition-transform ${
+                        isSelected
+                          ? 'bg-[#7C1D26] border-[#FAF6F0] scale-125'
+                          : 'bg-[#D4AF37] border-[#1E1B18] group-hover:scale-110'
+                      }`}
+                    >
+                      <Camera className={`w-3.5 h-3.5 ${isSelected ? 'text-[#D4AF37]' : 'text-[#1E1B18]'}`} />
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Hero Main Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Core Headline & CTAs */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Top Est Badge + Interactive Explorer Toggle */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7C1D26]/90 border border-[#D4AF37]/60 text-[#FAF6F0] text-xs font-semibold tracking-[0.2em] uppercase">
+                  <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <span>SIES ALUMNI · EST. 1932</span>
+                </div>
+
+                <button
+                  onClick={() => setPhotoExplorerMode(!photoExplorerMode)}
+                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+                    photoExplorerMode
+                      ? 'bg-[#D4AF37] text-[#1E1B18] border-[#FAF6F0] shadow-lg'
+                      : 'bg-white/10 hover:bg-white/20 text-[#FAF6F0] border-white/25'
+                  }`}
+                >
+                  <Camera className="w-3.5 h-3.5" />
+                  <span>
+                    {photoExplorerMode
+                      ? 'Exit Vintage Batch Photo Explorer'
+                      : '“Pause & Find Yourself” · Inspect Archival Hotspots'}
+                  </span>
+                </button>
+              </div>
+
+              {/* Headline */}
+              <div className="space-y-3">
+                <p className="font-sanskrit text-[#D4AF37] text-lg sm:text-xl tracking-wider">
+                  मातृसंस्थायाः स्नेहबन्धः शाश्वतः
+                </p>
+                <h1 className="font-serif-editorial text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAF6F0] leading-[1.06]">
+                  The bond that remains.
+                </h1>
+                <p className="font-serif-editorial italic text-2xl sm:text-3xl text-[#F3ECE1]/90 font-normal pt-1">
+                  “You may leave your Alma Mater. Your Alma Mater never leaves you.”
+                </p>
+              </div>
+
+              <p className="text-sm sm:text-base text-[#E4DACB]/90 max-w-2xl leading-relaxed">
+                From the first bell at Matunga High School on 6 June 1932 to 8 campuses and 20 institutions across Mumbai and Navi Mumbai—welcome back to the living archive, directory, and community of the South Indian Education Society.
+              </p>
+
+              {/* Quick CTAs */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <button
+                  onClick={() => navigateToSection('campuses-institutions')}
+                  className="px-6 py-3.5 rounded-xl bg-[#D4AF37] hover:bg-[#c59f2d] text-[#1E1B18] font-bold text-sm flex items-center gap-2 shadow-lg transition-all"
+                >
+                  <Compass className="w-4 h-4" />
+                  <span>Explore Your Campus</span>
+                </button>
+
+                <button
+                  onClick={() =>
+                    navigateToSection('interactive-pillars', {
+                      pillarTab: 'alumni',
+                      alumniFilter: 'All'
+                    })
+                  }
+                  className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm text-[#FAF6F0] border border-[#FAF6F0]/25 font-semibold text-sm flex items-center gap-2 transition-all"
+                >
+                  <Users className="w-4 h-4 text-[#D4AF37]" />
+                  <span>Find Batchmates</span>
+                </button>
+
+                <button
+                  onClick={() => navigateToSection('suswagatam-section', { startVoiceNote: true })}
+                  className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm text-[#FAF6F0] border border-[#FAF6F0]/25 font-semibold text-sm flex items-center gap-2 transition-all"
+                >
+                  <Volume2 className="w-4 h-4 text-[#D4AF37]" />
+                  <span>Listen to Welcome Note</span>
+                </button>
+
+                <button
+                  onClick={() =>
+                    navigateToSection('interactive-pillars', {
+                      pillarTab: 'giveback',
+                      giveBackTab: 'corpus'
+                    })
+                  }
+                  className="px-5 py-3.5 rounded-xl bg-[#7C1D26] hover:bg-[#96232e] text-[#FAF6F0] border border-[#D4AF37]/60 font-semibold text-sm flex items-center gap-2 shadow-md transition-all"
+                >
+                  <GoldChakraIcon className="w-4 h-4 text-[#D4AF37]" />
+                  <span className="font-sanskrit text-[#D4AF37]">समर्पणम्</span>
+                  <span>· Give Back</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Archival Batch Card / Hotspot Inspector */}
+            <div className="lg:col-span-5">
+              <div className="bg-[#FAF6F0]/95 text-[#1E1B18] rounded-2xl border-2 border-[#D4AF37]/70 shadow-2xl p-5 sm:p-6 space-y-4 backdrop-blur-md">
+                <div className="flex items-center justify-between border-b border-[#E4DACB] pb-3">
+                  <div className="flex items-center gap-2">
+                    <Camera className="w-4 h-4 text-[#7C1D26]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#7C1D26]">
+                      स्मृतिकोश · Archival Memory Inspector
+                    </span>
+                  </div>
+                  <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] font-semibold">
+                    1932 – 2026
+                  </span>
+                </div>
+
+                {/* Interactive Mini Batch Photo Frame with Hotspots */}
+                <div className="relative rounded-xl overflow-hidden border border-[#E4DACB] h-48 bg-[#1E1B18] group">
+                  <img
+                    src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=900&q=80"
+                    alt="Vintage SIES Batch Reunion"
+                    className="w-full h-full object-cover sepia-[.55] contrast-105 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                  {VINTAGE_PHOTO_HOTSPOTS.map((spot) => (
+                    <button
+                      key={spot.id}
+                      onClick={() => setActiveHotspot(spot)}
+                      style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                      className={`absolute -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
+                        activeHotspot.id === spot.id
+                          ? 'bg-[#7C1D26] border-[#D4AF37] scale-125 shadow-lg'
+                          : 'bg-[#D4AF37]/90 border-white hover:scale-110'
+                      }`}
+                      title={spot.label}
+                    >
+                      <span className="w-2 h-2 rounded-full bg-white" />
+                    </button>
+                  ))}
+
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] text-[#FAF6F0]">
+                    <span className="font-medium bg-black/50 px-2 py-0.5 rounded">
+                      Click any gold pin on the photograph
+                    </span>
+                    <button
+                      onClick={() => setPhotoExplorerMode(!photoExplorerMode)}
+                      className="underline text-[#D4AF37] font-semibold"
+                    >
+                      {photoExplorerMode ? 'Standard View' : 'Full-Screen Pins'}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Active Hotspot Story */}
+                <div className="bg-[#F3ECE1] rounded-xl p-4 border border-[#E4DACB] space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-[#7C1D26]">{activeHotspot.label}</span>
+                    <span className="text-[11px] text-[#6E6558] font-medium">{activeHotspot.person}</span>
+                  </div>
+                  <p className="font-serif-editorial italic text-base text-[#1E1B18] leading-snug">
+                    {activeHotspot.memory}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between pt-1 text-xs">
+                  <span className="text-[#6E6558]">Recognize a face or classroom moment?</span>
+                  <button
+                    onClick={() => setAddMemoryModalOpen(true)}
+                    className="font-bold text-[#7C1D26] hover:underline flex items-center gap-1"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>Add Your Memory</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          SECTION 4: सुस्वागतम् / SUSWĀGATAM — WELCOME HOME & STUDIO VOICE NOTE PLAYER
+         ===================================================================== */}
+      <section id="suswagatam-section" className="py-20 md:py-24 px-4 sm:px-6 lg:px-8 parchment-grain border-b border-[#E4DACB]">
+        <div className="max-w-4xl mx-auto space-y-10">
+          {/* Interactive Studio Voice Note Player Card */}
+          <div className="bg-[#F3ECE1] border-2 border-[#D4AF37]/60 rounded-2xl p-5 sm:p-7 shadow-md">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={togglePlayAudio}
+                  className="w-14 h-14 rounded-full bg-[#7C1D26] hover:bg-[#61151d] text-[#FAF6F0] border-2 border-[#D4AF37] flex items-center justify-center shadow-md transition-transform active:scale-95 shrink-0"
+                  aria-label={isPlayingAudio ? 'Pause Welcome Narration' : 'Play Welcome Narration'}
+                >
+                  {isPlayingAudio ? (
+                    <Pause className="w-6 h-6 text-[#D4AF37]" />
+                  ) : (
+                    <Play className="w-6 h-6 text-[#D4AF37] ml-0.5" />
+                  )}
+                </button>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] text-[11px] font-bold uppercase tracking-wider">
+                      Studio-Enhanced Voice Narration
+                    </span>
+                    {isPlayingAudio && (
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#7C1D26] animate-pulse">
+                        ● Playing
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-serif-editorial text-xl sm:text-2xl font-bold text-[#1E1B18] mt-0.5">
+                    सुस्वागतम् · Welcome Home to SIES (Audio Letter)
+                  </h3>
+                </div>
+              </div>
+
+              {/* Speed & Mute Controls */}
+              <div className="flex items-center gap-2 ml-auto">
+                <div className="inline-flex rounded-lg bg-[#FAF6F0] p-1 border border-[#E4DACB]">
+                  {[1, 1.25, 1.5].map((rate) => (
+                    <button
+                      key={rate}
+                      onClick={() => setPlaybackRate(rate)}
+                      className={`px-2.5 py-1 rounded-md text-xs font-bold transition-colors ${
+                        playbackRate === rate
+                          ? 'bg-[#7C1D26] text-[#FAF6F0]'
+                          : 'text-[#5C5346] hover:text-[#1E1B18]'
+                      }`}
+                    >
+                      {rate}x
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="p-2 rounded-lg bg-[#FAF6F0] border border-[#E4DACB] text-[#5C5346] hover:text-[#7C1D26]"
+                  title={isMuted ? 'Unmute Chime' : 'Mute Chime'}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Interactive Waveform Seek Bar */}
+            <div className="space-y-2">
+              <div
+                onClick={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                  setAudioSeconds(+(clickRatio * TOTAL_DURATION).toFixed(2));
+                }}
+                className="cursor-pointer bg-[#FAF6F0] border border-[#E4DACB] rounded-xl p-3 flex items-center gap-1 h-14 overflow-hidden relative"
+                title="Click anywhere on waveform to seek"
+              >
+                {Array.from({ length: 48 }).map((_, idx) => {
+                  const barProgress = (idx / 48) * TOTAL_DURATION;
+                  const isPlayed = audioSeconds >= barProgress;
+                  const heights = [28, 52, 70, 40, 85, 60, 35, 90, 75, 45, 62, 80];
+                  const barHeight = heights[idx % heights.length];
+                  return (
+                    <div
+                      key={idx}
+                      style={{ height: `${barHeight}%` }}
+                      className={`flex-1 rounded-full transition-colors duration-150 ${
+                        isPlayed ? 'bg-[#7C1D26]' : 'bg-[#D4AF37]/40 hover:bg-[#D4AF37]'
+                      }`}
+                    />
+                  );
+                })}
+              </div>
+
+              <div className="flex items-center justify-between text-xs font-semibold text-[#5C5346]">
+                <span className="font-mono text-[#7C1D26]">
+                  {formatTime(audioSeconds)} / 1:09
+                </span>
+                <span className="italic text-[#6E6558]">
+                  {isPlayingAudio
+                    ? '“Today, as you reconnect with your Alma Mater, you are coming home...”'
+                    : 'Click Play or scrub waveform to listen to the welcome narration'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bilingual Editorial Heading */}
+          <div className="text-center space-y-2 pt-2">
+            <p className="font-sanskrit text-2xl sm:text-3xl text-[#7C1D26] font-bold tracking-wide">
+              सुस्वागतम् / SUSWĀGATAM
+            </p>
+            <h2 className="font-serif-editorial text-4xl sm:text-5xl font-bold text-[#1E1B18]">
+              Welcome Home to Your Alma Mater!
+            </h2>
+            <p className="font-serif-editorial italic text-xl sm:text-2xl text-[#C87D20]">
+              “How wonderful to have you back!”
+            </p>
+          </div>
+
+          {/* Full Heartfelt Welcome Letter */}
+          <div className="bg-[#FAF6F0] border border-[#E4DACB] rounded-2xl p-6 sm:p-10 shadow-sm space-y-6 text-base sm:text-lg text-[#2C2621] leading-relaxed font-serif-editorial">
+            <p className="text-xl leading-relaxed">
+              Somewhere inside you lives a bell that still rings at the end of a period. A corridor whose echoes you would recognise with your eyes closed. A bench — third row, near the window — that still holds the warmth of who you used to be. And the voices of teachers who saw in you what you had not yet seen in yourself.
+            </p>
+
+            <p className="text-xl leading-relaxed">
+              Years have passed. You have crossed cities, built careers, raised families, and navigated the wide world. Yet whenever you pass by Matunga, Sion, Ghatkopar, or the green hills of Nerul, a quiet tug pulls at your heart. That is the invisible thread of <strong className="text-[#7C1D26] font-semibold">SIES</strong>.
+            </p>
+
+            {/* Callout Quote Box */}
+            <blockquote className="my-8 p-6 sm:p-8 rounded-2xl bg-[#F3ECE1] border-l-4 border-[#7C1D26] shadow-inner">
+              <p className="font-serif-editorial italic text-2xl sm:text-3xl text-[#7C1D26] leading-snug">
+                “Today, as you reconnect with your Alma Mater, you are not merely registering on a website. You are coming home to a family that has always been yours.”
+              </p>
+            </blockquote>
+
+            <p className="text-xl leading-relaxed">
+              Whether you walked through our gates in the 1950s or graduated last spring, your footprints remain part of our story. Every trophy in our cabinets, every banyan tree in our quadrangles, and every values-driven professional carrying the SIES ethos into the world is a testament to the bond we share.
+            </p>
+
+            {/* Sign-off & Smooth Scroll Button */}
+            <div className="pt-4 border-t border-[#E4DACB] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <div>
+                <p className="italic text-lg text-[#5C5346]">With love and affection,</p>
+                <p className="font-serif-editorial text-2xl font-bold text-[#7C1D26]">Your SIES Family</p>
+              </div>
+
+              <button
+                onClick={() => navigateToSection('president-message')}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#7C1D26] hover:bg-[#5e151c] text-[#FAF6F0] font-sans-ui text-sm font-semibold shadow-md transition-all self-start sm:self-auto"
+              >
+                <span>A Word from the President</span>
+                <ArrowDown className="w-4 h-4 text-[#D4AF37]" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          SECTION 5: A MESSAGE FROM THE PRESIDENT (DR. V. SHANKAR)
+         ===================================================================== */}
+      <section id="president-message" className="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#F3ECE1] border-b border-[#E4DACB]">
+        <div className="max-w-7xl mx-auto space-y-12">
+          {/* Section Heading */}
+          <div className="max-w-3xl">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] text-xs font-bold uppercase tracking-widest mb-3">
+              Leadership Reflection · Centenary Horizon
+            </span>
+            <h2 className="font-serif-editorial text-4xl sm:text-5xl font-bold text-[#1E1B18]">
+              A Message from the President
+            </h2>
+            <p className="font-serif-editorial italic text-xl sm:text-2xl text-[#5C5346] mt-2">
+              “Reflecting on nine decades of growth, autonomous milestones, and our centenary future.”
+            </p>
+          </div>
+
+          {/* Two-Column Executive Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left Column: Portrait Card of Dr. V. Shankar + Milestone Counters */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-[#FAF6F0] rounded-2xl border border-[#E4DACB] shadow-lg overflow-hidden">
+                <div className="p-6 sm:p-8 bg-gradient-to-br from-[#7C1D26] to-[#4A1016] text-[#FAF6F0] relative">
+                  <div className="flex items-center gap-4">
+                    <div className="w-20 h-20 rounded-2xl bg-[#FAF6F0]/10 border-2 border-[#D4AF37] flex items-center justify-center shrink-0 shadow-inner">
+                      <span className="font-serif-editorial text-3xl font-bold text-[#D4AF37]">VS</span>
+                    </div>
+                    <div>
+                      <span className="inline-block px-2.5 py-0.5 rounded bg-[#D4AF37]/20 text-[#D4AF37] text-[11px] font-semibold uppercase tracking-wider">
+                        President · SIES
+                      </span>
+                      <h3 className="font-serif-editorial text-2xl sm:text-3xl font-bold text-white mt-1">
+                        Dr. V. Shankar
+                      </h3>
+                      <p className="text-xs text-[#F3ECE1]/85">
+                        The South Indian Education Society, Mumbai
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 sm:p-7 space-y-4">
+                  <div className="p-4 rounded-xl bg-[#F3ECE1] border-l-4 border-[#D4AF37]">
+                    <p className="font-serif-editorial italic text-lg text-[#1E1B18] leading-snug">
+                      “An alumnus, a parent of an alumnus, a teacher, and part of the management for five decades.”
+                    </p>
+                  </div>
+
+                  {/* Key Milestone Counters */}
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="p-3.5 rounded-xl bg-[#FAF6F0] border border-[#E4DACB]">
+                      <p className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">94+ Yrs</p>
+                      <p className="text-xs font-semibold text-[#5C5346] mt-0.5">Legacy Since 1932</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#FAF6F0] border border-[#E4DACB]">
+                      <p className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">8 Campuses</p>
+                      <p className="text-xs font-semibold text-[#5C5346] mt-0.5">Mumbai & Navi Mumbai</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#FAF6F0] border border-[#E4DACB]">
+                      <p className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">20</p>
+                      <p className="text-xs font-semibold text-[#5C5346] mt-0.5">Institutions & Centres</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#FAF6F0] border border-[#E4DACB]">
+                      <p className="font-serif-editorial text-3xl font-bold text-[#C87D20]">2032</p>
+                      <p className="text-xs font-semibold text-[#5C5346] mt-0.5">Centenary Horizon</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Pull-Quote & Complete Narrative */}
+            <div className="lg:col-span-7 bg-[#FAF6F0] rounded-2xl border border-[#E4DACB] p-6 sm:p-10 shadow-sm space-y-6">
+              {/* Highlighted Pull-Quote */}
+              <div className="pb-6 border-b border-[#E4DACB]">
+                <p className="font-serif-editorial italic text-2xl sm:text-3xl text-[#7C1D26] leading-snug">
+                  “An Alumni network is an extended and expanded identity of any educational institution. The feeling of going back to Alma mater is a nostalgic journey but beyond that is an expression of gratitude.”
+                </p>
+              </div>
+
+              {/* Complete Narrative */}
+              <div className="space-y-4 text-[#2C2621] text-base leading-relaxed">
+                <p>
+                  Dear Fellow SIESians, it gives me immense joy to welcome you to <strong>SIES Alumni Connect</strong>. My own journey with the South Indian Education Society spans a lifetime—as a student in its classrooms, as a parent watching the next generation flourish here, as a teacher, and as an honorary servant in its management for over five decades.
+                </p>
+
+                <p>
+                  When our founder Shri M. V. Venkateswaran planted the seed of SIES in Matunga on 6 June 1932 with six students, the vision was simple yet profound: affordable, character-building education for all. Over the decades, what began as <strong>4 foundational institutions</strong> has blossomed into <strong>8 vibrant campuses and 20 institutions</strong> spanning Matunga, Sion West, Sion East, Ghatkopar, and Nerul in Navi Mumbai.
+                </p>
+
+                <p>
+                  Today, SIES stands at an exciting inflection point. Our flagship colleges have achieved <strong>Autonomous and Empowered Autonomous status</strong>, paving our steady transition toward an <strong>Empowered Autonomous University</strong>. We have recently launched the <strong>SIES School of Pharmaceutical Sciences</strong>, and are actively building futuristic institutions in <strong>Artificial Intelligence, Nursing, Physiotherapy, Law, Foreign Languages, Education, and Fine Arts</strong>.
+                </p>
+
+                <p>
+                  As we march toward our <strong>Centenary Celebration in 2032</strong>, our greatest asset is not merely our buildings or laboratories—it is <em>you</em>, our global family of alumni. Come back to mentor our students, collaborate on research, contribute to the Centenary Corpus, or simply sit in your old classroom and share a cup of coffee.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#E4DACB] flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="font-serif-editorial text-xl font-bold text-[#1E1B18]">Dr. V. Shankar</p>
+                  <p className="text-xs text-[#6E6558]">President, The South Indian Education Society</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() =>
+                      navigateToSection('interactive-pillars', {
+                        pillarTab: 'giveback',
+                        giveBackTab: 'corpus'
+                      })
+                    }
+                    className="px-4 py-2 rounded-lg bg-[#7C1D26] text-[#FAF6F0] text-xs font-semibold hover:bg-[#61151d] transition-colors"
+                  >
+                    Explore Centenary Corpus →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          SECTION 6: INTERACTIVE HUB — EXPLORE THE 4 CORE PILLARS
+          (पूर्वच्छात्राः Alumni, स्मृतिकोश Memory Chest, समर्पणम् Give Back, कार्यक्रमाः Events)
+         ===================================================================== */}
+      <section id="interactive-pillars" className="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#FAF6F0] border-b border-[#E4DACB]">
+        <div className="max-w-7xl mx-auto space-y-10">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span className="inline-block px-3 py-1 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] text-xs font-bold uppercase tracking-widest mb-2">
+                Interactive Portal Experience · Zero Dead Links
+              </span>
+              <h2 className="font-serif-editorial text-4xl sm:text-5xl font-bold text-[#1E1B18]">
+                The Four Pillars of SIES Alumni Connect
+              </h2>
+              <p className="text-sm sm:text-base text-[#5C5346] mt-1">
+                Switch between pillars below or from the top navigation bar to explore every prototype capability live.
+              </p>
+            </div>
+
+            {/* Pillar Switcher Tabs */}
+            <div className="grid grid-cols-2 sm:flex items-center gap-2 bg-[#F3ECE1] p-1.5 rounded-2xl border border-[#E4DACB]">
+              <button
+                onClick={() => setActivePillarTab('alumni')}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+                  activePillarTab === 'alumni'
+                    ? 'bg-[#7C1D26] text-[#FAF6F0] shadow-sm'
+                    : 'text-[#1E1B18] hover:bg-[#FAF6F0]'
+                }`}
+              >
+                <Users className="w-4 h-4 text-[#D4AF37]" />
+                <span>पूर्वच्छात्राः · Alumni</span>
+              </button>
+
+              <button
+                onClick={() => setActivePillarTab('memory')}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+                  activePillarTab === 'memory'
+                    ? 'bg-[#7C1D26] text-[#FAF6F0] shadow-sm'
+                    : 'text-[#1E1B18] hover:bg-[#FAF6F0]'
+                }`}
+              >
+                <BookOpen className="w-4 h-4 text-[#D4AF37]" />
+                <span>स्मृतिकोश · Memory Chest</span>
+              </button>
+
+              <button
+                onClick={() => setActivePillarTab('giveback')}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+                  activePillarTab === 'giveback'
+                    ? 'bg-[#7C1D26] text-[#FAF6F0] shadow-sm'
+                    : 'text-[#1E1B18] hover:bg-[#FAF6F0]'
+                }`}
+              >
+                <Heart className="w-4 h-4 text-[#D4AF37]" />
+                <span>समर्पणम् · Give Back</span>
+              </button>
+
+              <button
+                onClick={() => setActivePillarTab('events')}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+                  activePillarTab === 'events'
+                    ? 'bg-[#7C1D26] text-[#FAF6F0] shadow-sm'
+                    : 'text-[#1E1B18] hover:bg-[#FAF6F0]'
+                }`}
+              >
+                <Calendar className="w-4 h-4 text-[#D4AF37]" />
+                <span>कार्यक्रमाः · Alumnite 2027</span>
+              </button>
+            </div>
+          </div>
+
+          {/* ===============================================================
+              PILLAR 1 CONTENT: पूर्वच्छात्राः - ALUMNI HUB
+             =============================================================== */}
+          {activePillarTab === 'alumni' && (
+            <div className="bg-[#F3ECE1] border border-[#E4DACB] rounded-2xl p-6 sm:p-8 space-y-6">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E4DACB] pb-5">
+                <div>
+                  <h3 className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">
+                    <span className="font-sanskrit">पूर्वच्छात्राः</span> — Alumni Directory & Honours
+                  </h3>
+                  <p className="text-sm text-[#5C5346]">
+                    Reconnect with batchmates, explore the Nine Jewels (Navratnas), Shining Stars, and Alumni Council Stewards.
+                  </p>
+                </div>
+
+                {/* Sub-options matching exact prototype menu */}
+                <div className="flex flex-wrap items-center gap-2">
+                  {[
+                    { id: 'All', label: 'Find an Alumni (All)' },
+                    { id: 'Navratna', label: 'Our Nine Jewels (Navratnas)' },
+                    { id: 'Shining Star', label: 'Our Shining Stars' },
+                    { id: 'Steward', label: 'From Alumni to Stewards' }
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setAlumniSubFilter(tab.id)}
+                      className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-colors ${
+                        alumniSubFilter === tab.id
+                          ? 'bg-[#7C1D26] text-[#FAF6F0]'
+                          : 'bg-[#FAF6F0] text-[#1E1B18] border border-[#E4DACB] hover:border-[#7C1D26]'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Search Bar */}
+              <div className="relative">
+                <Search className="w-5 h-5 text-[#7C1D26] absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={alumniSearchQuery}
+                  onChange={(e) => setAlumniSearchQuery(e.target.value)}
+                  placeholder="Search alumni by name, batch year (e.g., 1984, 2006), campus (Sion, Nerul, Matunga), or city..."
+                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-[#FAF6F0] border border-[#E4DACB] text-sm focus:outline-none focus:border-[#7C1D26]"
+                />
+              </div>
+
+              {/* Alumni Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {filteredAlumni.map((alum) => (
+                  <div
+                    key={alum.id}
+                    className="bg-[#FAF6F0] rounded-xl border border-[#E4DACB] p-5 flex flex-col justify-between hover:shadow-md transition-shadow"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 rounded-xl bg-[#7C1D26] text-[#D4AF37] font-serif-editorial font-bold text-lg flex items-center justify-center shrink-0">
+                            {alum.avatar}
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-[#1E1B18] text-base">{alum.name}</h4>
+                            <p className="text-xs font-semibold text-[#7C1D26]">
+                              Batch of {alum.batch} · {alum.institution}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#D4AF37]/20 text-[#7C1D26] text-[10px] font-bold uppercase tracking-wider shrink-0">
+                          {alum.category}
+                        </span>
+                      </div>
+
+                      <p className="text-xs font-medium text-[#5C5346]">{alum.role}</p>
+                      <p className="font-serif-editorial italic text-base text-[#1E1B18] bg-[#F3ECE1]/80 p-3 rounded-lg border border-[#E4DACB]">
+                        “{alum.quote}”
+                      </p>
+                    </div>
+
+                    <div className="pt-4 mt-4 border-t border-[#E4DACB] flex items-center justify-between text-xs">
+                      <span className="text-[#6E6558] flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-[#7C1D26]" />
+                        {alum.location}
+                      </span>
+                      <button
+                        onClick={() =>
+                          triggerToast(
+                            `Reconnect Note Sent to ${alum.name}`,
+                            'Your greeting has been relayed via SIES Alumni Connect (/reconnect).'
+                          )
+                        }
+                        className="font-bold text-[#7C1D26] hover:underline flex items-center gap-1"
+                      >
+                        <span>Send Greeting</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ===============================================================
+              PILLAR 2 CONTENT: स्मृतिकोश - MEMORY CHEST
+             =============================================================== */}
+          {activePillarTab === 'memory' && (
+            <div className="bg-[#F3ECE1] border border-[#E4DACB] rounded-2xl p-6 sm:p-8 space-y-6">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E4DACB] pb-5">
+                <div>
+                  <h3 className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">
+                    <span className="font-sanskrit">स्मृतिकोश</span> — The SIES Memory Chest
+                  </h3>
+                  <p className="text-sm text-[#5C5346]">
+                    Tributes to unforgettable mentors, familiar staff members, distinguished visitors, patrons, and Eminence awardees.
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => setAddMemoryModalOpen(true)}
+                  className="px-5 py-2.5 rounded-xl bg-[#7C1D26] hover:bg-[#5e151c] text-[#FAF6F0] text-xs sm:text-sm font-semibold flex items-center gap-2 self-start lg:self-auto shadow-sm"
+                >
+                  <Plus className="w-4 h-4 text-[#D4AF37]" />
+                  <span>Add Your Memory</span>
+                </button>
+              </div>
+
+              {/* Category Filters matching exact prototype dropdown */}
+              <div className="flex flex-wrap items-center gap-2">
+                {[
+                  'All',
+                  'Unforgettable Mentors',
+                  'Familiar Faces (Staff Members)',
+                  'Distinguished Visitors',
+                  'Those Who Stood By Us',
+                  'Presidents Through the Years',
+                  'SIES Eminence Awardees'
+                ].map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setMemoryCategoryFilter(cat)}
+                    className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-colors ${
+                      memoryCategoryFilter === cat
+                        ? 'bg-[#7C1D26] text-[#FAF6F0]'
+                        : 'bg-[#FAF6F0] text-[#1E1B18] border border-[#E4DACB] hover:border-[#7C1D26]'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              {/* Memory Chest Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {filteredMemories.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-[#FAF6F0] rounded-xl border border-[#E4DACB] p-5 flex flex-col justify-between space-y-4 hover:border-[#7C1D26]/50 transition-all"
+                  >
+                    <div className="space-y-2.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] text-[11px] font-bold">
+                          {item.category}
+                        </span>
+                        <span className="text-[11px] text-[#6E6558] font-medium">{item.era}</span>
+                      </div>
+                      <h4 className="font-serif-editorial text-2xl font-bold text-[#1E1B18] leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-[#5C5346] leading-relaxed">{item.summary}</p>
+                    </div>
+
+                    <div className="pt-3 border-t border-[#E4DACB] flex items-center justify-between text-xs text-[#6E6558]">
+                      <span>{item.campus}</span>
+                      <span className="font-semibold text-[#7C1D26]">{item.contributor}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ===============================================================
+              PILLAR 3 CONTENT: समर्पणम् - GIVE BACK & PARTICIPATE
+             =============================================================== */}
+          {activePillarTab === 'giveback' && (
+            <div className="bg-[#F3ECE1] border border-[#E4DACB] rounded-2xl p-6 sm:p-8 space-y-6">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E4DACB] pb-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-[#7C1D26] text-[#D4AF37] flex items-center justify-center shrink-0">
+                    <GoldChakraIcon className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">
+                      <span className="font-sanskrit">समर्पणम्</span> — Give Back & Strengthen SIES
+                    </h3>
+                    <p className="text-sm text-[#5C5346]">
+                      Contribute to the SIES Corpus, adopt an Institutional Wishlist project, join सङ्गमम् chapters, or post वृत्त्यवसराः careers.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2">
+                  {[
+                    { id: 'corpus', label: 'SIES Corpus' },
+                    { id: 'wishlist', label: 'Institutional Wishlist' },
+                    { id: 'sangamam', label: 'सङ्गमम् - Community' },
+                    { id: 'careers', label: 'वृत्त्यवसराः - Careers' }
+                  ].map((t) => (
+                    <button
+                      key={t.id}
+                      onClick={() => setGiveBackSubTab(t.id)}
+                      className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-colors ${
+                        giveBackSubTab === t.id
+                          ? 'bg-[#7C1D26] text-[#FAF6F0]'
+                          : 'bg-[#FAF6F0] text-[#1E1B18] border border-[#E4DACB]'
+                      }`}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sub-tab A: SIES Corpus Calculator */}
+              {giveBackSubTab === 'corpus' && (
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-[#FAF6F0] p-6 rounded-xl border border-[#E4DACB]">
+                  <div className="lg:col-span-7 space-y-4">
+                    <span className="px-3 py-1 rounded-full bg-[#D4AF37]/20 text-[#7C1D26] text-xs font-bold">
+                      80G Tax Exempt · SIES Centenary Endowment Corpus
+                    </span>
+                    <h4 className="font-serif-editorial text-3xl font-bold text-[#1E1B18]">
+                      Build the Next 100 Years of SIES
+                    </h4>
+                    <p className="text-sm text-[#5C5346] leading-relaxed">
+                      Every contribution to the <strong>SIES Corpus</strong> directly funds need-blind student scholarships, autonomous research chairs, and the upcoming SIES School of Law, Nursing, Physiotherapy, and Fine Arts.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2.5 pt-2">
+                      {[10000, 25000, 51000, 100000, 500000].map((amt) => (
+                        <button
+                          key={amt}
+                          onClick={() => {
+                            setSelectedCorpusAmount(amt);
+                            setCorpusPledgeSubmitted(false);
+                          }}
+                          className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm border transition-all ${
+                            selectedCorpusAmount === amt
+                              ? 'bg-[#7C1D26] text-[#FAF6F0] border-[#7C1D26] shadow-sm'
+                              : 'bg-[#F3ECE1] text-[#1E1B18] border-[#E4DACB] hover:border-[#7C1D26]'
+                          }`}
+                        >
+                          ₹{amt.toLocaleString('en-IN')}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-5 bg-[#F3ECE1] p-5 rounded-xl border border-[#D4AF37]/50 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#5C5346]">
+                        Selected Samarpanam Pledge
+                      </span>
+                      <span className="font-serif-editorial text-3xl font-bold text-[#7C1D26]">
+                        ₹{selectedCorpusAmount.toLocaleString('en-IN')}
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#5C5346]">
+                      {selectedCorpusAmount >= 100000
+                        ? 'Supports 1 Full Annual Merit-cum-Means Scholarship & Permanent Donor Wall Plaque.'
+                        : 'Supports Annual Textbook, Tuitions & Laboratory Grant for 2 deserving SIES students.'}
+                    </p>
+                    <button
+                      onClick={() => {
+                        setCorpusPledgeSubmitted(true);
+                        triggerToast(
+                          'समर्पणम् · Pledge Recorded!',
+                          `Thank you for pledging ₹${selectedCorpusAmount.toLocaleString('en-IN')} to the SIES Corpus. The Secretariat will issue your 80G receipt.`
+                        );
+                      }}
+                      className="w-full py-3 rounded-xl bg-[#7C1D26] hover:bg-[#5e151c] text-[#FAF6F0] font-bold text-sm flex items-center justify-center gap-2 shadow-md"
+                    >
+                      <GoldChakraIcon className="w-4 h-4 text-[#D4AF37]" spin={false} />
+                      <span>
+                        {corpusPledgeSubmitted
+                          ? 'Pledge Registered with Secretariat ✓'
+                          : 'Pledge to SIES Corpus'}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Sub-tab B: Institutional Wishlist */}
+              {giveBackSubTab === 'wishlist' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {WISHLIST_PROJECTS.map((proj) => (
+                    <div
+                      key={proj.id}
+                      className="bg-[#FAF6F0] rounded-xl border border-[#E4DACB] p-5 space-y-4 flex flex-col justify-between"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="px-2.5 py-0.5 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] text-[11px] font-bold">
+                            {proj.tag}
+                          </span>
+                          <span className="text-xs font-semibold text-[#5C5346]">
+                            {proj.supporters} Alumni Supporters
+                          </span>
+                        </div>
+                        <h4 className="font-serif-editorial text-2xl font-bold text-[#1E1B18]">
+                          {proj.title}
+                        </h4>
+                        <p className="text-xs text-[#6E6558] font-medium">{proj.institution}</p>
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="w-full h-2.5 bg-[#E4DACB] rounded-full overflow-hidden">
+                          <div
+                            style={{ width: `${proj.percent}%` }}
+                            className="h-full bg-gradient-to-r from-[#7C1D26] to-[#C87D20] rounded-full"
+                          />
+                        </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="font-bold text-[#7C1D26]">Raised: {proj.raised}</span>
+                          <span className="text-[#5C5346]">Goal: {proj.target} ({proj.percent}%)</span>
+                        </div>
+                        <button
+                          onClick={() =>
+                            triggerToast(
+                              'Institutional Wishlist Inquiry Sent',
+                              `Our Secretariat will connect with you regarding "${proj.title}".`
+                            )
+                          }
+                          className="w-full mt-2 py-2.5 rounded-lg bg-[#F3ECE1] hover:bg-[#7C1D26] text-[#7C1D26] hover:text-[#FAF6F0] font-bold text-xs transition-colors border border-[#7C1D26]/30"
+                        >
+                          Co-Sponsor This Wishlist Item →
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Sub-tab C: सङ्गमम् - Community Chapters */}
+              {giveBackSubTab === 'sangamam' && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {[
+                    { city: 'Mumbai & Navi Mumbai Chapter', members: '14,200+ Alumni', lead: 'Matunga · Sion · Nerul Core Committee', nextMeet: 'Monthly Filter Coffee Meet · 1st Sunday' },
+                    { city: 'North America (Bay Area, NY, Boston)', members: '3,850+ Alumni', lead: 'SIES US Foundation & Tech Chapter', nextMeet: 'Annual Summer Sangamam' },
+                    { city: 'UK, Europe & Middle East (Dubai/London)', members: '2,940+ Alumni', lead: 'Global SIES Commerce & Engineering Network', nextMeet: 'Quarterly Chapter Dinner' }
+                  ].map((ch) => (
+                    <div key={ch.city} className="bg-[#FAF6F0] p-5 rounded-xl border border-[#E4DACB] space-y-3">
+                      <span className="text-xs font-sanskrit text-[#7C1D26] font-bold">सङ्गमम् · Global Chapter</span>
+                      <h4 className="font-serif-editorial text-2xl font-bold text-[#1E1B18]">{ch.city}</h4>
+                      <p className="text-xs font-semibold text-[#C87D20]">{ch.members}</p>
+                      <p className="text-xs text-[#5C5346]">{ch.lead}</p>
+                      <p className="text-xs text-[#6E6558] italic">{ch.nextMeet}</p>
+                      <button
+                        onClick={() =>
+                          triggerToast(
+                            `Joined ${ch.city}`,
+                            'You have been added to the chapter mailing list & WhatsApp bridge.'
+                          )
+                        }
+                        className="w-full py-2 rounded-lg bg-[#7C1D26] text-[#FAF6F0] text-xs font-bold"
+                      >
+                        Join Chapter
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Sub-tab D: वृत्त्यवसराः - Career Opportunities */}
+              {giveBackSubTab === 'careers' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    { role: 'Senior AI Research Engineer (SIES Alumni Referral)', company: 'Global Cloud Labs · Bengaluru / Hybrid', postedBy: 'Siddharth V. (SIES GST 2006)', type: 'Lateral Hire' },
+                    { role: 'Management Trainee — ESG & Corporate Finance', company: 'Impact Capital Advisors · BKC Mumbai', postedBy: 'Nandini K. (SIESCOMS 2001)', type: 'Graduating Batch & Young Alumni' },
+                    { role: 'Formulation Scientist & QA Specialist', company: 'Apex Biopharma · Navi Mumbai', postedBy: 'Dr. Ramesh S. (SIES AS&C 1984)', type: 'SIES SPS / Science Alumni' },
+                    { role: '1-on-1 Career Mentorship Clinic (Civil Services & Law)', company: 'SIES Alumni Mentorship Cell', postedBy: 'Meenakshi Iyer, IAS (1996)', type: 'Pro-Bono Mentorship' }
+                  ].map((job) => (
+                    <div key={job.role} className="bg-[#FAF6F0] p-5 rounded-xl border border-[#E4DACB] flex items-center justify-between gap-4">
+                      <div className="space-y-1">
+                        <span className="px-2 py-0.5 rounded bg-[#7C1D26]/10 text-[#7C1D26] text-[10px] font-bold">
+                          {job.type}
+                        </span>
+                        <h4 className="font-bold text-sm text-[#1E1B18]">{job.role}</h4>
+                        <p className="text-xs text-[#5C5346]">{job.company}</p>
+                        <p className="text-[11px] text-[#C87D20] font-semibold">Referred by: {job.postedBy}</p>
+                      </div>
+                      <button
+                        onClick={() =>
+                          triggerToast(
+                            'वृत्त्यवसराः · Referral Requested',
+                            `Your profile has been shared with ${job.postedBy}.`
+                          )
+                        }
+                        className="px-3.5 py-2 rounded-lg bg-[#7C1D26] text-[#FAF6F0] text-xs font-bold shrink-0"
+                      >
+                        Apply / Connect
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ===============================================================
+              PILLAR 4 CONTENT: कार्यक्रमाः - ALUMNITE 2027 & UPCOMING EVENTS
+             =============================================================== */}
+          {activePillarTab === 'events' && (
+            <div className="bg-gradient-to-br from-[#7C1D26] via-[#5e151c] to-[#3B0C11] text-[#FAF6F0] rounded-2xl p-6 sm:p-10 border border-[#D4AF37]/50 shadow-xl">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold uppercase tracking-widest">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>कार्यक्रमाः · Flagship Grand Homecoming</span>
+                  </div>
+                  <h3 className="font-serif-editorial text-4xl sm:text-5xl font-bold text-white">
+                    SIES Alumnite 2027 — The Grand Sangamam
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#F3ECE1]/90 leading-relaxed">
+                    Join over 5,000+ alumni across batches (1950s to 2026) for an unforgettable evening of nostalgia, felicitation of retired teachers, Carnatic-fusion concert, and classic Matunga-Sion-Nerul culinary stalls.
+                  </p>
+                  <div className="flex flex-wrap gap-6 pt-2 text-xs sm:text-sm text-[#D4AF37] font-semibold">
+                    <span className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" /> Saturday, 16 January 2027 · 5:00 PM IST
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4" /> SIES Nerul Amphitheatre & Matunga Simulcast
+                    </span>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 bg-[#FAF6F0] text-[#1E1B18] p-6 rounded-2xl border-2 border-[#D4AF37] space-y-4">
+                  <h4 className="font-serif-editorial text-2xl font-bold text-[#7C1D26]">
+                    Reserve Your Batch Table
+                  </h4>
+                  <p className="text-xs text-[#5C5346]">
+                    Early RSVP helps the Alumni Secretariat arrange dedicated Golden & Silver Jubilee batch lounges.
+                  </p>
+                  <div className="grid grid-cols-3 gap-2 text-center">
+                    <div className="p-2.5 rounded-xl bg-[#F3ECE1]">
+                      <p className="font-serif-editorial text-2xl font-bold text-[#7C1D26]">73</p>
+                      <p className="text-[10px] uppercase font-bold text-[#5C5346]">Days</p>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-[#F3ECE1]">
+                      <p className="font-serif-editorial text-2xl font-bold text-[#7C1D26]">18</p>
+                      <p className="text-[10px] uppercase font-bold text-[#5C5346]">Institutions</p>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-[#F3ECE1]">
+                      <p className="font-serif-editorial text-2xl font-bold text-[#7C1D26]">3,410+</p>
+                      <p className="text-[10px] uppercase font-bold text-[#5C5346]">RSVPs</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setRsvpSubmitted(true);
+                      triggerToast(
+                        'कार्यक्रमाः · Alumnite 2027 Pass Confirmed!',
+                        'Your digital reunion pass has been linked to your SIES Alumni Profile.'
+                      );
+                    }}
+                    className="w-full py-3 rounded-xl bg-[#7C1D26] hover:bg-[#5e151c] text-[#FAF6F0] font-bold text-sm shadow-md transition-colors"
+                  >
+                    {rsvpSubmitted ? '✓ You Are Registered for Alumnite 2027' : 'RSVP for Alumnite 2027 (Free for Alumni)'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* =====================================================================
+          SECTION 7: SIES INSTITUTIONS ("Our Campuses & Institutions" — All 18)
+         ===================================================================== */}
+      <section id="campuses-institutions" className="py-20 md:py-24 px-4 sm:px-6 lg:px-8 parchment-grain border-b border-[#E4DACB]">
+        <div className="max-w-7xl mx-auto space-y-10">
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div className="space-y-2">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#7C1D26]/10 text-[#7C1D26] text-xs font-bold uppercase tracking-widest">
+                1932 to the Centenary Horizon · 18 Listed Institutions
+              </span>
+              <h2 className="font-serif-editorial text-4xl sm:text-5xl font-bold text-[#1E1B18]">
+                Our Campuses & Institutions
+              </h2>
+              <p className="text-sm sm:text-base text-[#5C5346] max-w-2xl">
+                Explore the 11 Established Institutions, 3 Futuristic Institutions in AI & Health Sciences, and 4 Upcoming Centenary Projects across Matunga, Sion, Ghatkopar, and Nerul.
+              </p>
+            </div>
+
+            {/* Category Filter Tabs matching exact requirement */}
+            <div className="flex flex-wrap gap-2 bg-[#F3ECE1] p-1.5 rounded-2xl border border-[#E4DACB]">
+              {[
+                { id: 'All', label: 'All (18)' },
+                { id: 'Established', label: 'Established Institutions (11)' },
+                { id: 'Futuristic', label: 'Futuristic Institutions (3)' },
+                { id: 'Upcoming', label: 'Upcoming Projects (4)' }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setInstCategoryTab(tab.id)}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                    instCategoryTab === tab.id
+                      ? 'bg-[#7C1D26] text-[#FAF6F0] shadow-sm'
+                      : 'text-[#1E1B18] hover:bg-[#FAF6F0]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Secondary Filter Bar: Campus Precinct + Search */}
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-[#F3ECE1] p-4 rounded-2xl border border-[#E4DACB]">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#5C5346] mr-1 flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-[#7C1D26]" /> Campus:
+              </span>
+              {['All', 'Matunga', 'Sion', 'Ghatkopar', 'Nerul'].map((camp) => (
+                <button
+                  key={camp}
+                  onClick={() => setInstCampusFilter(camp)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                    instCampusFilter === camp
+                      ? 'bg-[#1E1B18] text-[#D4AF37]'
+                      : 'bg-[#FAF6F0] text-[#5C5346] hover:text-[#1E1B18] border border-[#E4DACB]'
+                  }`}
+                >
+                  {camp === 'All' ? 'All Precincts' : camp === 'Nerul' ? 'Nerul / Navi Mumbai' : camp}
+                </button>
+              ))}
+            </div>
+
+            <div className="relative min-w-[260px]">
+              <Search className="w-4 h-4 text-[#7C1D26] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={instSearch}
+                onChange={(e) => setInstSearch(e.target.value)}
+                placeholder="Filter by school, college, code, or motto..."
+                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#FAF6F0] border border-[#E4DACB] text-xs sm:text-sm focus:outline-none focus:border-[#7C1D26]"
+              />
+            </div>
+          </div>
+
+          {/* 1. ESTABLISHED INSTITUTIONS (11) */}
+          {(instCategoryTab === 'All' || instCategoryTab === 'Established') &&
+            filteredInstitutions.some((i) => i.category === 'Established') && (
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-[#E4DACB] pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <Landmark className="w-5 h-5 text-[#7C1D26]" />
+                    <h3 className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#1E1B18]">
+                      Established Institutions (1932 – 2024)
+                    </h3>
+                  </div>
+                  <span className="text-xs font-bold text-[#7C1D26] bg-[#7C1D26]/10 px-3 py-1 rounded-full">
+                    11 Operational Pillars
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredInstitutions
+                    .filter((i) => i.category === 'Established')
+                    .map((inst) => (
+                      <div
+                        key={inst.id}
+                        className="group bg-[#FAF6F0] rounded-2xl border border-[#E4DACB] hover:border-[#7C1D26]/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                      >
+                        <div>
+                          {/* Card Image + Badges */}
+                          <div className="relative h-48 overflow-hidden bg-[#1E1B18]">
+                            <img
+                              src={inst.image}
+                              alt={inst.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/90 via-[#1E1B18]/25 to-transparent" />
+
+                            <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                              <span className="px-2.5 py-1 rounded-md bg-[#FAF6F0]/95 text-[#7C1D26] text-[11px] font-bold shadow">
+                                {inst.founded}
+                              </span>
+                              <span className="px-2.5 py-1 rounded-md bg-[#1E1B18]/85 text-[#D4AF37] text-[11px] font-semibold border border-[#D4AF37]/40">
+                                {inst.shortCode}
+                              </span>
+                            </div>
+
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <p className="font-serif-editorial italic text-lg text-[#FAF6F0] leading-tight">
+                                “{inst.motto}”
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Card Body */}
+                          <div className="p-5 space-y-3">
+                            <div className="flex items-start justify-between gap-2">
+                              <h4 className="font-serif-editorial text-2xl font-bold text-[#1E1B18] group-hover:text-[#7C1D26] transition-colors leading-snug">
+                                {inst.name}
+                              </h4>
+                              <span className="text-xs font-mono font-bold text-[#C87D20] shrink-0">
+                                #{inst.number}
+                              </span>
+                            </div>
+
+                            <p className="text-xs sm:text-sm text-[#5C5346] leading-relaxed">
+                              {inst.description}
+                            </p>
+
+                            <div className="flex flex-wrap gap-1.5 pt-1">
+                              {inst.highlights.map((h) => (
+                                <span
+                                  key={h}
+                                  className="text-[11px] px-2 py-0.5 rounded bg-[#F3ECE1] text-[#5C5346] border border-[#E4DACB]"
+                                >
+                                  {h}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Card Footer Action */}
+                        <div className="px-5 py-3.5 bg-[#F3ECE1]/70 border-t border-[#E4DACB] flex items-center justify-between">
+                          <span className="text-xs font-semibold text-[#5C5346]">
+                            <strong className="text-[#7C1D26]">{inst.alumniCount}</strong> Alumni Network
+                          </span>
+                          <button
+                            onClick={() => setSelectedInstitutionModal(inst)}
+                            className="text-xs font-bold text-[#7C1D26] hover:underline flex items-center gap-1"
+                          >
+                            <span>Connect with Batchmates</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+
+          {/* 2. FUTURISTIC INSTITUTIONS (3) — Blueprint Styling */}
+          {(instCategoryTab === 'All' || instCategoryTab === 'Futuristic') &&
+            filteredInstitutions.some((i) => i.category === 'Futuristic') && (
+              <div className="space-y-6 pt-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E4DACB] pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <Sparkles className="w-5 h-5 text-[#C87D20]" />
+                    <h3 className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#1E1B18]">
+                      Futuristic Institutions — AI & Health Sciences Expansion
+                    </h3>
+                  </div>
+                  <span className="text-xs font-bold text-[#C87D20] bg-[#C87D20]/15 px-3 py-1 rounded-full">
+                    3 Frontier Institutions
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {filteredInstitutions
+                    .filter((i) => i.category === 'Futuristic')
+                    .map((inst) => (
+                      <div
+                        key={inst.id}
+                        className="rounded-2xl border-2 border-[#D4AF37]/60 bg-gradient-to-b from-[#1E1B18] to-[#2B231D] text-[#FAF6F0] p-6 flex flex-col justify-between shadow-lg relative overflow-hidden"
+                      >
+                        {/* Architectural Blueprint Grid Overlay */}
+                        <div
+                          className="absolute inset-0 opacity-10 pointer-events-none"
+                          style={{
+                            backgroundImage:
+                              'linear-gradient(to right, #D4AF37 1px, transparent 1px), linear-gradient(to bottom, #D4AF37 1px, transparent 1px)',
+                            backgroundSize: '20px 20px'
+                          }}
+                        />
+
+                        <div className="relative z-10 space-y-4">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="px-2.5 py-1 rounded bg-[#D4AF37] text-[#1E1B18] text-xs font-bold">
+                              {inst.shortCode}
+                            </span>
+                            <span className="text-[11px] px-2.5 py-1 rounded-full bg-white/10 text-[#D4AF37] border border-[#D4AF37]/40 font-medium">
+                              {inst.statusBadge}
+                            </span>
+                          </div>
+
+                          <h4 className="font-serif-editorial text-2xl font-bold text-white">
+                            {inst.name}
+                          </h4>
+
+                          <p className="font-serif-editorial italic text-lg text-[#D4AF37]">
+                            “{inst.motto}”
+                          </p>
+
+                          <p className="text-xs sm:text-sm text-[#E4DACB]/90 leading-relaxed">
+                            {inst.description}
+                          </p>
+                        </div>
+
+                        <div className="relative z-10 pt-5 mt-5 border-t border-white/15 flex items-center justify-between">
+                          <span className="text-xs text-[#D4AF37] font-medium">{inst.campus} Precinct</span>
+                          <button
+                            onClick={() => setSelectedInstitutionModal(inst)}
+                            className="text-xs font-bold text-white hover:text-[#D4AF37] flex items-center gap-1"
+                          >
+                            <span>Advisory & Endowment</span>
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+
+          {/* 3. UPCOMING PROJECTS (4) — "The Future Takes Shape:" */}
+          {(instCategoryTab === 'All' || instCategoryTab === 'Upcoming') &&
+            filteredInstitutions.some((i) => i.category === 'Upcoming') && (
+              <div className="space-y-6 pt-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E4DACB] pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <Compass className="w-5 h-5 text-[#7C1D26]" />
+                    <h3 className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#1E1B18]">
+                      Upcoming Projects — “The Future Takes Shape:”
+                    </h3>
+                  </div>
+                  <span className="text-xs font-bold text-[#7C1D26] bg-[#7C1D26]/10 px-3 py-1 rounded-full">
+                    4 Centenary Horizon Institutions
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {filteredInstitutions
+                    .filter((i) => i.category === 'Upcoming')
+                    .map((inst) => (
+                      <div
+                        key={inst.id}
+                        className="bg-[#F3ECE1] rounded-2xl border-2 border-dashed border-[#C87D20]/60 p-5 flex flex-col justify-between space-y-4 hover:border-[#7C1D26] transition-colors"
+                      >
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="px-2.5 py-0.5 rounded bg-[#7C1D26] text-[#FAF6F0] text-[11px] font-bold">
+                              {inst.shortCode}
+                            </span>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#C87D20] bg-[#FAF6F0] px-2 py-0.5 rounded border border-[#E4DACB]">
+                              {inst.statusBadge}
+                            </span>
+                          </div>
+
+                          <h4 className="font-serif-editorial text-2xl font-bold text-[#1E1B18]">
+                            {inst.name}
+                          </h4>
+
+                          <p className="font-serif-editorial italic text-base text-[#7C1D26]">
+                            “{inst.motto}”
+                          </p>
+
+                          <p className="text-xs text-[#5C5346] leading-relaxed">
+                            {inst.description}
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => setSelectedInstitutionModal(inst)}
+                          className="w-full py-2 rounded-lg bg-[#FAF6F0] hover:bg-[#7C1D26] text-[#7C1D26] hover:text-[#FAF6F0] border border-[#E4DACB] text-xs font-bold transition-colors"
+                        >
+                          View Vision & Participate
+                        </button>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+        </div>
+      </section>
+
+      {/* =====================================================================
+          SECTION 8: COMPLETE MULTI-COLUMN FOOTER & SECRETARIAT INFO
+         ===================================================================== */}
+      <footer id="secretariat-footer" className="bg-[#181311] text-[#FAF6F0] border-t-4 border-[#D4AF37]">
+        {/* Top Secretariat Banner */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 space-y-3">
+              <div className="flex items-center gap-3">
+                <SIESLotusCrest className="w-12 h-12 shrink-0" />
+                <div>
+                  <h3 className="font-serif-editorial text-2xl sm:text-3xl font-bold text-white">
+                    SIES Alumni Connect Secretariat
+                  </h3>
+                  <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                    The South Indian Education Society · Rise With Education
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-[#E4DACB]/80 leading-relaxed pt-1">
+                Our Secretariat at the historic Matunga Central Campus coordinates alumni chapters, batch reunions, campus visits, transcript assistance, and SIES Corpus endowments.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 space-y-1.5">
+                <div className="flex items-center gap-2 text-[#D4AF37] text-xs font-bold uppercase tracking-wider">
+                  <MapPin className="w-4 h-4" />
+                  <span>Central Secretariat</span>
+                </div>
+                <p className="text-xs text-[#F3ECE1]/90 leading-relaxed">
+                  Alumni Secretariat, SIES Central Campus, K. A. Subramaniam Road, Matunga, Mumbai – 400 019
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 space-y-1.5">
+                <div className="flex items-center gap-2 text-[#D4AF37] text-xs font-bold uppercase tracking-wider">
+                  <Mail className="w-4 h-4" />
+                  <span>Official Email</span>
+                </div>
+                <p className="text-xs text-[#F3ECE1]/90 font-mono break-all">
+                  krishnangg@gmail.com
+                </p>
+                <p className="text-xs text-[#F3ECE1]/75 font-mono break-all">
+                  alumni@sies.edu.in
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 space-y-1.5">
+                <div className="flex items-center gap-2 text-[#D4AF37] text-xs font-bold uppercase tracking-wider">
+                  <Phone className="w-4 h-4" />
+                  <span>Direct Helpline</span>
+                </div>
+                <p className="text-sm font-bold text-white font-mono">+91 98694 46473</p>
+                <p className="text-[11px] text-[#E4DACB]/70">Mon – Sat · 10:00 AM to 5:30 PM IST</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4 Categorized Navigation Columns matching the exact prototype */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Column 1: Home */}
+            <div className="space-y-3">
+              <h4 className="font-serif-editorial text-xl font-bold text-[#D4AF37] border-b border-white/10 pb-2">
+                Home
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#E4DACB]/85">
+                <li>
+                  <button onClick={() => setProfileModalOpen(true)} className="hover:text-[#D4AF37] transition-colors">
+                    My Profile
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateToSection('president-message')} className="hover:text-[#D4AF37] transition-colors">
+                    Welcome & President's Message
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateToSection('campuses-institutions')} className="hover:text-[#D4AF37] transition-colors">
+                    Campuses & Institutions
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateToSection('secretariat-footer')} className="hover:text-[#D4AF37] transition-colors">
+                    Alumni Secretariat
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 2: पूर्वच्छात्राः - Alumni */}
+            <div className="space-y-3">
+              <h4 className="font-serif-editorial text-xl font-bold text-[#D4AF37] border-b border-white/10 pb-2">
+                <span className="font-sanskrit">पूर्वच्छात्राः</span> - Alumni
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#E4DACB]/85">
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'All' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    Find an Alumni
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'Steward' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    From Alumni to Stewards
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'Shining Star' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    Our Shining Stars
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'alumni', alumniFilter: 'Navratna' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    Our Nine Jewels
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: स्मृतिकोश - Memory Chest */}
+            <div className="space-y-3">
+              <h4 className="font-serif-editorial text-xl font-bold text-[#D4AF37] border-b border-white/10 pb-2">
+                <span className="font-sanskrit">स्मृतिकोश</span> - Memory Chest
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#E4DACB]/85">
+                {[
+                  'Unforgettable Mentors',
+                  'Familiar Faces (Staff Members)',
+                  'Distinguished Visitors',
+                  'Those Who Stood By Us',
+                  'Presidents Through the Years',
+                  'SIES Eminence Awardees'
+                ].map((m) => (
+                  <li key={m}>
+                    <button
+                      onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'memory', memoryFilter: m })}
+                      className="hover:text-[#D4AF37] transition-colors text-left"
+                    >
+                      {m}
+                    </button>
+                  </li>
+                ))}
+                <li>
+                  <button
+                    onClick={() => setAddMemoryModalOpen(true)}
+                    className="text-[#D4AF37] font-semibold hover:underline"
+                  >
+                    + Add Your Memory
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: समर्पणम् - Give Back */}
+            <div className="space-y-3">
+              <h4 className="font-serif-editorial text-xl font-bold text-[#D4AF37] border-b border-white/10 pb-2">
+                <span className="font-sanskrit">समर्पणम्</span> - Give Back
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#E4DACB]/85">
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'corpus' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    SIES Corpus
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'wishlist' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    Institutional Wishlist
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'sangamam' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    सङ्गमम् - Community
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'giveback', giveBackTab: 'careers' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    वृत्त्यवसराः - Career Opportunities
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'events' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    कार्यक्रमाः - Alumnite 2027
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigateToSection('interactive-pillars', { pillarTab: 'events' })}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    Upcoming Events
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Privacy Note, Reference Website Disclaimer Box & Copyright */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4 text-xs text-[#E4DACB]/70">
+          <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <p className="font-semibold text-[#D4AF37]">
+                Privacy & Archival Stewardship Note
+              </p>
+              <p>
+                Alumni contact records and batch photographs are strictly protected for verified SIES community reconnection and Secretariat communications only.
+              </p>
+            </div>
+            <div className="shrink-0 text-right">
+              <span className="px-3 py-1 rounded-full bg-white/10 text-[#FAF6F0] text-[11px]">
+                Reference Architecture: sies-alumni-portal.pages.dev
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-2">
+            <p>© 2026 South Indian Education Society (SIES). All rights reserved.</p>
+            <p className="font-sanskrit text-[#D4AF37]">
+              विद्या ददाति विनयम् · Rise With Education
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* =====================================================================
+          MODAL 1: INTERACTIVE ALUMNI PROFILE & DIGITAL ID CARD
+         ===================================================================== */}
+      {profileModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FAF6F0] text-[#1E1B18] border-2 border-[#D4AF37] rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl space-y-6 my-8">
+            <div className="flex items-center justify-between border-b border-[#E4DACB] pb-4">
+              <div className="flex items-center gap-2.5">
+                <ShieldCheck className="w-6 h-6 text-[#7C1D26]" />
+                <div>
+                  <h3 className="font-serif-editorial text-2xl font-bold text-[#1E1B18]">
+                    SIES Digital Alumni Privilege Card
+                  </h3>
+                  <p className="text-xs text-[#6E6558]">Verified Life Member · Campus Access & Library Pass</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setProfileModalOpen(false)}
+                className="p-2 rounded-lg bg-[#F3ECE1] hover:bg-[#E4DACB] text-[#1E1B18]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Digital ID Card Visual */}
+            <div className="rounded-2xl bg-gradient-to-br from-[#7C1D26] via-[#5A141B] to-[#2B090D] text-[#FAF6F0] p-6 border border-[#D4AF37] shadow-xl relative overflow-hidden space-y-5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <SIESLotusCrest className="w-11 h-11" />
+                  <div>
+                    <p className="font-serif-editorial text-xl font-bold text-white">
+                      THE SOUTH INDIAN EDUCATION SOCIETY
+                    </p>
+                    <p className="text-[10px] uppercase tracking-widest text-[#D4AF37]">
+                      पूर्वच्छात्राः · Official Alumni Identity Card
+                    </p>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] text-[10px] font-bold">
+                  VERIFIED
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div className="sm:col-span-2 space-y-1">
+                  <p className="text-[10px] uppercase tracking-wider text-[#E4DACB]/70">Alumnus Name</p>
+                  <p className="font-serif-editorial text-2xl font-bold text-white">{alumniProfile.name}</p>
+                  <p className="text-xs text-[#D4AF37] font-semibold">{alumniProfile.institution}</p>
+                  <p className="text-xs text-[#E4DACB]/90 pt-1">{alumniProfile.profession}</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-3 border border-white/15 flex flex-col justify-between">
+                  <div>
+                    <p className="text-[10px] uppercase text-[#D4AF37]">Batch Year</p>
+                    <p className="font-serif-editorial text-2xl font-bold text-white">{alumniProfile.batch}</p>
+                  </div>
+                  <div className="pt-2 border-t border-white/10">
+                    <p className="text-[9px] font-mono text-[#E4DACB]/80">{alumniProfile.membershipId}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Edit Form */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div>
+                <label className="font-bold text-[#5C5346] block mb-1">Your Name</label>
+                <input
+                  type="text"
+                  value={alumniProfile.name}
+                  onChange={(e) => setAlumniProfile({ ...alumniProfile, name: e.target.value })}
+                  className="w-full px-3 py-2 rounded-lg bg-[#F3ECE1] border border-[#E4DACB]"
+                />
+              </div>
+              <div>
+                <label className="font-bold text-[#5C5346] block mb-1">Graduation Batch Year</label>
+                <input
+                  type="text"
+                  value={alumniProfile.batch}
+                  onChange={(e) => setAlumniProfile({ ...alumniProfile, batch: e.target.value })}
+                  className="w-full px-3 py-2 rounded-lg bg-[#F3ECE1] border border-[#E4DACB]"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="font-bold text-[#5C5346] block mb-1">SIES Institution Attended</label>
+                <select
+                  value={alumniProfile.institution}
+                  onChange={(e) => setAlumniProfile({ ...alumniProfile, institution: e.target.value })}
+                  className="w-full px-3 py-2 rounded-lg bg-[#F3ECE1] border border-[#E4DACB]"
+                >
+                  {SIES_INSTITUTIONS.slice(0, 11).map((inst) => (
+                    <option key={inst.id} value={inst.name}>
+                      {inst.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button
+                onClick={() => {
+                  setProfileModalOpen(false);
+                  triggerToast('Profile Updated', 'Your SIES Digital Alumni Card changes have been saved.');
+                }}
+                className="px-5 py-2.5 rounded-xl bg-[#7C1D26] text-[#FAF6F0] text-xs font-bold"
+              >
+                Save & Download Digital Pass
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =====================================================================
+          MODAL 2: ADD YOUR MEMORY (स्मृतिकोश SUBMISSION)
+         ===================================================================== */}
+      {addMemoryModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FAF6F0] text-[#1E1B18] border-2 border-[#D4AF37] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-5 my-8">
+            <div className="flex items-center justify-between border-b border-[#E4DACB] pb-3">
+              <div>
+                <span className="text-xs font-sanskrit text-[#7C1D26] font-bold">स्मृतिकोश · Memory Chest</span>
+                <h3 className="font-serif-editorial text-2xl font-bold text-[#1E1B18]">
+                  Contribute a Campus Memory or Tribute
+                </h3>
+              </div>
+              <button
+                onClick={() => setAddMemoryModalOpen(false)}
+                className="p-2 rounded-lg bg-[#F3ECE1] text-[#1E1B18]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddMemorySubmit} className="space-y-4 text-xs sm:text-sm">
+              <div>
+                <label className="font-bold text-[#5C5346] block mb-1">Memory Category</label>
+                <select
+                  value={newMemoryForm.category}
+                  onChange={(e) => setNewMemoryForm({ ...newMemoryForm, category: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F3ECE1] border border-[#E4DACB]"
+                >
+                  <option value="Unforgettable Mentors">Unforgettable Mentors</option>
+                  <option value="Familiar Faces (Staff Members)">Familiar Faces (Staff Members)</option>
+                  <option value="Distinguished Visitors">Distinguished Visitors</option>
+                  <option value="Those Who Stood By Us">Those Who Stood By Us (Patrons)</option>
+                  <option value="Presidents Through the Years">Presidents Through the Years</option>
+                  <option value="SIES Eminence Awardees">SIES Eminence Awardees</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-bold text-[#5C5346] block mb-1">Headline / Teacher or Moment Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g., Prof. N. Krishnan's Physics Lectures at Sion West"
+                  value={newMemoryForm.title}
+                  onChange={(e) => setNewMemoryForm({ ...newMemoryForm, title: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F3ECE1] border border-[#E4DACB]"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="font-bold text-[#5C5346] block mb-1">Decade / Batch Era</label>
+                  <input
+                    type="text"
+                    placeholder="e.g., Batch of 1992"
+                    value={newMemoryForm.era}
+                    onChange={(e) => setNewMemoryForm({ ...newMemoryForm, era: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#F3ECE1] border border-[#E4DACB]"
+                  />
+                </div>
+                <div>
+                  <label className="font-bold text-[#5C5346] block mb-1">Campus Precinct</label>
+                  <input
+                    type="text"
+                    placeholder="Matunga / Sion / Nerul"
+                    value={newMemoryForm.campus}
+                    onChange={(e) => setNewMemoryForm({ ...newMemoryForm, campus: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#F3ECE1] border border-[#E4DACB]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="font-bold text-[#5C5346] block mb-1">Your Story / Tribute *</label>
+                <textarea
+                  rows={4}
+                  required
+                  placeholder="Share the classroom anecdote, canteen memory, or life lesson..."
+                  value={newMemoryForm.summary}
+                  onChange={(e) => setNewMemoryForm({ ...newMemoryForm, summary: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F3ECE1] border border-[#E4DACB]"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-[#5C5346] block mb-1">Your Name & Batch</label>
+                <input
+                  type="text"
+                  placeholder="e.g., Sudha Gopalan (SIES AS&C 1988)"
+                  value={newMemoryForm.contributor}
+                  onChange={(e) => setNewMemoryForm({ ...newMemoryForm, contributor: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F3ECE1] border border-[#E4DACB]"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setAddMemoryModalOpen(false)}
+                  className="px-4 py-2.5 rounded-xl bg-[#F3ECE1] text-[#5C5346] font-semibold"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-[#7C1D26] text-[#FAF6F0] font-bold shadow-md"
+                >
+                  Publish to Memory Chest
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* =====================================================================
+          MODAL 3: INSTITUTION BATCHMATE RECONNECT MODAL
+         ===================================================================== */}
+      {selectedInstitutionModal && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FAF6F0] text-[#1E1B18] border-2 border-[#D4AF37] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-5 my-8">
+            <div className="flex items-start justify-between gap-4 border-b border-[#E4DACB] pb-4">
+              <div>
+                <span className="px-2.5 py-0.5 rounded bg-[#7C1D26]/10 text-[#7C1D26] text-xs font-bold">
+                  {selectedInstitutionModal.shortCode} · {selectedInstitutionModal.founded}
+                </span>
+                <h3 className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#1E1B18] mt-1">
+                  {selectedInstitutionModal.name}
+                </h3>
+                <p className="font-serif-editorial italic text-lg text-[#C87D20]">
+                  “{selectedInstitutionModal.motto}”
+                </p>
+              </div>
+              <button
+                onClick={() => setSelectedInstitutionModal(null)}
+                className="p-2 rounded-lg bg-[#F3ECE1] text-[#1E1B18]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <p className="text-sm text-[#5C5346] leading-relaxed">
+              {selectedInstitutionModal.description}
+            </p>
+
+            <div className="bg-[#F3ECE1] p-4 rounded-xl border border-[#E4DACB] space-y-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#7C1D26]">
+                Institution Highlights & Milestones
+              </p>
+              <ul className="space-y-1 text-xs text-[#1E1B18]">
+                {selectedInstitutionModal.highlights?.map((h) => (
+                  <li key={h} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#7C1D26]" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-end gap-3 pt-2">
+              <button
+                onClick={() => {
+                  const instName = selectedInstitutionModal.shortCode.split(' ')[0];
+                  setSelectedInstitutionModal(null);
+                  setActivePillarTab('alumni');
+                  setAlumniSubFilter('All');
+                  setAlumniSearchQuery(instName);
+                  const el = document.getElementById('interactive-pillars');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-5 py-2.5 rounded-xl bg-[#7C1D26] text-[#FAF6F0] text-xs font-bold"
+              >
+                Browse Alumni from This Institution →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+  // Mount React Root
+  const container = document.getElementById('root');
+  const root = ReactDOM.createRoot(container);
+  root.render(<App />);
+  </script>
+</body>
+</html>

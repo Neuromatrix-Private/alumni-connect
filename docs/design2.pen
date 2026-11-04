@@ -1,0 +1,4784 @@
+{
+  "version": "2.21",
+  "children": [
+    {
+      "type": "frame",
+      "id": "M0SwD",
+      "x": 0,
+      "y": 0,
+      "name": "SIES Alumni Connect - Landing Page",
+      "clip": true,
+      "width": 1440,
+      "fill": "$bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "tB3Py",
+          "name": "Top Institutional Bar",
+          "width": 1440,
+          "fill": "$bg-dark",
+          "padding": [
+            10,
+            48
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "F0ugT",
+              "name": "Society Identity Left",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GkzBo",
+                  "name": "Society Name",
+                  "fill": "#F1F5F9",
+                  "content": "SOUTH INDIAN EDUCATION SOCIETY",
+                  "fontFamily": "Plus Jakarta Sans",
+                  "fontSize": 11,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "N5qnri",
+                  "name": "Divider Dot",
+                  "fill": "$accent-amber",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "heZpE",
+                  "name": "Estd Tag",
+                  "fill": "#94A3B8",
+                  "content": "FOUNDED 1932 • SION, NERUL & MATUNGA CAMPUSES",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E14fE",
+              "name": "Top Bar Actions",
+              "gap": 20,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i5cJh9",
+                  "name": "Secretariat Link",
+                  "fill": "#CBD5E1",
+                  "content": "Alumni Secretariat Office",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "Qtfzm",
+                  "name": "Divider Dot 2",
+                  "fill": "#64748B",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "dKIam",
+                  "name": "Help Link",
+                  "fill": "#CBD5E1",
+                  "content": "Verification Helpdesk",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jwLPm",
+          "name": "Primary Navigation",
+          "width": 1440,
+          "fill": "$bg-surface",
+          "stroke": "$border-light",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            20,
+            48
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "udMB4",
+              "name": "Brand Logo and Wordmark",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NzGf9",
+                  "name": "SIES Seal Emblem",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "$bg-dark",
+                  "cornerRadius": 6,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j19nVP",
+                      "name": "Crest Monogram",
+                      "fill": "$accent-amber",
+                      "content": "SIES",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 14,
+                      "fontWeight": "800",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ee7Kd",
+                  "name": "Brand Typography Frame",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kOwLy",
+                      "name": "Brand Title",
+                      "fill": "$ink-primary",
+                      "content": "SIES ALUMNI CONNECT",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "T1oN5",
+                      "name": "Brand Subtitle",
+                      "fill": "$ink-secondary",
+                      "content": "Official Institutional Engagement Platform",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I92mKy",
+              "name": "Navigation Menu Items",
+              "gap": 28,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "NREsr",
+                  "name": "Nav Item Institutions",
+                  "fill": "$ink-primary",
+                  "content": "Institutions",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "qz0QE",
+                  "name": "Nav Item Directory",
+                  "fill": "$ink-primary",
+                  "content": "Directory",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "ehJm0",
+                  "name": "Nav Item Memory Chest",
+                  "fill": "$ink-primary",
+                  "content": "Memory Chest",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "ff4Ye",
+                  "name": "Nav Item Give Back",
+                  "fill": "$ink-primary",
+                  "content": "Give Back",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "lBaRD",
+                  "name": "Nav Item Careers",
+                  "fill": "$ink-primary",
+                  "content": "Careers",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "gimFa",
+                  "name": "Nav Item Events",
+                  "fill": "$ink-primary",
+                  "content": "Events",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eAIct",
+              "name": "Navigation CTA Group",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lJuGc",
+                  "name": "Find Alumni Button",
+                  "fill": "$bg-subtle",
+                  "cornerRadius": 6,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    10,
+                    18
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Dyty8",
+                      "name": "Search Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "search",
+                      "library": "lucide",
+                      "fill": "$ink-primary"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fe4y8",
+                      "name": "Find Label",
+                      "fill": "$ink-primary",
+                      "content": "Find Alumni",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gEhnS",
+                  "name": "Sign In Button",
+                  "fill": "$bg-dark",
+                  "cornerRadius": 6,
+                  "gap": 8,
+                  "padding": [
+                    10,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "GCCag",
+                      "name": "User Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "user",
+                      "library": "lucide",
+                      "fill": "#F8FAFC"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tiHiJ",
+                      "name": "Sign In Label",
+                      "fill": "#F8FAFC",
+                      "content": "Alumni Sign In",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YCQyd",
+          "name": "Hero Masthead Section",
+          "width": 1440,
+          "fill": "$bg-page",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            56,
+            48,
+            48,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "T7ozG",
+              "name": "Hero Grid Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "g0o3UR",
+                  "name": "Hero Narrative Column",
+                  "width": 780,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "YcelB",
+                      "name": "Heritage Strap",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "SWDlb",
+                          "name": "Strap Indicator",
+                          "width": 8,
+                          "height": 8,
+                          "fill": "$accent-amber",
+                          "cornerRadius": 4
+                        },
+                        {
+                          "type": "text",
+                          "id": "ywYCO",
+                          "name": "Strap Text",
+                          "fill": "$accent-gold",
+                          "content": "SOUTH INDIAN EDUCATION SOCIETY • ESTABLISHED 1932",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 12,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "a4SaI",
+                      "name": "Hero Title",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 780,
+                      "content": "Ninety-four years of scholarship.\nOne lifelong society.",
+                      "lineHeight": 1.15,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 50,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "i4hOMr",
+                      "name": "Hero Standfirst",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 740,
+                      "content": "The official digital commons for past students, distinguished faculty, and fellows of SIES institutions across Sion, Nerul, and Matunga. Reconnect with peers, record history in the Memory Chest, share careers, and steward the next century of scholarship.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 18
+                    },
+                    {
+                      "type": "frame",
+                      "id": "q4rILE",
+                      "name": "Hero Actions Row",
+                      "gap": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "kA9nt",
+                          "name": "Primary CTA Search",
+                          "fill": "$bg-dark",
+                          "cornerRadius": 6,
+                          "gap": 10,
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "LXaaA",
+                              "name": "Cta Search Icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "search",
+                              "library": "lucide",
+                              "fill": "#F8FAFC"
+                            },
+                            {
+                              "type": "text",
+                              "id": "bHqMz",
+                              "name": "Cta Search Text",
+                              "fill": "#F8FAFC",
+                              "content": "Search Alumni Directory",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "epFeA",
+                          "name": "Secondary CTA Memory",
+                          "fill": "$bg-surface",
+                          "cornerRadius": 6,
+                          "stroke": "$border-light",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            14,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "uPcWV",
+                              "name": "Cta Archive Icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "book-open",
+                              "library": "lucide",
+                              "fill": "$ink-primary"
+                            },
+                            {
+                              "type": "text",
+                              "id": "A5oiXU",
+                              "name": "Cta Archive Text",
+                              "fill": "$ink-primary",
+                              "content": "Explore Memory Chest",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nvCp6",
+                          "name": "Visit Link Frame",
+                          "gap": 6,
+                          "padding": [
+                            14,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yoi7x",
+                              "name": "Visit Link Text",
+                              "fill": "$accent-gold",
+                              "content": "Plan a Campus Visit →",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "N73zEZ",
+                  "name": "Directory Search Card",
+                  "width": 500,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "B0BCQs",
+                      "name": "Card Header",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DMkqb",
+                          "name": "Card Category",
+                          "fill": "$ink-secondary",
+                          "content": "INSTITUTIONAL DIRECTORY ACCESS",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "uPpSD",
+                          "name": "Card Title",
+                          "fill": "$ink-primary",
+                          "content": "Find Your Batch & Peers",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "UFgcR",
+                          "name": "Card Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 436,
+                          "content": "Search across verified alumni records. Contact details remain protected by two-way consent.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "w6FkBW",
+                      "name": "Search Input Box",
+                      "width": 436,
+                      "fill": "$bg-subtle",
+                      "cornerRadius": 6,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "gap": 12,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "sR1qe",
+                          "name": "Input Search Icon",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "search",
+                          "library": "lucide",
+                          "fill": "#64748B"
+                        },
+                        {
+                          "type": "text",
+                          "id": "OqhHZ",
+                          "name": "Input Placeholder",
+                          "fill": "#64748B",
+                          "content": "Search by name, batch year, or college...",
+                          "fontFamily": "Inter",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Vb2rr",
+                      "name": "Popular Filters Row",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "NA2Uk",
+                          "name": "Filter Tag Sion Degree College",
+                          "fill": "$bg-subtle",
+                          "cornerRadius": 4,
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aYBsN",
+                              "name": "Tag Label",
+                              "fill": "$ink-primary",
+                              "content": "Sion Degree College",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Iko93",
+                          "name": "Filter Tag GST Nerul",
+                          "fill": "$bg-subtle",
+                          "cornerRadius": 4,
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "KGDCZ",
+                              "name": "Tag Label",
+                              "fill": "$ink-primary",
+                              "content": "GST Nerul",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Op017",
+                          "name": "Filter Tag COMS Management",
+                          "fill": "$bg-subtle",
+                          "cornerRadius": 4,
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "UrwcB",
+                              "name": "Tag Label",
+                              "fill": "$ink-primary",
+                              "content": "COMS Management",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "g78AQ",
+                          "name": "Filter Tag Batch '95–'24",
+                          "fill": "$bg-subtle",
+                          "cornerRadius": 4,
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "UcvaE",
+                              "name": "Tag Label",
+                              "fill": "$ink-primary",
+                              "content": "Batch '95–'24",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "M1j7s3",
+                      "name": "Privacy & Verification Callout",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 6,
+                      "gap": 10,
+                      "padding": [
+                        10,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "DuuHr",
+                          "name": "Shield Icon",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "#92400E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l4QLDA",
+                          "name": "Shield Text",
+                          "fill": "#92400E",
+                          "content": "100% Verified Profiles • Zero Public Contact Exposure",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "V7A3A",
+              "name": "Institutional Metrics Banner",
+              "width": 1344,
+              "fill": "$bg-dark",
+              "cornerRadius": 8,
+              "padding": [
+                32,
+                48
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MJnjT",
+                  "name": "Metric Item Graduated Alumni",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mCnW0",
+                      "name": "Metric Number",
+                      "fill": "$accent-amber",
+                      "content": "80,000+",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 36,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "EH1Wf",
+                      "name": "Metric Label",
+                      "fill": "#F8FAFC",
+                      "content": "Graduated Alumni",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ST7Ar",
+                      "name": "Metric Subtitle",
+                      "fill": "#94A3B8",
+                      "content": "Global footprint across 40+ countries",
+                      "fontFamily": "Inter",
+                      "fontSize": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "k4kOo",
+                  "name": "Metric Item Flagship Institutions",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EAirg",
+                      "name": "Metric Number",
+                      "fill": "$accent-amber",
+                      "content": "6",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 36,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "iOJjP",
+                      "name": "Metric Label",
+                      "fill": "#F8FAFC",
+                      "content": "Flagship Institutions",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OMTHz",
+                      "name": "Metric Subtitle",
+                      "fill": "#94A3B8",
+                      "content": "Autonomous, NAAC 'A' grade campuses",
+                      "fontFamily": "Inter",
+                      "fontSize": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FhiVq",
+                  "name": "Metric Item Year of Foundation",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PgwEO",
+                      "name": "Metric Number",
+                      "fill": "$accent-amber",
+                      "content": "1932",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 36,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "SSL2F",
+                      "name": "Metric Label",
+                      "fill": "#F8FAFC",
+                      "content": "Year of Foundation",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "axHsr",
+                      "name": "Metric Subtitle",
+                      "fill": "#94A3B8",
+                      "content": "Nearly a century of academic service",
+                      "fontFamily": "Inter",
+                      "fontSize": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "s8LUV",
+                  "name": "Metric Item Verified Directory",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vvWQO",
+                      "name": "Metric Number",
+                      "fill": "$accent-amber",
+                      "content": "100%",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 36,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "GkWUs",
+                      "name": "Metric Label",
+                      "fill": "#F8FAFC",
+                      "content": "Verified Directory",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sQkZv",
+                      "name": "Metric Subtitle",
+                      "fill": "#94A3B8",
+                      "content": "Authorised registrar and batch records",
+                      "fontFamily": "Inter",
+                      "fontSize": 12
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "I4y5TL",
+          "name": "President Message Section",
+          "width": 1440,
+          "fill": "$bg-surface",
+          "stroke": "$border-light",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            64,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "UPn5o",
+              "name": "President Inner Container",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jHD3z",
+                  "name": "President Quote Column",
+                  "width": 860,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CDnI9",
+                      "name": "President Tag Row",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HTIa2",
+                          "name": "Tag Text",
+                          "fill": "$accent-gold",
+                          "content": "PRESIDENT'S ADDRESS • ANNUAL ALUMNI COMMONS 2026",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Iz4LL",
+                      "name": "President Quote Text",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 860,
+                      "content": "“The enduring strength of SIES has never lived only within our stone quadrangles in Sion and Nerul, but in the integrity, scholarship, and public purpose our graduates carry into world enterprise, science, and the arts. Welcome home to your foundational society.”",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Merriweather",
+                      "fontSize": 24
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XVHg7",
+                      "name": "President Attribution",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qfA1u",
+                          "name": "President Name",
+                          "fill": "$ink-primary",
+                          "content": "Dr. V. Shankar",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 16,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IaS6y",
+                          "name": "President Title",
+                          "fill": "$ink-secondary",
+                          "content": "President, The South Indian Education Society (SIES)",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jR8RP",
+                      "name": "President Links",
+                      "gap": 24,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ud590",
+                          "name": "Read Full Link",
+                          "fill": "$ink-primary",
+                          "content": "Read Full Presidential Message (Annual Report) →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IDFXi",
+                          "name": "Stewards Council Link",
+                          "fill": "$accent-gold",
+                          "content": "From Alumni to Stewards Council →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UPVhY",
+                  "name": "Heritage Seal Emblem Card",
+                  "width": 380,
+                  "fill": "$bg-subtle",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Fsfce",
+                      "name": "Seal Header Frame",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "gweEy",
+                          "name": "Badge Box",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "$bg-dark",
+                          "cornerRadius": 18,
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "xOMsP",
+                              "name": "Award Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "award",
+                              "library": "lucide",
+                              "fill": "$accent-amber"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "P48Xj",
+                          "name": "Seal Title",
+                          "fill": "$ink-primary",
+                          "content": "SIES Heritage & Governance",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 15,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "YPZnq",
+                      "name": "Seal Body",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 316,
+                      "content": "Established by public citizens in 1932 to make higher learning accessible. Today encompassing autonomous colleges, engineering institutes, business schools, and specialized research centres governed by dedicated trustees.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "o78Pu",
+          "name": "Institutions & Campuses Section",
+          "width": 1440,
+          "fill": "$bg-page",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            72,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "N0pMwH",
+              "name": "Institutions Header Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EKBN2",
+                  "name": "Institutions Head Left",
+                  "width": 800,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NdrKf",
+                      "name": "Inst Section Tag",
+                      "fill": "$accent-gold",
+                      "content": "CANONICAL ACADEMIC MASTER DIRECTORY",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "rmC23",
+                      "name": "Inst Section Title",
+                      "fill": "$ink-primary",
+                      "content": "Six Premier Institutions. Two Bustling Campuses.",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 34,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "VpXql",
+                      "name": "Inst Section Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 760,
+                      "content": "Discover your alma mater's verified portal, faculty archives, active student batches, and schedule campus visits through the Alumni Secretariat.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dV1ly",
+                  "name": "Plan Visit Button",
+                  "fill": "$bg-dark",
+                  "cornerRadius": 6,
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "XKDJY",
+                      "name": "Calendar Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "calendar",
+                      "library": "lucide",
+                      "fill": "#F8FAFC"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g3ft5",
+                      "name": "Plan Visit Label",
+                      "fill": "#F8FAFC",
+                      "content": "Plan a Campus Visit",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XO304",
+              "name": "Institutions Cards Grid",
+              "width": 1344,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ps0ZM",
+                  "name": "Institutions Row 1",
+                  "width": 1344,
+                  "gap": 20,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Z5iWcT",
+                      "name": "Card SIES-ASC",
+                      "width": 434,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qTttN",
+                          "name": "Card Top Bar",
+                          "width": 386,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "J1qpWM",
+                              "name": "Estd Badge",
+                              "fill": "$bg-subtle",
+                              "cornerRadius": 4,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Y09pAa",
+                                  "name": "Estd Text",
+                                  "fill": "$ink-secondary",
+                                  "content": "Estd. 1960",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "E9IN2",
+                              "name": "Alumni Stat",
+                              "fill": "$accent-gold",
+                              "content": "45k+ Alumni",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "cDjTh",
+                          "name": "Institution Name",
+                          "fill": "$ink-primary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "SIES College of Arts, Science & Commerce (Autonomous)",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 17,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cAzXq",
+                          "name": "Campus & Status",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Sion West Campus, Mumbai • Autonomous • NAAC 'A' Grade",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YZCnY",
+                          "name": "Institution Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Flagship degree college offering undergraduate and postgraduate education across humanities, sciences, commerce, and mass media with over 45,000 alumni.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "frame",
+                          "id": "N7qCy7",
+                          "name": "Card Actions",
+                          "width": 386,
+                          "stroke": "$border-light",
+                          "strokeWidth": {
+                            "top": 1
+                          },
+                          "padding": [
+                            10,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "jRTNv",
+                              "name": "Directory Filter Link",
+                              "fill": "$ink-primary",
+                              "content": "Browse SIES-ASC Directory →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "b6eWig",
+                              "name": "Archives Link",
+                              "fill": "$ink-secondary",
+                              "content": "Historical Archive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Avy5Q",
+                      "name": "Card SIES-GST",
+                      "width": 434,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "VMWYt",
+                          "name": "Card Top Bar",
+                          "width": 386,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "naEln",
+                              "name": "Estd Badge",
+                              "fill": "$bg-subtle",
+                              "cornerRadius": 4,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "A8gfE",
+                                  "name": "Estd Text",
+                                  "fill": "$ink-secondary",
+                                  "content": "Estd. 2002",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "E4ire",
+                              "name": "Alumni Stat",
+                              "fill": "$accent-gold",
+                              "content": "14k+ Alumni",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "g22FZv",
+                          "name": "Institution Name",
+                          "fill": "$ink-primary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "SIES Graduate School of Technology (GST)",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 17,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "O0sHA",
+                          "name": "Campus & Status",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Sri Chandrasekarendra Saraswati Vidyapuram, Nerul • AICTE Approved • Affiliated to Mumbai Univ.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "T80dpu",
+                          "name": "Institution Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Centre of engineering excellence in Computer Engineering, Artificial Intelligence, Data Science, Electronics & Telecommunications, and Mechanical Engineering.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "frame",
+                          "id": "A7VBX",
+                          "name": "Card Actions",
+                          "width": 386,
+                          "stroke": "$border-light",
+                          "strokeWidth": {
+                            "top": 1
+                          },
+                          "padding": [
+                            10,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "VDVkb",
+                              "name": "Directory Filter Link",
+                              "fill": "$ink-primary",
+                              "content": "Browse SIES-GST Directory →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "t1fsY",
+                              "name": "Archives Link",
+                              "fill": "$ink-secondary",
+                              "content": "Historical Archive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Bg0cH",
+                      "name": "Card SIES-COMS",
+                      "width": 434,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "L5zyJ3",
+                          "name": "Card Top Bar",
+                          "width": 386,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "e5SZz",
+                              "name": "Estd Badge",
+                              "fill": "$bg-subtle",
+                              "cornerRadius": 4,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "FJo42",
+                                  "name": "Estd Text",
+                                  "fill": "$ink-secondary",
+                                  "content": "Estd. 1995",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "y2ig6",
+                              "name": "Alumni Stat",
+                              "fill": "$accent-gold",
+                              "content": "12k+ Alumni",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "kmeJr",
+                          "name": "Institution Name",
+                          "fill": "$ink-primary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "SIES College of Management Studies (COMS)",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 17,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "k7ZgHc",
+                          "name": "Campus & Status",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Nerul Campus, Navi Mumbai • Top Ranked B-School • AICTE Approved",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Z0C1w1",
+                          "name": "Institution Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Pioneering business school delivering MMS, PGDM, Executive Management, Pharmaceutical Management, and corporate leadership research programmes.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JEGHb",
+                          "name": "Card Actions",
+                          "width": 386,
+                          "stroke": "$border-light",
+                          "strokeWidth": {
+                            "top": 1
+                          },
+                          "padding": [
+                            10,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dssJf",
+                              "name": "Directory Filter Link",
+                              "fill": "$ink-primary",
+                              "content": "Browse SIES-COMS Directory →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "B9WgCl",
+                              "name": "Archives Link",
+                              "fill": "$ink-secondary",
+                              "content": "Historical Archive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IlHm5",
+                  "name": "Institutions Row 2",
+                  "width": 1344,
+                  "gap": 20,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "WL6M1",
+                      "name": "Card SIES-SBS",
+                      "width": 434,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "vF895",
+                          "name": "Card Top Bar",
+                          "width": 386,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "gtMDM",
+                              "name": "Estd Badge",
+                              "fill": "$bg-subtle",
+                              "cornerRadius": 4,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "OXN4j",
+                                  "name": "Estd Text",
+                                  "fill": "$ink-secondary",
+                                  "content": "Estd. 2020",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "xYvhG",
+                              "name": "Alumni Stat",
+                              "fill": "$accent-gold",
+                              "content": "3k+ Alumni",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "LAwRj",
+                          "name": "Institution Name",
+                          "fill": "$ink-primary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "SIES School of Business Studies (SBS)",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 17,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KhN2a",
+                          "name": "Campus & Status",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Nerul Campus, Navi Mumbai • PGDM Autonomous • Industry Aligned",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wZ4YE",
+                          "name": "Institution Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Next-generation business school focusing on FinTech, Data Science in Business, Global Logistics, and Digital Marketing leadership.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FxD6J",
+                          "name": "Card Actions",
+                          "width": 386,
+                          "stroke": "$border-light",
+                          "strokeWidth": {
+                            "top": 1
+                          },
+                          "padding": [
+                            10,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Z1E6e8",
+                              "name": "Directory Filter Link",
+                              "fill": "$ink-primary",
+                              "content": "Browse SIES-SBS Directory →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "l0DhS",
+                              "name": "Archives Link",
+                              "fill": "$ink-secondary",
+                              "content": "Historical Archive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "p1MZO",
+                      "name": "Card SIES-ICE",
+                      "width": 434,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "R1RIh",
+                          "name": "Card Top Bar",
+                          "width": 386,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "DGnR5",
+                              "name": "Estd Badge",
+                              "fill": "$bg-subtle",
+                              "cornerRadius": 4,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "s798RQ",
+                                  "name": "Estd Text",
+                                  "fill": "$ink-secondary",
+                                  "content": "Estd. 1980",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "cKIix",
+                              "name": "Alumni Stat",
+                              "fill": "$accent-gold",
+                              "content": "5k+ Alumni",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "omFwQ",
+                          "name": "Institution Name",
+                          "fill": "$ink-primary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "SIES Institute of Comprehensive Education (ICE)",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 17,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "z2EaAp",
+                          "name": "Campus & Status",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Sion Campus, Mumbai • Govt. Recognised Teacher Institute",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZnLv6",
+                          "name": "Institution Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Pioneering teacher education, early childhood pedagogy, special education, and learning disability intervention training.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "frame",
+                          "id": "oj8VZ",
+                          "name": "Card Actions",
+                          "width": 386,
+                          "stroke": "$border-light",
+                          "strokeWidth": {
+                            "top": 1
+                          },
+                          "padding": [
+                            10,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Ksjoc",
+                              "name": "Directory Filter Link",
+                              "fill": "$ink-primary",
+                              "content": "Browse SIES-ICE Directory →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "SCOlw",
+                              "name": "Archives Link",
+                              "fill": "$ink-secondary",
+                              "content": "Historical Archive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "b8LnxD",
+                      "name": "Card SIES-IIEM",
+                      "width": 434,
+                      "fill": "$bg-surface",
+                      "cornerRadius": 8,
+                      "stroke": "$border-light",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n0app",
+                          "name": "Card Top Bar",
+                          "width": 386,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "T7xXF",
+                              "name": "Estd Badge",
+                              "fill": "$bg-subtle",
+                              "cornerRadius": 4,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "HGpgd",
+                                  "name": "Estd Text",
+                                  "fill": "$ink-secondary",
+                                  "content": "Estd. 1999",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "XNfgz",
+                              "name": "Alumni Stat",
+                              "fill": "$accent-gold",
+                              "content": "2k+ Alumni",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZIhb5",
+                          "name": "Institution Name",
+                          "fill": "$ink-primary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "SIES Indian Institute of Environment Management (IIEM)",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 17,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cTDYr",
+                          "name": "Campus & Status",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Nerul Campus, Navi Mumbai • Research & Consultation Wing",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qP6IR",
+                          "name": "Institution Description",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 386,
+                          "content": "Interdisciplinary environmental research centre specializing in waste management, environmental audits, biodiversity mapping, and green technologies.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OEDMs",
+                          "name": "Card Actions",
+                          "width": 386,
+                          "stroke": "$border-light",
+                          "strokeWidth": {
+                            "top": 1
+                          },
+                          "padding": [
+                            10,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xVcJq",
+                              "name": "Directory Filter Link",
+                              "fill": "$ink-primary",
+                              "content": "Browse SIES-IIEM Directory →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "SP7zj",
+                              "name": "Archives Link",
+                              "fill": "$ink-secondary",
+                              "content": "Historical Archive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "erNKl",
+          "name": "Memory Chest Dark Section",
+          "width": 1440,
+          "fill": "$bg-dark",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            80,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "hhRDs",
+              "name": "Memory Chest Header Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "u8337",
+                  "name": "Memory Chest Title Block",
+                  "width": 820,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "arpWV",
+                      "name": "Memory Tag",
+                      "fill": "$accent-amber",
+                      "content": "THE LIVING HISTORICAL ARCHIVE • SRS 6.7",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "rjI7j",
+                      "name": "Memory Title",
+                      "fill": "#F8FAFC",
+                      "content": "The Memory Chest",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 38,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "XpJv6",
+                      "name": "Memory Description",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 800,
+                      "content": "Preserving nearly a century of foundational mentors, esteemed dignitaries, and oral histories. Every record is verified and curated by the SIES Alumni Archives Committee.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 16
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K9i52r",
+                  "name": "Share Memory CTA",
+                  "fill": "$accent-amber",
+                  "cornerRadius": 6,
+                  "gap": 10,
+                  "padding": [
+                    14,
+                    22
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "kgebl",
+                      "name": "Pen Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "feather",
+                      "library": "lucide",
+                      "fill": "$bg-dark"
+                    },
+                    {
+                      "type": "text",
+                      "id": "W00RL",
+                      "name": "Share Memory Label",
+                      "fill": "$bg-dark",
+                      "content": "Submit a Memory / Tribute",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YXJm0",
+              "name": "Memory Chest Pillars Grid",
+              "width": 1344,
+              "gap": 24,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nym9u",
+                  "name": "Pillar Unforgettable Mentors",
+                  "width": 432,
+                  "fill": "$bg-dark-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-dark",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VGsoA",
+                      "name": "Icon Box",
+                      "width": 42,
+                      "height": 42,
+                      "fill": "$bg-dark",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Qqg4Z",
+                          "name": "Pillar Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "$accent-amber"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "W0ED1",
+                      "name": "Pillar Scope",
+                      "fill": "$accent-amber",
+                      "content": "Staff & Principals Chronology",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "Yk0AN",
+                      "name": "Pillar Title",
+                      "fill": "#F8FAFC",
+                      "content": "Unforgettable Mentors",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 22,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CidG4",
+                      "name": "Pillar Description",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 368,
+                      "content": "Comprehensive chronological archives of department heads, founding principals, and beloved teachers across Sion and Nerul from 1960 onwards with archival appointments and tributes.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s3ay6Q",
+                      "name": "Pillar Card Bottom",
+                      "width": 368,
+                      "stroke": "$border-dark",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "padding": [
+                        16,
+                        0,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "m3Y2l",
+                          "name": "Pillar Action Link",
+                          "fill": "#F8FAFC",
+                          "content": "Explore Mentors Archive →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "THICe",
+                          "name": "Pillar Stat",
+                          "fill": "$accent-amber",
+                          "content": "240+ Faculty Records",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gbDSZ",
+                  "name": "Pillar Distinguished Visitors",
+                  "width": 432,
+                  "fill": "$bg-dark-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-dark",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XJ5ou",
+                      "name": "Icon Box",
+                      "width": 42,
+                      "height": 42,
+                      "fill": "$bg-dark",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "LE8pA",
+                          "name": "Pillar Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "award",
+                          "library": "lucide",
+                          "fill": "$accent-amber"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "RKTvr",
+                      "name": "Pillar Scope",
+                      "fill": "$accent-amber",
+                      "content": "Our Pride & Statesmen",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "j95ik",
+                      "name": "Pillar Title",
+                      "fill": "#F8FAFC",
+                      "content": "Distinguished Visitors",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 22,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wtoaO",
+                      "name": "Pillar Description",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 368,
+                      "content": "Historic speeches, visitor logs, and verified recollections of Nobel laureates, chief justices, national leaders, and philosophers who addressed SIES convocations over eight decades.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Iww6y",
+                      "name": "Pillar Card Bottom",
+                      "width": 368,
+                      "stroke": "$border-dark",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "padding": [
+                        16,
+                        0,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "TGxaS",
+                          "name": "Pillar Action Link",
+                          "fill": "#F8FAFC",
+                          "content": "View Historic Visitors →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Knl3M",
+                          "name": "Pillar Stat",
+                          "fill": "$accent-amber",
+                          "content": "120+ Historic Visits",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "z1Xt8L",
+                  "name": "Pillar Oral Histories & Memoirs",
+                  "width": 432,
+                  "fill": "$bg-dark-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-dark",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "T8hg4",
+                      "name": "Icon Box",
+                      "width": 42,
+                      "height": 42,
+                      "fill": "$bg-dark",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "ULN5d",
+                          "name": "Pillar Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "users",
+                          "library": "lucide",
+                          "fill": "$accent-amber"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "sElkJ",
+                      "name": "Pillar Scope",
+                      "fill": "$accent-amber",
+                      "content": "Student & Batch Lore",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "gXUxX",
+                      "name": "Pillar Title",
+                      "fill": "#F8FAFC",
+                      "content": "Oral Histories & Memoirs",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 22,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kfpe5",
+                      "name": "Pillar Description",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 368,
+                      "content": "First-hand accounts, canteen memories, quadrangle debates, and silver jubilee reflections submitted by verified SIESians and governed by the Archives Committee.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "saiyU",
+                      "name": "Pillar Card Bottom",
+                      "width": 368,
+                      "stroke": "$border-dark",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "padding": [
+                        16,
+                        0,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "U98FCU",
+                          "name": "Pillar Action Link",
+                          "fill": "#F8FAFC",
+                          "content": "Browse SIESian Memoirs →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "RGYCS",
+                          "name": "Pillar Stat",
+                          "fill": "$accent-amber",
+                          "content": "1,850+ Stories Recorded",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IIoOW",
+          "name": "Distinguished Alumni & Stewards Section",
+          "width": 1440,
+          "fill": "$bg-surface",
+          "stroke": "$border-light",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "V1eWFj",
+              "name": "Distinguished Header Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "B1LtS",
+                  "name": "Distinguished Title Block",
+                  "width": 860,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GDczK",
+                      "name": "Distinguished Tag",
+                      "fill": "$accent-gold",
+                      "content": "DISTINGUISHED ALUMNI & NAVARATNA RECOGNITION",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "nbXB8",
+                      "name": "Distinguished Title",
+                      "fill": "$ink-primary",
+                      "content": "From Alumni to Stewards of Society",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 34,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "MeLhB",
+                      "name": "Distinguished Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 800,
+                      "content": "Celebrating graduates who have shaped Indian public life, science, judicial jurisprudence, finance, and global technology. Verified citations maintained by the Honours Committee.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "U639Yb",
+                  "name": "View All Stars Link",
+                  "fill": "$bg-subtle",
+                  "cornerRadius": 6,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    18
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dyCGq",
+                      "name": "View Stars Text",
+                      "fill": "$ink-primary",
+                      "content": "View All Shining Stars & Navaratna Awardees →",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "w9DSA",
+              "name": "Distinguished Alumni Grid",
+              "width": 1344,
+              "gap": 20,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A4WJc5",
+                  "name": "Star Justice (Retd.) K. R. Sriram",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "uiINi",
+                      "name": "Award Badge",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 4,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HGguB",
+                          "name": "Award Badge Text",
+                          "fill": "#92400E",
+                          "content": "Navaratna '26 Honouree",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "PpGFT",
+                      "name": "Alumnus Name",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Justice (Retd.) K. R. Sriram",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 17,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "naw44",
+                      "name": "Alumnus Role",
+                      "fill": "$accent-gold",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Former High Court Chief Justice",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TWlDh",
+                      "name": "Alumni Batch & College",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "SIES College of Arts & Science • Batch of 1984",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KLzAs",
+                      "name": "Alumnus Impact",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Distinguished judicial career delivering landmark constitutional, commercial, and maritime judgments across India's superior courts.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "a27Ktw",
+                  "name": "Star Dr. Arvind R. Venkatesh",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "m7bKnv",
+                      "name": "Award Badge",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 4,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "crV6a",
+                          "name": "Award Badge Text",
+                          "fill": "#92400E",
+                          "content": "Distinguished Scientist Award",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "GtgmE",
+                      "name": "Alumnus Name",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Dr. Arvind R. Venkatesh",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 17,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g6Gsct",
+                      "name": "Alumnus Role",
+                      "fill": "$accent-gold",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Senior Director, Space Propulsion Lab",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "C2XiMN",
+                      "name": "Alumni Batch & College",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "SIES Graduate School of Technology • Batch of 2006",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rUZ7R",
+                      "name": "Alumnus Impact",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Lead engineer for cryogenic satellite propulsion systems; contributed to lunar mission trajectory designs and interplanetary navigation.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dCL9h",
+                  "name": "Star Meenakshi Sundaram",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "P4Oyl6",
+                      "name": "Award Badge",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 4,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PAAqd",
+                          "name": "Award Badge Text",
+                          "fill": "#92400E",
+                          "content": "Alumnus of Eminence",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "MAZwv",
+                      "name": "Alumnus Name",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Meenakshi Sundaram",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 17,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HpRXp",
+                      "name": "Alumnus Role",
+                      "fill": "$accent-gold",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Global Chief Risk Officer, Top 5 Asset Bank",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BCt6N",
+                      "name": "Alumni Batch & College",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "SIES College of Management Studies • Batch of 1999",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Hhtka",
+                      "name": "Alumnus Impact",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Pioneered sovereign liquidity stress-testing models adopted across major central banking frameworks in Europe and Asia-Pacific.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pRY96",
+                  "name": "Star Prof. Ananthnarayan Iyer",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "qk1pd",
+                      "name": "Award Badge",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 4,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "a6loo",
+                          "name": "Award Badge Text",
+                          "fill": "#92400E",
+                          "content": "Shining Star Lifetime Fellow",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "zeIbm",
+                      "name": "Alumnus Name",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Prof. Ananthnarayan Iyer",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 17,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sgmmt",
+                      "name": "Alumnus Role",
+                      "fill": "$accent-gold",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Chair of Molecular Biophysics",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TwNWa",
+                      "name": "Alumni Batch & College",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "SIES College of Arts, Science & Commerce • Batch of 1978",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "R1mVgG",
+                      "name": "Alumnus Impact",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Authored 140+ research papers on cellular protein folding; elected Fellow of the Indian National Science Academy (INSA).",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QODeB",
+          "name": "Give Back Section",
+          "width": 1440,
+          "fill": "$bg-page",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ycRG2",
+              "name": "Give Back Header Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DYyLY",
+                  "name": "Give Back Title Block",
+                  "width": 860,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KdTB5",
+                      "name": "Give Back Tag",
+                      "fill": "$accent-gold",
+                      "content": "STEWARDSHIP & ENDOWMENT • SRS 6.9",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZleXZ",
+                      "name": "Give Back Title",
+                      "fill": "$ink-primary",
+                      "content": "Empowering the Next Century of SIES Scholars",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 34,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "hs9O6",
+                      "name": "Give Back Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 800,
+                      "content": "Transparent, audited funds governed by SIES finance and trustees. Support student scholarships, research incubation, social care, or mentor students with your professional expertise.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wxepx",
+                  "name": "Wishlist Button",
+                  "fill": "$bg-dark",
+                  "cornerRadius": 6,
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "n6nFi",
+                      "name": "Gift Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "gift",
+                      "library": "lucide",
+                      "fill": "#F8FAFC"
+                    },
+                    {
+                      "type": "text",
+                      "id": "K0m4UO",
+                      "name": "Wishlist Label",
+                      "fill": "#F8FAFC",
+                      "content": "View Institutional Wishlist",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ox3aH",
+              "name": "Give Back Channels Grid",
+              "width": 1344,
+              "gap": 20,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JsDHB",
+                  "name": "Fund General Corpus & Scholarships",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "POPyv",
+                      "name": "Fund Icon Frame",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$bg-subtle",
+                      "cornerRadius": 6,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "IrInX",
+                          "name": "Fund Icon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "graduation-cap",
+                          "library": "lucide",
+                          "fill": "$accent-gold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "x6fzk",
+                      "name": "Fund Focus",
+                      "fill": "$accent-gold",
+                      "content": "Need-Blind Academic Aid",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "HG9nS",
+                      "name": "Fund Title",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "General Corpus & Scholarships",
+                      "lineHeight": 1.3,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q8XKr",
+                      "name": "Fund Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Provides merit-cum-means tuition assistance, hostel subsidies, and book grants for promising students across all six colleges.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "r79m2z",
+                      "name": "Fund Action Link",
+                      "stroke": "$border-light",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "gap": 6,
+                      "padding": [
+                        8,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rRv6Z",
+                          "name": "Fund Action Text",
+                          "fill": "$ink-primary",
+                          "content": "Contribute to Corpus →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "z1fkb",
+                  "name": "Fund SIES Incubation Centre",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vZgvn",
+                      "name": "Fund Icon Frame",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$bg-subtle",
+                      "cornerRadius": 6,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "q1Cxjv",
+                          "name": "Fund Icon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "lightbulb",
+                          "library": "lucide",
+                          "fill": "$accent-gold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "F84q65",
+                      "name": "Fund Focus",
+                      "fill": "$accent-gold",
+                      "content": "Innovation & Patents",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "NTb0x",
+                      "name": "Fund Title",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "SIES Incubation Centre",
+                      "lineHeight": 1.3,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "obI3C",
+                      "name": "Fund Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Funds student startup grants, prototyping equipment, hardware seed-stages, and intellectual property patent filings at Nerul.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "eNoH7",
+                      "name": "Fund Action Link",
+                      "stroke": "$border-light",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "gap": 6,
+                      "padding": [
+                        8,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "nQCwf",
+                          "name": "Fund Action Text",
+                          "fill": "$ink-primary",
+                          "content": "Support Student Startups →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KWkJX",
+                  "name": "Fund Nerul Senior Citizens' Home",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fQZcQ",
+                      "name": "Fund Icon Frame",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$bg-subtle",
+                      "cornerRadius": 6,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "lHjPO",
+                          "name": "Fund Icon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "heart",
+                          "library": "lucide",
+                          "fill": "$accent-gold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "vtT1H",
+                      "name": "Fund Focus",
+                      "fill": "$accent-gold",
+                      "content": "Community Care & Dignity",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "XmufZ",
+                      "name": "Fund Title",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Nerul Senior Citizens' Home",
+                      "lineHeight": 1.3,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dxE3d",
+                      "name": "Fund Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Supporting the charitable residence and elder healthcare infrastructure maintained by SIES on the Nerul campus grounds.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sdjZK",
+                      "name": "Fund Action Link",
+                      "stroke": "$border-light",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "gap": 6,
+                      "padding": [
+                        8,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VSmfY",
+                          "name": "Fund Action Text",
+                          "fill": "$ink-primary",
+                          "content": "Support Senior Living Fund →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "z0qi7k",
+                  "name": "Fund Mentor & Volunteer",
+                  "width": 320,
+                  "fill": "$bg-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UIapE",
+                      "name": "Fund Icon Frame",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$bg-subtle",
+                      "cornerRadius": 6,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "V14Lb",
+                          "name": "Fund Icon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "briefcase",
+                          "library": "lucide",
+                          "fill": "$accent-gold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "JOiqB",
+                      "name": "Fund Focus",
+                      "fill": "$accent-gold",
+                      "content": "Non-Financial Giving",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "KCasM",
+                      "name": "Fund Title",
+                      "fill": "$ink-primary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Mentor & Volunteer",
+                      "lineHeight": 1.3,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g9mj67",
+                      "name": "Fund Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 272,
+                      "content": "Offer mock interviews, industry guest lectures, student portfolio reviews, and campus placement mentorship to current batches.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JREVi",
+                      "name": "Fund Action Link",
+                      "stroke": "$border-light",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "gap": 6,
+                      "padding": [
+                        8,
+                        0,
+                        0,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mFMEE",
+                          "name": "Fund Action Text",
+                          "fill": "$ink-primary",
+                          "content": "Register as a Mentor →",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "N5PLnX",
+          "name": "Events & Reunions Section",
+          "width": 1440,
+          "fill": "$bg-surface",
+          "stroke": "$border-light",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "cpTfl",
+              "name": "Events Header Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gZXAZ",
+                  "name": "Events Title Block",
+                  "width": 860,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I0HRu",
+                      "name": "Events Tag",
+                      "fill": "$accent-gold",
+                      "content": "PARTICIPATE & REUNITE • SRS 6.12",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "S00Gt",
+                      "name": "Events Title",
+                      "fill": "$ink-primary",
+                      "content": "Reunions, Convocations, and Annual Gatherings",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 34,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "j3Mbg",
+                      "name": "Events Description",
+                      "fill": "$ink-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 800,
+                      "content": "Join us on campus for flagship alumni assemblies, decennial batch celebrations, or register your class reunion with full logistics coordination from the Alumni Secretariat.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Lv2Ty",
+                  "name": "View Calendar Link",
+                  "fill": "$bg-subtle",
+                  "cornerRadius": 6,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    18
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fkHxH",
+                      "name": "Calendar Text",
+                      "fill": "$ink-primary",
+                      "content": "View Full Events Calendar →",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pMpnT",
+              "name": "Events Content Split",
+              "width": 1344,
+              "gap": 32,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wR7JE",
+                  "name": "Alumnite 2027 Spotlight Card",
+                  "width": 656,
+                  "fill": "$bg-dark",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 36,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OQa84",
+                      "name": "Alumnite Tag Row",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "sy3GA",
+                          "name": "Pill Tag",
+                          "fill": "$accent-amber",
+                          "cornerRadius": 4,
+                          "padding": [
+                            4,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NgtRP",
+                              "name": "Pill Text",
+                              "fill": "$bg-dark",
+                              "content": "FLAGSHIP ANNUAL ASSEMBLY",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 11,
+                              "fontWeight": "800"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "RadkH",
+                          "name": "Alumnite Date",
+                          "fill": "#CBD5E1",
+                          "content": "Saturday, 9 January 2027 • Nerul Campus",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ffB4F",
+                      "name": "Alumnite Headline",
+                      "fill": "#F8FAFC",
+                      "textGrowth": "fixed-width",
+                      "width": 584,
+                      "content": "Alumnite ’27: SIES Global Alumni Gathering",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 26,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "iASNt",
+                      "name": "Alumnite Details",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 584,
+                      "content": "The premier multi-institutional gathering bringing together over 3,000 alumni across all decades. Featuring the Navaratna '27 honours ceremony, keynote addresses by industry captains, institution dean briefings, and cultural reunions.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zi9dK",
+                      "name": "Alumnite Actions Row",
+                      "gap": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Yej4d",
+                          "name": "Register Button",
+                          "fill": "$accent-amber",
+                          "cornerRadius": 6,
+                          "padding": [
+                            12,
+                            22
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dwkdH",
+                              "name": "Register Label",
+                              "fill": "$bg-dark",
+                              "content": "Reserve Your Seat",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FvGcy",
+                          "name": "Agenda Link Frame",
+                          "padding": [
+                            12,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "WLosx",
+                              "name": "Agenda Link Text",
+                              "fill": "#F8FAFC",
+                              "content": "View Program & Schedule →",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "J2GFFO",
+                  "name": "Host Batch Reunion Card",
+                  "width": 656,
+                  "fill": "$bg-subtle",
+                  "cornerRadius": 8,
+                  "stroke": "$border-light",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 36,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "EcpZm",
+                      "name": "Reunion Head Block",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ddwgh",
+                          "name": "Reunion Category",
+                          "fill": "$accent-gold",
+                          "content": "CAMPUS HOSTING & COORDINATION",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "gxvex",
+                          "name": "Reunion Title",
+                          "fill": "$ink-primary",
+                          "content": "Organise Your Class or Batch Reunion",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 24,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IYAHM",
+                          "name": "Reunion Body",
+                          "fill": "$ink-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": 584,
+                          "content": "Planning a 5th, 10th, 25th Silver, or 50th Golden Jubilee get-together? The SIES Alumni Secretariat provides dedicated support to make your reunion memorable.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TpGph",
+                      "name": "Reunion Features Grid",
+                      "width": 584,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "N2DtB7",
+                          "name": "Point Row",
+                          "width": 584,
+                          "gap": 10,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "AzVMr",
+                              "name": "Check Icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "circle-check",
+                              "library": "lucide",
+                              "fill": "$accent-gold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Chxua",
+                              "name": "Point Text",
+                              "fill": "$ink-primary",
+                              "content": "Verified class rosters and outreach through privacy-first directory",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "agBGb",
+                          "name": "Point Row",
+                          "width": 584,
+                          "gap": 10,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "wN3Qk",
+                              "name": "Check Icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "circle-check",
+                              "library": "lucide",
+                              "fill": "$accent-gold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QRPgU",
+                              "name": "Point Text",
+                              "fill": "$ink-primary",
+                              "content": "Campus auditorium, quadrangle, or seminar hall reservation",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "hF86J",
+                          "name": "Point Row",
+                          "width": 584,
+                          "gap": 10,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "W9YS6",
+                              "name": "Check Icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "circle-check",
+                              "library": "lucide",
+                              "fill": "$accent-gold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "w25jov",
+                              "name": "Point Text",
+                              "fill": "$ink-primary",
+                              "content": "Felicitation kits, campus tour guides, and commemorative mementos",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "U8msCD",
+                          "name": "Point Row",
+                          "width": 584,
+                          "gap": 10,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "LBtPj",
+                              "name": "Check Icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "circle-check",
+                              "library": "lucide",
+                              "fill": "$accent-gold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "S2CWlN",
+                              "name": "Point Text",
+                              "fill": "$ink-primary",
+                              "content": "Photographic archival coverage recorded in the Memory Chest",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rZM4A",
+                      "name": "Reunion Kit CTA",
+                      "fill": "$bg-dark",
+                      "cornerRadius": 6,
+                      "gap": 8,
+                      "padding": [
+                        12,
+                        22
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vVllM",
+                          "name": "Reunion CTA Text",
+                          "fill": "#F8FAFC",
+                          "content": "Request Batch Reunion Planning Kit",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zXJAD",
+          "name": "Secretariat & Governance Section",
+          "width": 1440,
+          "fill": "$bg-dark",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "jAMUK",
+              "name": "Secretariat Header Row",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qC8wm",
+                  "name": "Secretariat Title Block",
+                  "width": 860,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xa8e4",
+                      "name": "Sec Tag",
+                      "fill": "$accent-amber",
+                      "content": "OFFICIAL CONTACT & GOVERNANCE • SRS 6.13",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "teGNq",
+                      "name": "Sec Title",
+                      "fill": "#F8FAFC",
+                      "content": "The SIES Alumni Secretariat",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 34,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "XkyHp",
+                      "name": "Sec Description",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 800,
+                      "content": "Central administrative liaison established by the South Indian Education Society to support alumni services, document verification, campus visits, and institutional engagement.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 15
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jCTKJ",
+              "name": "Campus Secretariat Cards",
+              "width": 1344,
+              "gap": 24,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tUNlc",
+                  "name": "Office Sion Heritage Campus Office",
+                  "width": 432,
+                  "fill": "$bg-dark-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-dark",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LNBnS",
+                      "name": "Office Name",
+                      "fill": "#F8FAFC",
+                      "content": "Sion Heritage Campus Office",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "asOtg",
+                      "name": "Office Scope",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 376,
+                      "content": "Liaison for SIES College of Arts, Science & Commerce, High School, and Institute of Comprehensive Education.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tyOq3",
+                      "name": "Office Details Block",
+                      "stroke": "$border-dark",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        12,
+                        0,
+                        0,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UAesl",
+                          "name": "Address Text",
+                          "fill": "#CBD5E1",
+                          "textGrowth": "fixed-width",
+                          "width": 376,
+                          "content": "📍 K. A. Subramaniam Hall, SIES Complex, Sion West, Mumbai - 400 022",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "n397hh",
+                          "name": "Email Text",
+                          "fill": "$accent-amber",
+                          "content": "✉️ secretariat.sion@sies.edu.in",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KtB3D",
+                          "name": "Phone Text",
+                          "fill": "#CBD5E1",
+                          "content": "📞 +91 (022) 2401 0051 / 2404 1234",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ANnmF",
+                          "name": "Hours Text",
+                          "fill": "#94A3B8",
+                          "content": "🕒 Mon – Sat: 09:30 AM – 05:30 PM IST",
+                          "fontFamily": "Inter",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pIWtu",
+                  "name": "Office Nerul Technology & Management Office",
+                  "width": 432,
+                  "fill": "$bg-dark-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-dark",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "raKOs",
+                      "name": "Office Name",
+                      "fill": "#F8FAFC",
+                      "content": "Nerul Technology & Management Office",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "E6buN5",
+                      "name": "Office Scope",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 376,
+                      "content": "Liaison for SIES Graduate School of Technology (GST), College of Management Studies (COMS), SBS, and IIEM.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "izwed",
+                      "name": "Office Details Block",
+                      "stroke": "$border-dark",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        12,
+                        0,
+                        0,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "uGDxh",
+                          "name": "Address Text",
+                          "fill": "#CBD5E1",
+                          "textGrowth": "fixed-width",
+                          "width": 376,
+                          "content": "📍 Sri Chandrasekarendra Saraswati Vidyapuram, Sector V, Nerul, Navi Mumbai - 400 706",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IQ1kG",
+                          "name": "Email Text",
+                          "fill": "$accent-amber",
+                          "content": "✉️ secretariat.nerul@sies.edu.in",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qfpWn",
+                          "name": "Phone Text",
+                          "fill": "#CBD5E1",
+                          "content": "📞 +91 (022) 6108 2400 / 2771 6969",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lHMwE",
+                          "name": "Hours Text",
+                          "fill": "#94A3B8",
+                          "content": "🕒 Mon – Sat: 09:30 AM – 05:30 PM IST",
+                          "fontFamily": "Inter",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XCgI2",
+                  "name": "Office Alumni Inquiries & Verification Helpdesk",
+                  "width": 432,
+                  "fill": "$bg-dark-surface",
+                  "cornerRadius": 8,
+                  "stroke": "$border-dark",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eRb7a",
+                      "name": "Office Name",
+                      "fill": "#F8FAFC",
+                      "content": "Alumni Inquiries & Verification Helpdesk",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dNHI1",
+                      "name": "Office Scope",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 376,
+                      "content": "Direct support for official degree authentication, directory consent queries, memory submissions, and tax receipts.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n0v1H",
+                      "name": "Office Details Block",
+                      "stroke": "$border-dark",
+                      "strokeWidth": {
+                        "top": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        12,
+                        0,
+                        0,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "skMaM",
+                          "name": "Address Text",
+                          "fill": "#CBD5E1",
+                          "textGrowth": "fixed-width",
+                          "width": 376,
+                          "content": "📍 Central Secretariat Administrative Cell, Central Office",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "px5zC",
+                          "name": "Email Text",
+                          "fill": "$accent-amber",
+                          "content": "✉️ alumni.support@sies.edu.in",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "DoKEh",
+                          "name": "Phone Text",
+                          "fill": "#CBD5E1",
+                          "content": "📞 +91 (022) 2407 7944 (Verification Line)",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vLDQn",
+                          "name": "Hours Text",
+                          "fill": "#94A3B8",
+                          "content": "🕒 Ticket SLA: Response within 2 working days",
+                          "fontFamily": "Inter",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EhO19",
+          "name": "Master Footer",
+          "width": 1440,
+          "fill": "#060D19",
+          "stroke": "$border-dark",
+          "strokeWidth": {
+            "top": 1
+          },
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            64,
+            48,
+            36,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "QBxTM",
+              "name": "Footer Navigation Columns",
+              "width": 1344,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AmIQE",
+                  "name": "Footer Brand Column",
+                  "width": 380,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kzkpq",
+                      "name": "Footer Brand Wordmark",
+                      "fill": "#F8FAFC",
+                      "content": "SIES ALUMNI CONNECT",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 20,
+                      "fontWeight": "800",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "GVIoL",
+                      "name": "Footer Brand Description",
+                      "fill": "#94A3B8",
+                      "textGrowth": "fixed-width",
+                      "width": 340,
+                      "content": "The official digital engagement platform connecting past students, faculty, and stewardship fellows across all institutions of the South Indian Education Society (Estd. 1932).",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "wj00V",
+                      "name": "Footer Verification Note",
+                      "fill": "$accent-amber",
+                      "content": "🔒 Verified Academic Records • Consent-Protected Profiles",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Hxb1K",
+                  "name": "Footer Col INSTITUTIONS",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uDm56",
+                      "name": "Col Title",
+                      "fill": "#F8FAFC",
+                      "content": "INSTITUTIONS",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "SPttR",
+                      "name": "Link SIES College of Arts, Science & Comm.",
+                      "fill": "#94A3B8",
+                      "content": "SIES College of Arts, Science & Comm.",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "xmNKp",
+                      "name": "Link Graduate School of Technology (GST)",
+                      "fill": "#94A3B8",
+                      "content": "Graduate School of Technology (GST)",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "laDTz",
+                      "name": "Link College of Management Studies (COMS)",
+                      "fill": "#94A3B8",
+                      "content": "College of Management Studies (COMS)",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "ckcdV",
+                      "name": "Link School of Business Studies (SBS)",
+                      "fill": "#94A3B8",
+                      "content": "School of Business Studies (SBS)",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "j2CnKC",
+                      "name": "Link Institute of Comprehensive Education",
+                      "fill": "#94A3B8",
+                      "content": "Institute of Comprehensive Education",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "H5ABwe",
+                      "name": "Link Indian Inst. of Environment Mgmt.",
+                      "fill": "#94A3B8",
+                      "content": "Indian Inst. of Environment Mgmt.",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bh3Z2",
+                  "name": "Footer Col ALUMNI MODULES",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "g0MFe",
+                      "name": "Col Title",
+                      "fill": "#F8FAFC",
+                      "content": "ALUMNI MODULES",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "LYJ84",
+                      "name": "Link Find an Alumni Directory",
+                      "fill": "#94A3B8",
+                      "content": "Find an Alumni Directory",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "ueUCV",
+                      "name": "Link Memory Chest & Archives",
+                      "fill": "#94A3B8",
+                      "content": "Memory Chest & Archives",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "j4azW",
+                      "name": "Link From Alumni to Stewards",
+                      "fill": "#94A3B8",
+                      "content": "From Alumni to Stewards",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "r6pBp5",
+                      "name": "Link Our Shining Stars & Navaratna",
+                      "fill": "#94A3B8",
+                      "content": "Our Shining Stars & Navaratna",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "EAZCf",
+                      "name": "Link Alumnite '27 Annual Gathering",
+                      "fill": "#94A3B8",
+                      "content": "Alumnite '27 Annual Gathering",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "CORJj",
+                      "name": "Link Host a Batch Reunion",
+                      "fill": "#94A3B8",
+                      "content": "Host a Batch Reunion",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d0qT8W",
+                  "name": "Footer Col GIVING & SECRETARIAT",
+                  "width": 280,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YsYQa",
+                      "name": "Col Title",
+                      "fill": "#F8FAFC",
+                      "content": "GIVING & SECRETARIAT",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "vMBjb",
+                      "name": "Link SIES General Corpus & Aid",
+                      "fill": "#94A3B8",
+                      "content": "SIES General Corpus & Aid",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "s18MF",
+                      "name": "Link Incubation & Startup Grants",
+                      "fill": "#94A3B8",
+                      "content": "Incubation & Startup Grants",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "VtKdS",
+                      "name": "Link Senior Citizens' Home, Nerul",
+                      "fill": "#94A3B8",
+                      "content": "Senior Citizens' Home, Nerul",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q0xht",
+                      "name": "Link Plan a Campus Visit",
+                      "fill": "#94A3B8",
+                      "content": "Plan a Campus Visit",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ppbwr",
+                      "name": "Link Secretariat Contact & SLA",
+                      "fill": "#94A3B8",
+                      "content": "Secretariat Contact & SLA",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "tupz5",
+                      "name": "Link Verification Helpdesk",
+                      "fill": "#94A3B8",
+                      "content": "Verification Helpdesk",
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g1VKO",
+              "name": "Bottom Copyright Bar",
+              "width": 1344,
+              "stroke": "$border-dark",
+              "strokeWidth": {
+                "top": 1
+              },
+              "padding": [
+                24,
+                0,
+                0,
+                0
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Rd8Oi",
+                  "name": "Copyright Text",
+                  "fill": "#64748B",
+                  "content": "© 1932–2026 South Indian Education Society (SIES). All rights reserved. Canonical platform specification SRS v1.0.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12
+                },
+                {
+                  "type": "frame",
+                  "id": "m7Uc0E",
+                  "name": "Legal Links",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uskzq",
+                      "name": "Legal Privacy Notice",
+                      "fill": "#94A3B8",
+                      "content": "Privacy Notice",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "w4b6lP",
+                      "name": "Legal Two-Way Consent Policy",
+                      "fill": "#94A3B8",
+                      "content": "Two-Way Consent Policy",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gQojV",
+                      "name": "Legal Terms of Participation",
+                      "fill": "#94A3B8",
+                      "content": "Terms of Participation",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "go20J",
+                      "name": "Legal Accessibility Statement",
+                      "fill": "#94A3B8",
+                      "content": "Accessibility Statement",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg-page": {
+      "type": "color",
+      "value": "#FAFAF9"
+    },
+    "bg-surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "bg-subtle": {
+      "type": "color",
+      "value": "#F1F5F9"
+    },
+    "bg-dark": {
+      "type": "color",
+      "value": "#0B1528"
+    },
+    "bg-dark-surface": {
+      "type": "color",
+      "value": "#13233F"
+    },
+    "ink-primary": {
+      "type": "color",
+      "value": "#0B1528"
+    },
+    "ink-secondary": {
+      "type": "color",
+      "value": "#4B5565"
+    },
+    "ink-inverse": {
+      "type": "color",
+      "value": "#F8FAFC"
+    },
+    "ink-inverse-muted": {
+      "type": "color",
+      "value": "#94A3B8"
+    },
+    "accent-gold": {
+      "type": "color",
+      "value": "#C25E00"
+    },
+    "accent-amber": {
+      "type": "color",
+      "value": "#D97706"
+    },
+    "border-light": {
+      "type": "color",
+      "value": "#E2E8F0"
+    },
+    "border-dark": {
+      "type": "color",
+      "value": "#1E3557"
+    }
+  },
+  "fileToken": "2dc2dcb8-9d9e-45f9-9c82-401ebaef9ed5"
+}
